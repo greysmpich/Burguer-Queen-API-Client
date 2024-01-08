@@ -9,7 +9,15 @@ export class AuthenticationComponent implements OnInit {
 
   constructor() { }
 
+  mostrarContrasena: boolean = false;
+  eyeImageSource: string = '../../assets/images/hide.png';
   ngOnInit(): void {
+  }
+
+  passwordVisibility() {
+  this.mostrarContrasena = !this.mostrarContrasena;
+  this.eyeImageSource = this.mostrarContrasena ? '../../assets/images/show.png' : '../../assets/images/hide.png';
+ 
   }
 
 }

@@ -7,7 +7,7 @@
         <h2 class="credentials" type="Email">Email / Username:</h2>
         <input>
         <h2 class="credentials">Password:</h2>
-        <input type="password"> <img src="../../assets/images/hide.png" class="eyeHide">
+        <input [type]="mostrarContrasena ? 'text' : 'password'"> <img [src]="eyeImageSource" class="eyeHide" (click)="passwordVisibility()">
         <button class="credentials">Log In</button>
     </div>
 </div>
