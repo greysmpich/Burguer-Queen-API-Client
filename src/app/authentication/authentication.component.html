@@ -1,13 +1,23 @@
-<div class='body'>
-        <div class="logoHeader">
-            <img src="../../assets/images/logo-burguer-queen.png" class="logoBurgerQueen">
-            <h1 class="title">Burguer Queen</h1>
-            </div>
-    <div class="containerLogin">
-        <label for="email" class="credentials" type="Email">Email / Username:</label>
-        <input id="email">
-        <label for="password" class="credentials">Password:</label>
-        <input for="password" [type]="mostrarContrasena ? 'text' : 'password'"> <img [src]="eyeImageSource" class="eyeHide" (click)="passwordVisibility()">
-        <button class="credentials">Log In</button>
-    </div>
+<div class="body">
+  <div class="logoHeader">
+    <img
+      src="../../assets/images/logo-burguer-queen.png"
+      class="logoBurgerQueen"
+    />
+    <h1 class="title">Burguer Queen</h1>
+  </div>
+  <div class="containerLogin">
+    <label for="email" class="credentials" type="Email"
+      >Email / Username:</label
+    >
+    <input id="email" [(ngModel)]="email"/>
+    <label for="password" class="credentials">Password:</label>
+    <input for="password" [type]="mostrarContrasena ? 'text' : 'password'" [(ngModel)]="password"/>
+    <img
+      [src]="eyeImageSource"
+      class="eyeHide"
+      (click)="passwordVisibility()"
+    />
+    <button class="credentials" (click)="serviceLogin()">Log In</button>
+  </div>
 </div>
