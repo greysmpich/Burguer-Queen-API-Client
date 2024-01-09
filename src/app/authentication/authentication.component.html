@@ -10,14 +10,14 @@
     <label for="email" class="credentials" type="Email"
       >Email / Username:</label
     >
-    <input id="email" />
+    <input id="email" [(ngModel)]="email"/>
     <label for="password" class="credentials">Password:</label>
-    <input for="password" [type]="mostrarContrasena ? 'text' : 'password'" />
+    <input for="password" [type]="mostrarContrasena ? 'text' : 'password'" [(ngModel)]="password"/>
     <img
       [src]="eyeImageSource"
       class="eyeHide"
       (click)="passwordVisibility()"
     />
-    <button class="credentials">Log In</button>
+    <button class="credentials" (click)="serviceLogin()">Log In</button>
   </div>
 </div>

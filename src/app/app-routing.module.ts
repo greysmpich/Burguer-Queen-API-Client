@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationComponent } from './authentication/authentication.component';
 const routes: Routes = [
-  {path: 'auth', component: AuthenticationComponent},
-  { path: '', redirectTo: '/auth', pathMatch: 'full' },
+  {path: 'login', component: AuthenticationComponent},
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
