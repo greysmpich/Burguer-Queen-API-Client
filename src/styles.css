@@ -35,3 +35,13 @@ body::before {
     opacity: 0.3;
     z-index: -1;
 }
+
+.custom-swal {
+    font-family: 'Patrick Hand', cursive;
+    position: 'fixed' !important;
+  }
+  
+.swal2-container{
+    height: 100%;
+
+}

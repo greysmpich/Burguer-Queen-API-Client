@@ -12,7 +12,7 @@
     >
     <input id="email" [(ngModel)]="email"/>
     <label for="password" class="credentials">Password:</label>
-    <input for="password" [type]="mostrarContrasena ? 'text' : 'password'" [(ngModel)]="password"/>
+    <input id="password" [type]="mostrarContrasena ? 'text' : 'password'" [(ngModel)]="password"/>
     <img
       [src]="eyeImageSource"
       class="eyeHide"
