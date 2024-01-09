@@ -4,10 +4,10 @@
             <h1 class="title">Burguer Queen</h1>
             </div>
     <div class="containerLogin">
-        <h2 class="credentials" type="Email">Email / Username:</h2>
-        <input>
-        <h2 class="credentials">Password:</h2>
-        <input [type]="mostrarContrasena ? 'text' : 'password'"> <img [src]="eyeImageSource" class="eyeHide" (click)="passwordVisibility()">
+        <label for="email" class="credentials" type="Email">Email / Username:</label>
+        <input id="email">
+        <label for="password" class="credentials">Password:</label>
+        <input for="password" [type]="mostrarContrasena ? 'text' : 'password'"> <img [src]="eyeImageSource" class="eyeHide" (click)="passwordVisibility()">
         <button class="credentials">Log In</button>
     </div>
 </div>
