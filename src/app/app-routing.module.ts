@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationComponent } from './authentication/authentication.component';
-import { AuthGuard } from './auth.guard';
-import { WaiterComponent } from './views/waiter/waiter.component';
+
+import { WaiterComponent } from './view/waiter/waiter.component';
+import { AuthGuard } from './authentication/auth.guard';
+
 
 const routes: Routes = [
   {path: 'login', component: AuthenticationComponent},
@@ -24,6 +26,13 @@ const routes: Routes = [
       // { path: 'unauthorized', component: UnauthorizedComponent },
     
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+ // { path: 'waiter-orders', component: WaiterComponent },
+  {
+    path: 'waiter-orders',
+    component: WaiterComponent,
+    canActivate: [AuthGuard]
+  }
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
