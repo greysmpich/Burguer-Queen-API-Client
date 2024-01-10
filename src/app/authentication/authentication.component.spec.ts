@@ -46,15 +46,6 @@ describe('AuthenticationComponent', () => {
     expect(compiled.querySelectorAll('input').length).toBe(2);
   });
   
-  // it(`the label for password should have a button to show and hide the password`, () => {
-  //   const fixture = TestBed.createComponent(AuthenticationComponent);
-  //   const compiled = fixture.nativeElement as HTMLElement;
-  //   const containerInputPassword = compiled.querySelector('.containerInputPassword');
-  //   expect(containerInputPassword).toBeTruthy();
-  //   const hideButton = containerInputPassword.querySelector('button.eyeHide');
-  //   expect(hideButton).toBeTruthy();
-  // });
-
   it(`should have a button to Login`, () => {
     const fixture = TestBed.createComponent(AuthenticationComponent);
     const compiled = fixture.nativeElement as HTMLElement;
