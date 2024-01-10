@@ -14,7 +14,7 @@ export class AuthenticationComponent implements OnInit  {
   constructor(private authService: AuthenticationServiceService,
     private router: Router, private ngZone: NgZone) {}
 
-  mostrarContrasena: boolean = false;
+  showPassword: boolean = false;
   eyeImageSource: string = '../../assets/images/hide.png';
   email: string = '';
   password: string = '';
@@ -36,13 +36,14 @@ export class AuthenticationComponent implements OnInit  {
       // this.userRole = this.userData?.user.role;
       // console.log('Datos del usuario:', this.userData?.accessToken);
 
-      // if(this.userData?.accessToken === 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHN5c3RlcnMueHl6IiwiaWF0IjoxNzA0OTAyODUxLCJleHAiOjE3MDQ5MDY0NTEsInN1YiI6IjEifQ.W1MVQJC2gKd84GQ65h_b_Q5VSrDmgsII9vD4xLtPgpE') {
-      //   this.ngZone.run(() => {
-      //     this.router.navigate(['waiter-orders']); 
-      //   })
-      // }else {
-      //   console.log('No se cumple la condición para waiter-orders');
-      // }
+
+      //this.accessTokenEvent.emit(this.userData?.accessToken)
+      console.log('Datos del usuario:', this.userData?.accessToken);
+      console.log(data);
+      this.authService.setUserRole(this.userData?.user.role);
+      this.authService.redirectToRoleSpecificScreen();
+      
+
     },
     error: (error) => {
       console.error('Error al obtener datos del usuario:', error);
@@ -54,8 +55,8 @@ export class AuthenticationComponent implements OnInit  {
 
 
   passwordVisibility() {
-    this.mostrarContrasena = !this.mostrarContrasena;
-    this.eyeImageSource = this.mostrarContrasena
+    this.showPassword = !this.showPassword;
+    this.eyeImageSource = this.showPassword
       ? '../../assets/images/show.png'
       : '../../assets/images/hide.png';
   }
