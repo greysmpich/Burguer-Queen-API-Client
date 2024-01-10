@@ -1,5 +1,5 @@
 export interface Auth {
-  accesToken: string;
+  accessToken: string;
   user: {
     email: string;
     role: string;

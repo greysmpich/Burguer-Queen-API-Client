@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { AuthenticationServiceService } from '../services/authentication-service.service';
 import { Observable, Subscription } from 'rxjs';
 import { Auth } from '../shared/interface';
@@ -15,16 +15,21 @@ export class AuthenticationComponent implements OnInit {
   eyeImageSource: string = '../../assets/images/hide.png';
   email: string = '';
   password: string = '';
-  userData: Auth | undefined;
+  private userData: Auth | undefined;
   errorMessage: string | null = null;
+  //private accessToken: string = '';
 
   ngOnInit(): void {}
+
+  //@Output() accessTokenEvent = new EventEmitter<string>()
 
   serviceLogin(): void {
     this.authService.login(this.email, this.password).subscribe(
     {  next: (data) => {
       this.userData = data;
-      console.log('Datos del usuario:', this.userData);
+
+      //this.accessTokenEvent.emit(this.userData?.accessToken)
+      console.log('Datos del usuario:', this.userData?.accessToken);
     },
     error: (error) => {
       console.error('Error al obtener datos del usuario:', error);
