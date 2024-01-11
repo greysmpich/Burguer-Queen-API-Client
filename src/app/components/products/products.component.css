@@ -1,0 +1,32 @@
+.product{
+    height: 138px;
+    width: 200px;
+    margin: 6%;
+    background-color: #FFAF74;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 40% 60%;
+}
+
+.product-name{
+    font-size: 28px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-self: center;
+    align-self: center;
+}
+
+img{
+    width: 69px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    justify-self: end;
+    align-self: start;
+}
+
+.product-price{
+    font-size: 32px;
+    justify-self: center;
+    align-self: center;
+}

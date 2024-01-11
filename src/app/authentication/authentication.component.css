@@ -1,5 +1,6 @@
 .body {
   gap: 30px;
+  height: 95%;
 }
 
 .logoHeader,
@@ -7,8 +8,9 @@
 .body {
   display: flex;
   flex-direction: column;
-  place-content: center;
+  /* place-content: center; */
   align-items: center;
+  justify-content: center;
 }
 
 .logoBurgerQueen {
@@ -45,6 +47,7 @@
   font-family: 'Patrick Hand', cursive;
   font-size: 26px;
 }
+
 .passwordInput {
   width: 100%;
   height: 55px;
@@ -56,14 +59,16 @@
   border-style: none;
 
 }
+
 .containerInputPassword {
-width: 103%;
-border-radius: 10px;
-background: #D9D9D9;
-display: flex;
-flex-direction: row;
-font-size: 26px;
+  width: 103%;
+  border-radius: 10px;
+  background: #D9D9D9;
+  display: flex;
+  flex-direction: row;
+  font-size: 26px;
 }
+
 .eyeHide {
   width: 4%;
   display: flex;
@@ -79,11 +84,13 @@ button.credentials {
   height: 55px;
   border-style: none;
 }
+
 .error-message {
-color: red;
-font-family: 'Patrick Hand', cursive;
-font-size: 26px;
+  color: red;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 26px;
 }
+
 button.credentials:hover {
   box-shadow: 0px 0px 15px 0px #FFFCFC;
 }

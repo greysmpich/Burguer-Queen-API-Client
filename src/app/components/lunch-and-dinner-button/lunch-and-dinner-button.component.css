@@ -1,0 +1,10 @@
+button{
+    height: 62px;
+    width:  217px;
+    /* margin-left: 50px; */
+    font-family: 'Patrick Hand', cursive;
+    font-size: 30px;
+    color: black;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}

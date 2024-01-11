@@ -1,0 +1,25 @@
+.waiter-view-header {
+  margin-bottom: 2%;
+  padding: 4%;
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+
+.logoBurgerQueen {
+  height: 65px;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  justify-self: center;
+}
+
+.title {
+  grid-column-start: 5;
+  grid-column-end: 10;
+  justify-self: start;
+  align-self: center;
+  font-family: BurguerQueen;
+  font-size: 24px;
+  margin: 0%;
+  color: #EE6A09;
+}
