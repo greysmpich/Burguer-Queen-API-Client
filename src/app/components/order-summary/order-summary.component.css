@@ -1,0 +1,25 @@
+.order-summary{
+    height: fit-content;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    display: grid;
+}
+
+.products-ordered{
+    height: fit-content;
+}
+
+table{
+    width: 100%;
+    font-size: 40px;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.total{
+    display: flex;
+    justify-content: center;
+    column-gap: 50%;
+    height: 20%;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 45px;
+}
