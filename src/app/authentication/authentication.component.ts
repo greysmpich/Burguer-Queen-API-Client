@@ -11,7 +11,7 @@ import { Auth } from '../shared/interface';
 export class AuthenticationComponent implements OnInit {
   constructor(private authService: AuthenticationServiceService) {}
 
-  mostrarContrasena: boolean = false;
+  showPassword: boolean = false;
   eyeImageSource: string = '../../assets/images/hide.png';
   email: string = '';
   password: string = '';
@@ -30,6 +30,10 @@ export class AuthenticationComponent implements OnInit {
 
       //this.accessTokenEvent.emit(this.userData?.accessToken)
       console.log('Datos del usuario:', this.userData?.accessToken);
+      console.log(data);
+      this.authService.setUserRole(this.userData?.user.role);
+      this.authService.redirectToRoleSpecificScreen();
+      
     },
     error: (error) => {
       console.error('Error al obtener datos del usuario:', error);
@@ -38,8 +42,8 @@ export class AuthenticationComponent implements OnInit {
     );
   }
   passwordVisibility() {
-    this.mostrarContrasena = !this.mostrarContrasena;
-    this.eyeImageSource = this.mostrarContrasena
+    this.showPassword = !this.showPassword;
+    this.eyeImageSource = this.showPassword
       ? '../../assets/images/show.png'
       : '../../assets/images/hide.png';
   }
