@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { WaiterComponent } from './views/waiter/waiter.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { ProductsComponent } from './components/products/products.component';
+
 
 
 @NgModule({
@@ -12,6 +14,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     AppComponent,
     WaiterComponent,
     LogoutComponent,
+    ProductsComponent,
+
   ],
   imports: [
     BrowserModule,

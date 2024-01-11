@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -37,3 +38,4 @@ export class AuthenticationServiceService {
     localStorage.removeItem('user');
   }
 }
+
