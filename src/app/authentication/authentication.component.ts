@@ -21,29 +21,17 @@ export class AuthenticationComponent implements OnInit  {
   private userData: Auth | undefined;
   userRole: string | undefined;
   errorMessage: string | null = null;
-  //private accessToken: string = '';
-
   ngOnInit(): void {
   }
-
-  //@Output() accessTokenEvent = new EventEmitter<string>()
 
   serviceLogin(): void {
     this.authService.login(this.email, this.password).subscribe(
     {  next: (data) => {
      this.userData = data;
-     this.authService.setAuthenticatedState(this.userData)
-      // this.userRole = this.userData?.user.role;
-      // console.log('Datos del usuario:', this.userData?.accessToken);
-
-
-      //this.accessTokenEvent.emit(this.userData?.accessToken)
       console.log('Datos del usuario:', this.userData?.accessToken);
       console.log(data);
       this.authService.setUserRole(this.userData?.user.role);
       this.authService.redirectToRoleSpecificScreen();
-      
-
     },
     error: (error) => {
       console.error('Error al obtener datos del usuario:', error);
@@ -52,8 +40,10 @@ export class AuthenticationComponent implements OnInit  {
     );
   }
 
-
-
+  getUserData(): Auth | undefined {
+    return this.userData;
+  }
+  
   passwordVisibility() {
     this.showPassword = !this.showPassword;
     this.eyeImageSource = this.showPassword

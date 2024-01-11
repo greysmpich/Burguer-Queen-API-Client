@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationComponent } from './authentication/authentication.component';
 
-import { WaiterComponent } from './view/waiter/waiter.component';
-import { AuthGuard } from './authentication/auth.guard';
+import { WaiterComponent } from './views/waiter/waiter.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
