@@ -21,12 +21,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
    data: 
       { allowedRoles: ['kitchen'] } 
-  },
-      // { path: 'user', component: UserComponent, data: { allowedRoles: ['user'] } },
-      // { path: 'unauthorized', component: UnauthorizedComponent },
-    
+  }, 
   { path: '', redirectTo: '/login', pathMatch: 'full' },
- // { path: 'waiter-orders', component: WaiterComponent },
   {
     path: 'waiter-orders',
     component: WaiterComponent,
