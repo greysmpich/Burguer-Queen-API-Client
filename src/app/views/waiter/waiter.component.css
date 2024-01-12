@@ -3,11 +3,19 @@
     margin: 0;
 }
 
+.containerPrincipal {
+display: flex;
+flex-direction: row;
+place-content: center;
+gap: 20px;
+}
+
 .buttons{
     height: fit-content;
     width: 100%;
-    display: grid;
-    grid-template-columns: 20% 30% 30% 20%;
+    display: flex;
+    place-content: center;
+    gap: 10px;
 }
 
 app-breakfast-button, app-lunch-and-dinner-button{
@@ -28,16 +36,14 @@ app-lunch-and-dinner-button{
 
 .orders{
     height: fit-content;
-    margin-top: 2%;
     display: flex;
     flex-wrap: wrap;
-    gap: 50px;
 }
 
 .products-container{
     height: fit-content;
     width: 100%;
-    margin: 0 50px;
+    margin-top: 20px;
     border: 2px solid white;
     border-radius: 15px;
     font-family: 'Patrick Hand', cursive;
@@ -46,49 +52,33 @@ app-lunch-and-dinner-button{
 .order-summary-container{
     height: fit-content;
     width: 100%;
-    margin: 0 50px;
-}
-
-app-logout{
-    height: 50px;
-    position: absolute;
-    top: 20px;
-    right: 10px;
+    /* margin: 0 50px; */
 }
 
 @media screen and (orientation: landscape) {
-    .buttons{
-        height: fit-content;
-        width: 55%;
-        margin: 0 2%;
-        display: grid;
-        grid-template-columns: 50% 50%;
-    }
+   
 
     app-breakfast-button{
-        grid-column-start: 1;
-        grid-column-end: 2;
         justify-self: center;
     }
     
     app-lunch-and-dinner-button{
-        grid-column-start: 2;
-        grid-column-end: 3;
         justify-self: center;
     }
 
-    .orders{
+    /* .orders{
         flex-wrap: nowrap;
         gap: 20px;
-    }
+    } */
 
     .products-container{
-        width: 50%;
+        /* width: 50%; */
         margin-right: 0;
     }
 
     .order-summary-container{
         width: 40%;
+        
         margin-left: 0;
     }
     
