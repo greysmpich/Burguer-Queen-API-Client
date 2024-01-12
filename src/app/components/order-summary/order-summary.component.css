@@ -19,7 +19,7 @@ table{
 .total{
     display: flex;
     justify-content: center;
-    column-gap: 50%;
+    column-gap: 40%;
     height: auto;
     font-family: 'Patrick Hand', cursive;
     font-size: 45px;
@@ -29,4 +29,9 @@ table{
 margin: 0px;
 padding: 0px;
 display: flex;
+}
+@media (orientation: portrait) {
+    .order-summary{
+        height: 400px;
+    }
 }
