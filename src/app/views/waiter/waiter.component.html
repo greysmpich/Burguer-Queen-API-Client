@@ -8,7 +8,8 @@
             <app-lunch-and-dinner-button></app-lunch-and-dinner-button>
         </div>
         <div class="products-container">
-    <app-products></app-products>
+    <app-products *ngFor="let product of productsList"  [product] = 'product' >
+    </app-products>
         </div>
     </div>
     <div class="order-summary-container">
