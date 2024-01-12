@@ -1,7 +1,6 @@
 .product{
     height: 138px;
     width: 200px;
-    margin: 6%;
     background-color: #FFAF74;
     border-radius: 10px;
     display: grid;
@@ -15,6 +14,8 @@
     grid-column-end: 3;
     justify-self: center;
     align-self: center;
+    text-align: center;
+    line-height: 100%;
 }
 
 img{
