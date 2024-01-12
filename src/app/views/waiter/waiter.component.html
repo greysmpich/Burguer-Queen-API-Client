@@ -1,17 +1,19 @@
 <div class="waiter-view">
     <app-header></app-header>
-    <div class="buttons">
-        <app-breakfast-button></app-breakfast-button>
-        <app-lunch-and-dinner-button></app-lunch-and-dinner-button>
-    </div>
+  <div class="containerPrincipal">
+
     <div class="orders">
+        <div class="buttons">
+            <app-breakfast-button></app-breakfast-button>
+            <app-lunch-and-dinner-button></app-lunch-and-dinner-button>
+        </div>
         <div class="products-container">
     <app-products></app-products>
         </div>
-        <div class="order-summary-container">
-            <app-order-summary></app-order-summary>
-        </div>
     </div>
-    <app-logout></app-logout>
+    <div class="order-summary-container">
+        <app-order-summary></app-order-summary>
+    </div>
+  </div>
 </div>
 
