@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-breakfast-button',
@@ -6,10 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./breakfast-button.component.css']
 })
 export class BreakfastButtonComponent implements OnInit {
+  @Input() isSelected: boolean = false;
+  @Input() isDisabled: boolean = false;
+  @Output() selected: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  select(): void {
+    if(!this.isDisabled){
+      this.selected.emit();
+    }
+  }
+
+  getButtonSelectedStyle(): { [key: string]: string} {
+    return {
+      'background-color': this.isSelected ? '#EE6A09' : '#D9D9D9',
+      'color': this.isSelected ? 'white' : 'black',
+    }
+  }
+  
 }

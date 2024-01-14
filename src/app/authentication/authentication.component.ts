@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, NgZone  } from '@angular/core';
-import { AuthenticationServiceService } from '../services/authentication-service.service';
+import { AuthenticationServiceService } from '../services/authentication/authentication-service.service';
 import { Observable, Subscription, BehaviorSubject } from 'rxjs';
 import { Auth } from '../shared/interfaces/interface';
 import { Router, CanActivate } from '@angular/router';
