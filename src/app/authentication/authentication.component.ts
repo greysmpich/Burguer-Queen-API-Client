@@ -41,9 +41,9 @@ export class AuthenticationComponent implements OnInit  {
     );
   }
 
-  getUserData(): Auth | undefined {
-    return this.userData;
-  }
+  // getUserData(): Auth | undefined {
+  //   return this.userData;
+  // }
   
   passwordVisibility() {
     this.showPassword = !this.showPassword;

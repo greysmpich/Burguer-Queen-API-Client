@@ -7,7 +7,6 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 })
 export class LunchAndDinnerButtonComponent implements OnInit {
   @Input() isSelected: boolean = false;
-  @Input() isDisabled: boolean = false;
   @Output() selected: EventEmitter<void> = new EventEmitter<void>();
 
 
@@ -17,9 +16,7 @@ export class LunchAndDinnerButtonComponent implements OnInit {
   }
 
   select(): void {
-    if(!this.isDisabled){
       this.selected.emit();
-    }
   }
 
   getButtonSelectedStyle(): { [key: string]: string} {
