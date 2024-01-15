@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationServiceService } from 'src/app/services/authentication-service.service';
+import { OrdersService } from 'src/app/services/orders/orders.service';
 import { productInter } from 'src/app/shared/interfaces/product';
 
 @Component({
@@ -8,26 +8,63 @@ import { productInter } from 'src/app/shared/interfaces/product';
   styleUrls: ['./waiter.component.css']
 })
 export class WaiterComponent implements OnInit {
-   productsList: productInter[] = [];
+  productsList: productInter[] = [];
+  breakfastMenu: productInter[] = [];
+  lunchAndDinnerMenu: productInter[] = [];
+  currentMenu: productInter[] = [];
+  isLunchAndDinnerSelected: boolean = false;
+  isBreakfastSelected: boolean = true;
 
-  constructor(private authService:AuthenticationServiceService) { }
+  constructor(private ordersService: OrdersService) { }
 
   ngOnInit(): void {
-   this.getProducts()
+    this.getProducts();
+    console.log(this.currentMenu, 'waiter component current menu');
+    
+    console.log( 'breakfast selected', this.isBreakfastSelected );
+    console.log('lunch not selected', this.isLunchAndDinnerSelected);
+    
   }
 
   getProducts(): void {
-  this.authService.getProducts().subscribe((resp => {
-  this.productsList = resp
-  this.productsList.forEach(product=> {
-  this.authService.getImageUrl(product.image, '../../../assets/images/Image20240112141757.png').subscribe(result => {
-  product.image = result
-  console.log(result);
-  
-  })
-  })
-  console.log(this.productsList);
-  }))
+    this.ordersService.getProducts().subscribe((resp => {
+      this.productsList = resp
+      this.ordersService.getProductList(resp)
+      this.productsList.forEach(product => {
+        this.ordersService.getImageUrl(product.image, '../../../assets/images/Image20240112141757.png').subscribe(result => {
+          product.image = result
+        })
+      })
+    this.filterMenus();
+
+    }))
+  }
+  filterMenus(): void {
+    this.breakfastMenu = this.ordersService.filterBreakfastMenu(this.productsList);
+    this.lunchAndDinnerMenu = this.ordersService.filterLunchAndDinnerMenu(this.productsList);
+    this.currentMenu = this.breakfastMenu;
+  }
+
+  showBreakfastMenu(): void {
+    if (this.isBreakfastSelected) {
+   this.currentMenu = this.breakfastMenu;
+    }
+  }
+
+  handleBreakfastSelection(): void {
+    this.isBreakfastSelected = true;
+    this.isLunchAndDinnerSelected = false;
+    this.showBreakfastMenu()
+  }
+
+  showLunchAndDinnerMenu(): void {
+    this.currentMenu = this.isLunchAndDinnerSelected ? this.lunchAndDinnerMenu : this.breakfastMenu;
+  }
+
+  handleLunchAndDinnerSelection(): void {
+    this.isLunchAndDinnerSelected = true;
+    this.isBreakfastSelected = false;
+    this.showLunchAndDinnerMenu()
   }
 
 }

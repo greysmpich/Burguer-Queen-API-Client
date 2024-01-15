@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationServiceService } from './authentication-service.service';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MockAuthService } from './mockAuthService';
+import { MockAuthService } from '../mockAuthService';
 import { Router } from '@angular/router';
 
 describe('AuthenticationServiceService', () => {
