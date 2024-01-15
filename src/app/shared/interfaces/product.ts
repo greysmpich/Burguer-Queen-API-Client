@@ -4,5 +4,5 @@ export interface productInter {
         price: number,
         image: string,
         type: string,
-        dateEntry: Date,
+        dateEntry: string,
   }

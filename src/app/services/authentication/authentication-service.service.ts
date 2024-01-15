@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError, BehaviorSubject, pipe } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { productInter } from '../../shared/interfaces/product';
-import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationServiceService {
   private url_API = 'http://localhost:8080/login';
-  
-//  private accessToken = new BehaviorSubject<string | null>(null);
+
  accessToken: string | undefined = undefined;
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -22,7 +19,7 @@ export class AuthenticationServiceService {
     return this.http.post(loginUrl, body);
   }
 
-  setUserRole(userRole: any) {
+  setUserRole(userRole: string | undefined) {
     localStorage.setItem('user', JSON.stringify(userRole));
   }
 

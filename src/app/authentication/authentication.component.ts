@@ -1,8 +1,6 @@
-import { Component, OnInit, Output, EventEmitter, NgZone  } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { AuthenticationServiceService } from '../services/authentication/authentication-service.service';
-import { Observable, Subscription, BehaviorSubject } from 'rxjs';
 import { Auth } from '../shared/interfaces/interface';
-import { Router, CanActivate } from '@angular/router';
 
 @Component({
   selector: 'app-authentication',
@@ -11,8 +9,7 @@ import { Router, CanActivate } from '@angular/router';
 })
 export class AuthenticationComponent implements OnInit  {
 
-  constructor(private authService: AuthenticationServiceService,
-    private router: Router, private ngZone: NgZone) {}
+  constructor(private authService: AuthenticationServiceService) {}
 
   showPassword: boolean = false;
   eyeImageSource: string = '../../assets/images/hide.png';
@@ -21,6 +18,7 @@ export class AuthenticationComponent implements OnInit  {
   private userData: Auth | undefined;
   userRole: string | undefined;
   errorMessage: string | null = null;
+  roleUser: string | undefined = ''
   ngOnInit(): void {
   }
 
@@ -28,22 +26,16 @@ export class AuthenticationComponent implements OnInit  {
     this.authService.login(this.email, this.password).subscribe(
     {  next: (data) => {
      this.userData = data;
-      console.log('token del usuario:', this.userData?.accessToken);
-      console.log(data);
-      this.authService.setUserRole(this.userData?.user.role);
+     this.roleUser = this.userData?.user.role
+      this.authService.setUserRole(this.roleUser);
       this.authService.redirectToRoleSpecificScreen();
       this.authService.getToken(this.userData?.accessToken)
     },
     error: (error) => {
-      console.error('Error al obtener datos del usuario:', error);
       this.errorMessage = error.error
     }}
     );
   }
-
-  // getUserData(): Auth | undefined {
-  //   return this.userData;
-  // }
   
   passwordVisibility() {
     this.showPassword = !this.showPassword;
