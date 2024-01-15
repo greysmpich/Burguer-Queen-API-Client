@@ -4,11 +4,12 @@
 
     <div class="orders">
         <div class="buttons">
-            <app-breakfast-button></app-breakfast-button>
-            <app-lunch-and-dinner-button></app-lunch-and-dinner-button>
+            <app-breakfast-button [isSelected]="isBreakfastSelected" [isDisabled]="isBreakfastDisabled" (selected)="handleBreakfastSelection()"></app-breakfast-button>
+            <app-lunch-and-dinner-button [isSelected]="isLunchAndDinnerSelected" [isDisabled]="isLunchAndDinnerDisabled" (selected)="handleLunchAndDinnerSelection()"></app-lunch-and-dinner-button>
         </div>
         <div class="products-container">
-    <app-products></app-products>
+    <app-products *ngFor="let product of currentMenu"  [product] = 'product' >
+    </app-products>
         </div>
     </div>
     <div class="order-summary-container">

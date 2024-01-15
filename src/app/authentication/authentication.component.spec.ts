@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthenticationComponent } from './authentication.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AuthenticationServiceService } from '../services/authentication-service.service';
+import { AuthenticationServiceService } from '../services/authentication/authentication-service.service';
 import { MockAuthService } from '../services/mockAuthService';
 //import { Router } from '@angular/router';
 //import { NgZone } from '@angular/core';

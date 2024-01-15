@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, NgZone  } from '@angular/core';
-import { AuthenticationServiceService } from '../services/authentication-service.service';
+import { AuthenticationServiceService } from '../services/authentication/authentication-service.service';
 import { Observable, Subscription, BehaviorSubject } from 'rxjs';
-import { Auth } from '../shared/interface';
+import { Auth } from '../shared/interfaces/interface';
 import { Router, CanActivate } from '@angular/router';
 
 @Component({
@@ -28,10 +28,11 @@ export class AuthenticationComponent implements OnInit  {
     this.authService.login(this.email, this.password).subscribe(
     {  next: (data) => {
      this.userData = data;
-      console.log('Datos del usuario:', this.userData?.accessToken);
+      console.log('token del usuario:', this.userData?.accessToken);
       console.log(data);
       this.authService.setUserRole(this.userData?.user.role);
       this.authService.redirectToRoleSpecificScreen();
+      this.authService.getToken(this.userData?.accessToken)
     },
     error: (error) => {
       console.error('Error al obtener datos del usuario:', error);
