@@ -22,4 +22,10 @@ describe('LunchAndDinnerButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should emit the selected event when select is called', () => {
+    const emitSpy = spyOn(component.selected, 'emit');
+    component.select();
+    expect(emitSpy).toHaveBeenCalled();
+  });
 });

@@ -2,7 +2,6 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationServiceService } from './authentication-service.service';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MockAuthService } from '../mockAuthService';
 import { Router } from '@angular/router';
 
 describe('AuthenticationServiceService', () => {
@@ -12,8 +11,7 @@ describe('AuthenticationServiceService', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule, RouterTestingModule], 
       providers: [
-        AuthenticationServiceService,
-        MockAuthService, 
+        AuthenticationServiceService, 
       ],
     });
     service = TestBed.inject(AuthenticationServiceService);
@@ -63,4 +61,10 @@ describe('AuthenticationServiceService', () => {
      expect(navigateSpy).toHaveBeenCalledWith(['/waiter']);
    }));
   
+   it('should get token ', inject([AuthenticationServiceService], (service: AuthenticationServiceService) => {
+    const token = '012024';
+    const tokenService = service.getToken(token);
+    expect(tokenService).toEqual(token);
+  }));
+ 
 });

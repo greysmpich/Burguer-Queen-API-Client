@@ -12,41 +12,17 @@ export class OrdersService {
 
   constructor(private authService: AuthenticationServiceService, private http: HttpClient) { }
 
-  private URL_PRODUCTS = 'http://localhost:8080/products'
-  private productsList: productInter[] = [];
+  private URL_PRODUCTS = 'http://localhost:8080/products';
   breakfastMenu: productInter[] = [];
   lunchAndDinnerMenu: productInter[] = [];
   currentMenu: productInter[] = [];
 
-  getProducts(): Observable<any>{
+  getProducts(): Observable<productInter[]>{
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.authService.accessToken}`,
       });
-    return this.http.get<any>(`${this.URL_PRODUCTS}`, {headers})
+    return this.http.get<productInter[]>(`${this.URL_PRODUCTS}`, {headers})
   }
-  
-  getProductList(products : productInter[] = []) {
-    this.productsList = products;
-    console.log(this.productsList, 'lista de productos order service');
-    
-   return this.productsList;
-  }
-
-  
-  // filterMenus(): void {
-  //   const breakfastBeverages = [1, 5];
-  //   const lunchBeverages = [2, 6, 7];
-
-  //   this.breakfastMenu = this.productsList.filter(product => {
-  //     return product.type === 'Breakfast' || breakfastBeverages.includes(product.id);
-  //   });
-
-  //   this.lunchAndDinnerMenu = this.productsList.filter(product => {
-  //     return product.type === 'Lunch' || product.type === 'Sides' || lunchBeverages.includes(product.id);
-  //   });
-
-  //   this.currentMenu = this.breakfastMenu;
-  // }
 
   filterBreakfastMenu(products: productInter[]): productInter[] {
     const breakfastBeverages = [1, 5];

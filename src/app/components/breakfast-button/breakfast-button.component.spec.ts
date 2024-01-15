@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BreakfastButtonComponent } from './breakfast-button.component';
 
 describe('BreakfastButtonComponent', () => {
@@ -21,5 +20,11 @@ describe('BreakfastButtonComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+ 
+  it('should emit the selected event when select is called', () => {
+    const emitSpy = spyOn(component.selected, 'emit');
+    component.select();
+    expect(emitSpy).toHaveBeenCalled();
   });
 });

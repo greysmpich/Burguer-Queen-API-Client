@@ -19,24 +19,17 @@ export class WaiterComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
-    console.log(this.currentMenu, 'waiter component current menu');
-    
-    console.log( 'breakfast selected', this.isBreakfastSelected );
-    console.log('lunch not selected', this.isLunchAndDinnerSelected);
-    
   }
 
   getProducts(): void {
     this.ordersService.getProducts().subscribe((resp => {
       this.productsList = resp
-      this.ordersService.getProductList(resp)
       this.productsList.forEach(product => {
         this.ordersService.getImageUrl(product.image, '../../../assets/images/Image20240112141757.png').subscribe(result => {
           product.image = result
         })
       })
     this.filterMenus();
-
     }))
   }
   filterMenus(): void {
