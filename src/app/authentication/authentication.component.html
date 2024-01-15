@@ -6,22 +6,25 @@
     />
     <h1 class="title">Burguer Queen</h1>
   </div>
+
   <div class="containerLogin">
-    <label for="email" class="credentials" type="Email"
-      >Email / Username:</label
-    >
-    <input id="email" [(ngModel)]="email"/>
-    <label for="password" class="credentials">Password:</label>
-    <div class="containerInputPassword">
-        <input for="password" [type]="mostrarContrasena ? 'text' : 'password'" [(ngModel)]="password" class="passwordInput"/>
-        <img
-          [src]="eyeImageSource"
-          class="eyeHide"
-          (click)="passwordVisibility()"
-        />
-    </div>
+    <label for="email" class="credentials" type="Email">Email / Username:
+      <input id="email" [(ngModel)]="email"/>
+    </label>
+   
+    <label for="password" class="credentials">Password:
+        <div class="containerInputPassword">
+            <input id="password" [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" class="passwordInput"/>
+            <img
+              [src]="eyeImageSource"
+              class="eyeHide"
+              (click)="passwordVisibility()"
+            />
+        </div>
+    </label>
+   
    
      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-    <button class="credentials" (click)="serviceLogin()">Log In</button>
-  </div>
+    <button class="credentials" id="buttonLogin" (click)="serviceLogin()">Log In</button>
+</div>
 </div>

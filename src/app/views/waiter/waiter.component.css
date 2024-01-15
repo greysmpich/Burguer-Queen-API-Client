@@ -1,0 +1,73 @@
+*{
+   
+    height: fit-content;
+    margin: 0;
+}
+
+.containerPrincipal {
+display: flex;
+flex-direction: row;
+place-content: center;
+gap: 40px;
+margin: 0 20px;
+}
+
+.buttons{
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    place-content: center;
+    gap: 10px;
+}
+
+app-breakfast-button, app-lunch-and-dinner-button{
+    width: fit-content;
+}
+
+app-breakfast-button{
+    justify-self: center;
+}
+
+app-lunch-and-dinner-button{
+    justify-self: center;
+}
+
+.orders{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.products-container{
+    height: 450px;
+    width: 100%;
+    gap: 5px;
+    margin-top: 20px;
+    border: 2px solid white;
+    border-radius: 15px;
+    font-family: 'Patrick Hand', cursive;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    overflow: scroll;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.order-summary-container{
+    height: fit-content;
+    width: 40%;
+}
+
+@media (orientation: portrait) {
+    .containerPrincipal {
+        flex-direction: column;
+        }
+        .orders {
+        width: 100%;
+        }
+        .order-summary-container{
+            width: 100%;
+        }
+}

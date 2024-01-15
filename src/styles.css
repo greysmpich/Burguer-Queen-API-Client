@@ -19,11 +19,14 @@ body {
 
 body {
     flex-direction: column;
-    height: 100%;
     position: relative;
     background-color: #000;
+    padding-bottom: 15px;
 }
 
+app-root{
+    height: 100%;
+}
 body::before {
     content: '';
     position: absolute;
@@ -35,3 +38,8 @@ body::before {
     opacity: 0.3;
     z-index: -1;
 }
+
+app-waiter {
+    width: 100%;
+    height: 100%;
+    }

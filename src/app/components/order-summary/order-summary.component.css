@@ -1,0 +1,37 @@
+.order-summary{
+    height: 450px;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.products-ordered{
+    height: 89%;
+}
+
+table{
+    width: 100%;
+    font-size: 40px;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.total{
+    display: flex;
+    justify-content: center;
+    column-gap: 40%;
+    height: auto;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 45px;
+}
+
+.total-label, .total-sum {
+margin: 0px;
+padding: 0px;
+display: flex;
+}
+@media (orientation: portrait) {
+    .order-summary{
+        height: 400px;
+    }
+}

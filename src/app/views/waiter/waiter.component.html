@@ -1,0 +1,20 @@
+<div class="waiter-view">
+    <app-header></app-header>
+  <div class="containerPrincipal">
+
+    <div class="orders">
+        <div class="buttons">
+            <app-breakfast-button [isSelected]="isBreakfastSelected"  (selected)="handleBreakfastSelection()"></app-breakfast-button>
+            <app-lunch-and-dinner-button [isSelected]="isLunchAndDinnerSelected" (selected)="handleLunchAndDinnerSelection()"></app-lunch-and-dinner-button>
+        </div>
+        <div class="products-container">
+    <app-products *ngFor="let product of currentMenu"  [product] = 'product' >
+    </app-products>
+        </div>
+    </div>
+    <div class="order-summary-container">
+        <app-order-summary></app-order-summary>
+    </div>
+  </div>
+</div>
+
