@@ -1,11 +1,9 @@
-import { ComponentFixture, TestBed, tick, fakeAsync, inject  } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick, fakeAsync  } from '@angular/core/testing';
 import { of, throwError } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthenticationComponent } from './authentication.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthenticationServiceService } from '../services/authentication/authentication-service.service';
-//import { Router } from '@angular/router';
-//import { NgZone } from '@angular/core';
 
 describe('AuthenticationComponent', () => {
   let component: AuthenticationComponent;
