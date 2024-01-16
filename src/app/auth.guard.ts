@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { AuthenticationServiceService } from './services/authentication/authentication-service.service';
 
 @Injectable({
@@ -11,16 +10,12 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthenticationServiceService, private router: Router) { }
 
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
+    route: ActivatedRouteSnapshot): boolean {
       
     const userRole = this.authService.getUserRole();
-    console.log('Desde AuthGuard', userRole);
-    
+     
     if (userRole) {
       const allowedRoles = route.data['allowedRoles'] as string[];
-      console.log('Desde AuthGuard', allowedRoles);
-      
       if (allowedRoles && allowedRoles.includes(userRole)) {
         return true;
       }
