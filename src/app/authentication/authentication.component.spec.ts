@@ -3,19 +3,19 @@ import { of, throwError } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthenticationComponent } from './authentication.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 import { AuthenticationServiceService } from '../services/authentication/authentication-service.service';
 
 describe('AuthenticationComponent', () => {
   let component: AuthenticationComponent;
   let fixture: ComponentFixture<AuthenticationComponent>;
   let authService: AuthenticationServiceService;
-  let authServiceSpy: jasmine.SpyObj<AuthenticationServiceService>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AuthenticationComponent ],
       providers: [AuthenticationServiceService],
-      imports: [HttpClientTestingModule, RouterTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule,FormsModule],
     })
     .compileComponents();
     fixture = TestBed.createComponent(AuthenticationComponent);
@@ -62,6 +62,7 @@ describe('AuthenticationComponent', () => {
     tick();
     expect(spyLogin).toHaveBeenCalled();
   }));
+
   it('should call login service on serviceLogin', () => {
     const userData = { user: { role: 'admin' }, accessToken: 'token123' };
     spyOn(authService, 'login').and.returnValue(of(userData));
