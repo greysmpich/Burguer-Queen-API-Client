@@ -1,6 +1,14 @@
-import { productInter } from "src/app/shared/interfaces/product";
+export const mockProducts = [
+    { id: 1, name: 'Product 1', price: 1, image: 'img', type: 'Breakfast', dateEntry: '2022-03-05 15:14:10' },
+    { id: 2, name: 'Product 2', price: 2, image: 'img', type: 'Lunch', dateEntry: '2022-03-05 15:14:10' },
+    { id: 3, name: 'Product 3', price: 3, image: 'img', type: 'Lunch', dateEntry: '2022-03-05 15:14:10' },
+    { id: 4, name: 'Product 4', price: 4, image: 'img', type: 'Sides', dateEntry: '2022-03-05 15:14:10' },
+    { id: 5, name: 'Product 5', price: 5, image: 'img', type: 'Breakfast', dateEntry: '2022-03-05 15:14:10' },
+    { id: 6, name: 'Product 6', price: 6, image: 'img', type: 'Dinner', dateEntry: '2022-03-05 15:14:10' },
+    { id: 7, name: 'Product 7', price: 7, image: 'img', type: 'Lunch', dateEntry: '2022-03-05 15:14:10' }
+  ];
 
-export const mockBreakfastMenu: productInter[] = [
+export const mockBreakfastMenu = [
     {
         "id": 1,
         "name": "American coffee",
@@ -35,7 +43,7 @@ export const mockBreakfastMenu: productInter[] = [
     }
 ];
 
-export const mockLunchAndDinnerMenu: productInter[] = [
+export const mockLunchAndDinnerMenu = [
     {
         "id": 2,
         "name": "Water 500ml",
