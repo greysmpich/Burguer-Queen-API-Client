@@ -46,6 +46,15 @@ describe('AuthenticationServiceService', () => {
     const userRole = service.getUserRole();
     expect(userRole.role).toEqual(userInfo.role);
   }));
+
+  it('should return an empty object when localStorage user is null', () => {
+    spyOn(localStorage, 'getItem').and.returnValue(null);
+
+    const result = service.getUserRole(); 
+
+    expect(result).toEqual({});
+  });
+
   it('should mock the clearUserRole function', inject([AuthenticationServiceService], (service: AuthenticationServiceService) => {
     const userInfo = { email: 'test@example.com', role: 'user', id: 1 };
     localStorage.setItem('user', JSON.stringify(userInfo));
