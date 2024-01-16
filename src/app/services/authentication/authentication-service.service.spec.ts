@@ -53,7 +53,6 @@ describe('AuthenticationServiceService', () => {
     const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
     expect(storedUser).toEqual({});
    }));
-   
   it('should redirect to /waiter if user role is waiter', inject([AuthenticationServiceService], (service: AuthenticationServiceService) => {
      spyOn(service, 'getUserRole').and.returnValue('waiter');
      const navigateSpy = spyOn(router, 'navigate');
