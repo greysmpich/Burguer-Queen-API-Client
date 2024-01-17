@@ -12,7 +12,7 @@ export class OrdersService {
 
   constructor(private authService: AuthenticationServiceService, private http: HttpClient) { }
 
-  private URL_PRODUCTS = 'http://localhost:8080/products';
+  private URL_PRODUCTS = 'https://burguer-queen-api-bqac1.onrender.com/products';
   breakfastMenu: productInter[] = [];
   lunchAndDinnerMenu: productInter[] = [];
   currentMenu: productInter[] = [];
