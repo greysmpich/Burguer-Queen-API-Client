@@ -38,7 +38,7 @@ describe('OrderService', () => {
   service.getProducts().subscribe(products => {
       expect(products).toEqual(mockProducts);
     });
-    const req = httpTestingController.expectOne('http://localhost:8080/products');
+    const req = httpTestingController.expectOne('https://burguer-queen-api-bqac1.onrender.com/products');
     expect(req.request.method).toEqual('GET');
     req.flush(mockProducts);
   });
