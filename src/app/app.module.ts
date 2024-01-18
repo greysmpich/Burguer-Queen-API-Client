@@ -10,6 +10,8 @@ import { BreakfastButtonComponent } from './components/breakfast-button/breakfas
 import { ProductsComponent } from './components/products/products.component';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 import { LunchAndDinnerButtonComponent } from './components/lunch-and-dinner-button/lunch-and-dinner-button.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AlertComponent } from './alert/alert.component';
 
 
 @NgModule({
@@ -22,11 +24,13 @@ import { LunchAndDinnerButtonComponent } from './components/lunch-and-dinner-but
     ProductsComponent,
     OrderSummaryComponent,
     LunchAndDinnerButtonComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthenticationModule
+    AuthenticationModule,
+    NoopAnimationsModule
   ],
 
   bootstrap: [AppComponent]
