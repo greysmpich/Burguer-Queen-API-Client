@@ -7,10 +7,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthenticationServiceService {
-  private url_API = 'http://localhost:8080/login';
-
- accessToken: string | undefined = undefined;
-
+  private url_API = 'https://burguer-queen-api-bqac1.onrender.com/login';
   constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string): Observable<any> {
@@ -23,24 +20,30 @@ export class AuthenticationServiceService {
     localStorage.setItem('user', JSON.stringify(userRole));
   }
 
-  getUserRole() {   
-    return JSON.parse(localStorage.getItem('user') || '{}')
+  getUserRole() {
+    return JSON.parse(localStorage.getItem('user') || '{}');
   }
 
   redirectToRoleSpecificScreen() {
     const userRole = this.getUserRole();
-    if(userRole === 'waiter') {
-      this.router.navigate(['/waiter'])
+    if (userRole === 'waiter') {
+      this.router.navigate(['/waiter']);
     }
   }
 
-  getToken(token : string | undefined) {
-    this.accessToken = token;
-   return this.accessToken;
+  setToken(token: string | undefined) {
+    localStorage.setItem('token', JSON.stringify(token));
+  }
+
+  getToken() {
+    return JSON.parse(localStorage.getItem('token') || '{}');
   }
 
   clearUserRole() {
     localStorage.removeItem('user');
   }
-}
 
+  clearToken() {
+    localStorage.removeItem('token');
+  }
+}
