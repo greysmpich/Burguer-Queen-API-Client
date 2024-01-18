@@ -11,6 +11,7 @@ import { LunchAndDinnerButtonComponent } from 'src/app/components/lunch-and-dinn
 import { ProductsComponent } from 'src/app/components/products/products.component';
 import { OrderSummaryComponent } from 'src/app/components/order-summary/order-summary.component';
 import { LogoutComponent } from 'src/app/components/logout/logout.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('WaiterComponent', () => {
   let component: WaiterComponent;
@@ -19,7 +20,7 @@ describe('WaiterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [WaiterComponent, HeaderComponent, BreakfastButtonComponent, LunchAndDinnerButtonComponent, OrderSummaryComponent, LogoutComponent, ProductsComponent],
-      imports: [HttpClientTestingModule, RouterTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule, MatDialogModule],
       providers: [OrdersService]
     })
       .compileComponents();

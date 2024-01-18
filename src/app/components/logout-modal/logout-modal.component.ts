@@ -12,7 +12,7 @@ export class LogoutModalComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<LogoutModalComponent>) {}
   
   cancel(): void {
-    this.dialogRef.close('Cancelar');
+    this.dialogRef.close('Cancelar');   
   }
   
   confirmLogout(): void {

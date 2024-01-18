@@ -25,10 +25,7 @@ export class LogoutComponent implements OnInit {
         this.authService.clearUserRole();
         this.authService.clearToken();
         this.router.navigate(['/login']);
-      } else {
-        // Si el usuario hace clic en "Cancelar" o cierra el modal de otra manera
-        console.log(result);
-      }
+      } 
     });
   }
   
