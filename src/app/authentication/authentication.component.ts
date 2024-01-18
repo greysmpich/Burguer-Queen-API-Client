@@ -29,7 +29,7 @@ export class AuthenticationComponent implements OnInit  {
      this.roleUser = this.userData?.user.role
       this.authService.setUserRole(this.roleUser);
       this.authService.redirectToRoleSpecificScreen();
-      this.authService.getToken(this.userData?.accessToken)
+      this.authService.setToken(this.userData?.accessToken)
     },
     error: (error) => {
       this.errorMessage = error.error
