@@ -10,6 +10,10 @@ import { BreakfastButtonComponent } from './components/breakfast-button/breakfas
 import { ProductsComponent } from './components/products/products.component';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 import { LunchAndDinnerButtonComponent } from './components/lunch-and-dinner-button/lunch-and-dinner-button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { LogoutModalComponent } from './components/logout-modal/logout-modal.component';
 
 
 @NgModule({
@@ -22,11 +26,16 @@ import { LunchAndDinnerButtonComponent } from './components/lunch-and-dinner-but
     ProductsComponent,
     OrderSummaryComponent,
     LunchAndDinnerButtonComponent,
+    LogoutModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthenticationModule
+    AuthenticationModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule
+
   ],
 
   bootstrap: [AppComponent]
