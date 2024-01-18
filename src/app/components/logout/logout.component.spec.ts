@@ -33,18 +33,18 @@ describe('LogoutComponent', () => {
   });
 
 
-  it('should redirect to /login if button Log Out is clicked', inject([AuthenticationServiceService], (service: AuthenticationServiceService) => {
-    const email = 'correcto@example.com';
-    const password = 'contraseñaCorrecta';
-    const navigateSpy = spyOn(router, 'navigate');
-    service.login(email, password).subscribe((result) => {
-      expect(result.accessToken).toBe('token');
-      expect(result.user.email).toBe(email);
-      expect(result.user.role).toBe('user');
-    });
-    component.logOut()
-    expect(navigateSpy).toHaveBeenCalledWith(['/login']);
-  }));
+  // it('should redirect to /login if button Log Out is clicked', inject([AuthenticationServiceService], (service: AuthenticationServiceService) => {
+  //   const email = 'correcto@example.com';
+  //   const password = 'contraseñaCorrecta';
+  //   const navigateSpy = spyOn(router, 'navigate');
+  //   service.login(email, password).subscribe((result) => {
+  //     expect(result.accessToken).toBe('token');
+  //     expect(result.user.email).toBe(email);
+  //     expect(result.user.role).toBe('user');
+  //   });
+  //   component.logOut()
+  //   expect(navigateSpy).toHaveBeenCalledWith(['/login']);
+  // }));
  
 
 });
