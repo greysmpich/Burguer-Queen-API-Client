@@ -18,8 +18,9 @@ export class OrdersService {
   currentMenu: productInter[] = [];
 
   getProducts(): Observable<productInter[]>{
+   const token = this.authService.getToken()
     const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.authService.accessToken}`,
+      'Authorization': `Bearer ${token}`,
       });
     return this.http.get<productInter[]>(`${this.URL_PRODUCTS}`, {headers})
   }
