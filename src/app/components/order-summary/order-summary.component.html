@@ -9,7 +9,10 @@
         </tr>
     </thead>
    <tbody>
-    <tr>
+    <tr *ngFor="let orderedProduct of orderedProducts">
+        <td>{{ orderedProduct.product?.id}}</td>
+        <td>{{ orderedProduct.product?.name }}</td>
+        <td>{{ orderedProduct.product?.price }}</td>
     </tr>
    </tbody>
 </table>
@@ -19,4 +22,4 @@
     <p class="total-sum"> $ 0.00 </p>
 </div>
 </div>
-<app-send-order-button></app-send-order-button>
+<app-send-order-button (sendOrder)="onSendOrderClick()"></app-send-order-button>
