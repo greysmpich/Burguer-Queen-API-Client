@@ -21,7 +21,6 @@ export class LogoutComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'Cerrar Sesión') {
-        
         this.authService.clearUserRole();
         this.authService.clearToken();
         this.router.navigate(['/login']);

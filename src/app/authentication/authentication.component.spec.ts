@@ -76,7 +76,6 @@ describe('AuthenticationComponent', () => {
  
     expect(authService.login).toHaveBeenCalledWith('test@example.com', 'password');
     expect(authService.setUserRole).toHaveBeenCalledWith('admin');
-   // expect(authService.getToken).toHaveBeenCalledWith('token123');
     expect(authService.redirectToRoleSpecificScreen).toHaveBeenCalled();
   });
   it('should handle login error', () => {
@@ -89,7 +88,7 @@ describe('AuthenticationComponent', () => {
     });
 
     it('should show password after eyeButton clicked', () => {
-    component.showPassword = false; // Assume initial state
+    component.showPassword = false;
     component.passwordVisibility();
     expect(component.showPassword).toBe(true);
     expect(component.eyeImageSource).toBe('../../assets/images/show.png');
