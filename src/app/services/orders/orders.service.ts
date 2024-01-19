@@ -13,24 +13,21 @@ export class OrdersService {
 
   constructor(private authService: AuthenticationServiceService, private http: HttpClient) { }
 
-  private URL_PRODUCTS = 'https://burguer-queen-api-bqac1.onrender.com/products';
-  private URL_ORDERS = 'https://burguer-queen-api-bqac1.onrender.com/orders';
+  private URL_PRODUCTS = 'https://api-burguer-queen-bqac1.onrender.com/products';
+  private URL_ORDERS = 'https://api-burguer-queen-bqac1.onrender.com/orders';
   private headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${this.authService.getToken()}`
   })
 
   private clickedProductSubject = new BehaviorSubject<productInter | null>(null);
+  private clientNameSource = new BehaviorSubject<string>('');
 
   breakfastMenu: productInter[] = [];
   lunchAndDinnerMenu: productInter[] = [];
   currentMenu: productInter[] = [];
 
   getProducts(): Observable<productInter[]>{
-  //  const token = this.authService.getToken()
-  //   const headers = new HttpHeaders({
-  //     'Authorization': `Bearer ${token}`,
-  //     });
     return this.http.get<productInter[]>(`${this.URL_PRODUCTS}`, {headers: this.headers})
   }
 
@@ -61,4 +58,22 @@ export class OrdersService {
   getClickedProduct(): Observable<productInter | null> {
     return this.clickedProductSubject.asObservable();
   }
+
+  setClientName(value: string): void{
+    this.clientNameSource.next(value);
+  }
+
+  getClientName(): Observable<string | ''> {
+    return this.clientNameSource.asObservable();
+  }
+
+  getOrders(): Observable<Order[]>{
+      return this.http.get<Order[]>(`${this.URL_ORDERS}`, {headers: this.headers})
+    }
+
+  deletOrders(orderId: number): Observable<void> {
+    return this.http.delete<void>(`${this.URL_ORDERS}/${orderId}`, { headers: this.headers })
+  }
+  
+
 }

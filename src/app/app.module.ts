@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { LogoutModalComponent } from './components/logout-modal/logout-modal.component';
 import { ClientNameInputComponent } from './components/client-name-input/client-name-input.component';
 import { SendOrderButtonComponent } from './components/send-order-button/send-order-button.component';
+import { KitchenComponent } from './views/kitchen/kitchen.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { SendOrderButtonComponent } from './components/send-order-button/send-or
     LogoutModalComponent,
     ClientNameInputComponent,
     SendOrderButtonComponent,
+    KitchenComponent,
   ],
   imports: [
     BrowserModule,

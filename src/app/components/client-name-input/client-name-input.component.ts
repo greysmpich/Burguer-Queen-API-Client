@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { OrdersService } from 'src/app/services/orders/orders.service';
 
 @Component({
   selector: 'app-client-name-input',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientNameInputComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ordersService: OrdersService) { }
 
   ngOnInit(): void {
   }
 
+  updateClientNameinService(value:string){
+    this.ordersService.setClientName(value);
+  }
 }
