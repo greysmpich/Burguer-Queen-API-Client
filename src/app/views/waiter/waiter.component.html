@@ -7,6 +7,7 @@
             <app-breakfast-button [isSelected]="isBreakfastSelected"  (selected)="handleBreakfastSelection()"></app-breakfast-button>
             <app-lunch-and-dinner-button [isSelected]="isLunchAndDinnerSelected" (selected)="handleLunchAndDinnerSelection()"></app-lunch-and-dinner-button>
         </div>
+        <app-client-name-input></app-client-name-input>
         <div class="products-container">
     <app-products *ngFor="let product of currentMenu"  [product] = 'product' >
     </app-products>

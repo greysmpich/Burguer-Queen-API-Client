@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { LogoutModalComponent } from './components/logout-modal/logout-modal.component';
+import { ClientNameInputComponent } from './components/client-name-input/client-name-input.component';
+import { SendOrderButtonComponent } from './components/send-order-button/send-order-button.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { LogoutModalComponent } from './components/logout-modal/logout-modal.com
     OrderSummaryComponent,
     LunchAndDinnerButtonComponent,
     LogoutModalComponent,
+    ClientNameInputComponent,
+    SendOrderButtonComponent,
   ],
   imports: [
     BrowserModule,
