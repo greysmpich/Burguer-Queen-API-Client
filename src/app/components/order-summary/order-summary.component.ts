@@ -13,6 +13,7 @@ export class OrderSummaryComponent implements OnInit {
   @Input() product: productInter | undefined;
   orderedProducts: orderedProducts[] = [];
   private productSubscription: Subscription;
+  clientName: string = '';
 
   constructor(private orderService: OrdersService) { 
     this.productSubscription = this.orderService.getClickedProduct().subscribe(product => {
@@ -32,9 +33,12 @@ export class OrderSummaryComponent implements OnInit {
   }
 
   onSendOrderClick() {
+    this.orderService.getClientName().subscribe(value => {
+      this.clientName = value;
+    })
     // Envía la orden a la API
     const order: Order = {
-      client: 'Nombre del Cliente', // Puedes obtener esto dinámicamente
+      client: this.clientName, 
       products: this.orderedProducts,
       status: 'Pending',  // Puedes establecer el estado como necesario
       dataEntry: new Date(),
@@ -50,7 +54,6 @@ export class OrderSummaryComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    // Asegúrate de desuscribirte para evitar pérdidas de memoria
     this.productSubscription.unsubscribe();
   }
 }

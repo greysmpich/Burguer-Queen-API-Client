@@ -1,1 +1,1 @@
-<input placeholder="Enter client name">
+<input #clientNameInput (input)="updateClientNameinService(clientNameInput.value)" placeholder="Enter client name">

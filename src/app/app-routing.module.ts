@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { WaiterComponent } from './views/waiter/waiter.component';
 import { AuthGuard } from './auth.guard';
+import { KitchenComponent } from './views/kitchen/kitchen.component';
 
 
 const routes: Routes = [
@@ -16,10 +17,10 @@ const routes: Routes = [
   },
   {
     path: 'kitchen',
-    component: WaiterComponent,
+    component: KitchenComponent,
     canActivate: [AuthGuard],
    data: 
-      { allowedRoles: ['kitchen'] } 
+      { allowedRoles: ['chef'] } 
   }, 
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
