@@ -22,6 +22,8 @@ export class OrdersService {
 
   private clickedProductSubject = new BehaviorSubject<productInter | null>(null);
   private clientNameSource = new BehaviorSubject<string>('');
+  
+//   clearInputSubject: BehaviorSubject<void> = new BehaviorSubject<void>(undefined);
 
   breakfastMenu: productInter[] = [];
   lunchAndDinnerMenu: productInter[] = [];
@@ -75,5 +77,11 @@ export class OrdersService {
     return this.http.delete<void>(`${this.URL_ORDERS}/${orderId}`, { headers: this.headers })
   }
   
+  // clearInput() {
+  //   this.clearInputSubject.next();
+  //   console.log('limpio');
+    
+  // }
+
 
 }

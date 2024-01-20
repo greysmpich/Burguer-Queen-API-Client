@@ -17,7 +17,7 @@ import { LogoutModalComponent } from './components/logout-modal/logout-modal.com
 import { ClientNameInputComponent } from './components/client-name-input/client-name-input.component';
 import { SendOrderButtonComponent } from './components/send-order-button/send-order-button.component';
 import { KitchenComponent } from './views/kitchen/kitchen.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,8 @@ import { KitchenComponent } from './views/kitchen/kitchen.component';
     AuthenticationModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule, 
+    FormsModule
 
   ],
 

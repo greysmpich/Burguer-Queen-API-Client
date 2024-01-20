@@ -14,6 +14,7 @@ export class OrderSummaryComponent implements OnInit {
   orderedProducts: orderedProducts[] = [];
   private productSubscription: Subscription;
   clientName: string = '';
+  totalPrice: number = 0
 
   constructor(private orderService: OrdersService) { 
     this.productSubscription = this.orderService.getClickedProduct().subscribe(product => {
@@ -27,21 +28,20 @@ export class OrderSummaryComponent implements OnInit {
   }
 
   onProductClicked(product: productInter) {
-    // Añade el producto a la lista de productos ordenados
-    // this.orderedProducts.push({ qty: 1, product });
-    // console.log('Desde summary: PRODUCTOP AÑADIDO A LA ORDEN', this.orderedProducts);
     const existingProduct = this.orderedProducts.find(orderedProduct => orderedProduct.product?.id === product.id);
-
+    
   if (existingProduct) {
-    // El producto ya está en la lista, actualiza la cantidad
     existingProduct.qty += 1;
+    this.totalPrice += product.price * existingProduct.qty;
+
   } else {
-    // El producto no está en la lista, agrégalo
     this.orderedProducts.push({ qty: 1, product });
+    this.totalPrice += product.price 
   }
-
+ 
   console.log('Desde summary: PRODUCTO AÑADIDO A LA ORDEN', this.orderedProducts);
-
+  console.log(this.totalPrice);
+  
   }
 
   onSendOrderClick() {
@@ -54,15 +54,19 @@ export class OrderSummaryComponent implements OnInit {
       products: this.orderedProducts,
       status: 'Pending',  // Puedes establecer el estado como necesario
       dataEntry: new Date(),
-      id: 0  // Puedes establecer un valor inicial para el ID
+      id: 0,  // Puedes establecer un valor inicial para el ID
+      total: this.totalPrice,
     };
 
     this.orderService.postOrder(order).subscribe((response => {
       console.log('Orden enviada exitosamente', response);
+      this.orderedProducts =  [];
+     // this.orderService.clearInput()
+      this.totalPrice = 0; 
     }),
     );
 
-    this.orderedProducts =  [];
+  
   }
 
   ngOnDestroy() {
