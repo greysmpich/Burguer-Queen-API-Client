@@ -28,8 +28,20 @@ export class OrderSummaryComponent implements OnInit {
 
   onProductClicked(product: productInter) {
     // Añade el producto a la lista de productos ordenados
+    // this.orderedProducts.push({ qty: 1, product });
+    // console.log('Desde summary: PRODUCTOP AÑADIDO A LA ORDEN', this.orderedProducts);
+    const existingProduct = this.orderedProducts.find(orderedProduct => orderedProduct.product?.id === product.id);
+
+  if (existingProduct) {
+    // El producto ya está en la lista, actualiza la cantidad
+    existingProduct.qty += 1;
+  } else {
+    // El producto no está en la lista, agrégalo
     this.orderedProducts.push({ qty: 1, product });
-    console.log('Desde summary: PRODUCTOP AÑADIDO A LA ORDEN', this.orderedProducts);
+  }
+
+  console.log('Desde summary: PRODUCTO AÑADIDO A LA ORDEN', this.orderedProducts);
+
   }
 
   onSendOrderClick() {
