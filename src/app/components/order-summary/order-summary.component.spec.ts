@@ -11,7 +11,7 @@ describe('OrderSummaryComponent', () => {
   let component: OrderSummaryComponent;
   let fixture: ComponentFixture<OrderSummaryComponent>;
   let httpTestingController: HttpTestingController;
-  let orderService: OrdersService
+  let ordersService: OrdersService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -24,7 +24,7 @@ describe('OrderSummaryComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(OrderSummaryComponent);
     component = fixture.componentInstance;
-    orderService = TestBed.inject(OrdersService);
+    ordersService = TestBed.inject(OrdersService);
     httpTestingController = TestBed.inject(HttpTestingController);
     fixture.detectChanges();
   });

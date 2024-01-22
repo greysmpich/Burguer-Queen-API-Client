@@ -18,13 +18,13 @@ export class OrderSummaryComponent implements OnInit {
   totalPrice: number = 0
 
 
-  constructor(private orderService: OrdersService) { 
-    this.productSubscription = this.orderService.getClickedProduct().subscribe(product => {
+  constructor(private ordersService: OrdersService) { 
+    this.productSubscription = this.ordersService.getClickedProduct().subscribe(product => {
       if(product) {
         this.onProductClicked(product)
       }
     })
-    this.clientNameSubscription = this.orderService.clientName$.subscribe(value => {
+    this.clientNameSubscription = this.ordersService.clientName$.subscribe(value => {
       this.clientName = value;
     });
   }
@@ -58,9 +58,9 @@ export class OrderSummaryComponent implements OnInit {
       total: this.totalPrice,
     };
 
-    this.orderService.postOrder(order).subscribe((response => {
+    this.ordersService.postOrder(order).subscribe((response => {
       console.log('Orden enviada exitosamente', response);
-      this.orderService.setClientName('')
+      this.ordersService.setClientName('')
       this.orderedProducts =  [];
       this.totalPrice = 0; 
     }),

@@ -8,7 +8,7 @@ import { OrdersService } from 'src/app/services/orders/orders.service';
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
-  let orderService: OrdersService;
+  let ordersService: OrdersService;
 
   beforeEach(async () => {
 
@@ -22,7 +22,7 @@ describe('ProductsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProductsComponent);
     component = fixture.componentInstance;
-    orderService = TestBed.inject(OrdersService) as jasmine.SpyObj<OrdersService>;
+    ordersService = TestBed.inject(OrdersService) as jasmine.SpyObj<OrdersService>;
     fixture.detectChanges();
   });
 
@@ -35,11 +35,11 @@ describe('ProductsComponent', () => {
     component.product = mockProduct;
     
     const emitSpy = spyOn(component.productClicked, 'emit');
-    const orderServiceSpy = spyOn(orderService, 'setClickedProduct');
+    const ordersServiceSpy = spyOn(ordersService, 'setClickedProduct');
 
     component.onProductClick();
 
     expect(emitSpy).toHaveBeenCalledWith(mockProduct);
-    expect(orderServiceSpy).toHaveBeenCalledWith(mockProduct);
+    expect(ordersServiceSpy).toHaveBeenCalledWith(mockProduct);
   });
 });
