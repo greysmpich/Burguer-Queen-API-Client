@@ -18,6 +18,7 @@ import { ClientNameInputComponent } from './components/client-name-input/client-
 import { SendOrderButtonComponent } from './components/send-order-button/send-order-button.component';
 import { KitchenComponent } from './views/kitchen/kitchen.component';
 import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,6 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatDialogModule, 
     FormsModule
-
   ],
 
   bootstrap: [AppComponent]
