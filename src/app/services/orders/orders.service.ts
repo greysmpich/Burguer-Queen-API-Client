@@ -21,9 +21,8 @@ export class OrdersService {
   })
 
   private clickedProductSubject = new BehaviorSubject<productInter | null>(null);
-  private clientNameSource = new BehaviorSubject<string>('');
-  
-//   clearInputSubject: BehaviorSubject<void> = new BehaviorSubject<void>(undefined);
+  clientNameSource = new BehaviorSubject<string>('');
+  clientName$ = this.clientNameSource.asObservable();
 
   breakfastMenu: productInter[] = [];
   lunchAndDinnerMenu: productInter[] = [];
@@ -65,10 +64,6 @@ export class OrdersService {
     this.clientNameSource.next(value);
   }
 
-  getClientName(): Observable<string | ''> {
-    return this.clientNameSource.asObservable();
-  }
-
   getOrders(): Observable<Order[]>{
       return this.http.get<Order[]>(`${this.URL_ORDERS}`, {headers: this.headers})
     }
@@ -76,12 +71,4 @@ export class OrdersService {
   deletOrders(orderId: number): Observable<void> {
     return this.http.delete<void>(`${this.URL_ORDERS}/${orderId}`, { headers: this.headers })
   }
-  
-  // clearInput() {
-  //   this.clearInputSubject.next();
-  //   console.log('limpio');
-    
-  // }
-
-
 }

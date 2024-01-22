@@ -10,6 +10,9 @@
     height: 89%;
     overflow-x: auto;
 }
+.deleteButton {
+width: 22px;
+}
 
 table{
     width: 100%;

@@ -13,8 +13,10 @@ export class OrderSummaryComponent implements OnInit {
   @Input() product: productInter | undefined;
   orderedProducts: orderedProducts[] = [];
   private productSubscription: Subscription;
+  private clientNameSubscription: Subscription;
   clientName: string = '';
   totalPrice: number = 0
+
 
   constructor(private orderService: OrdersService) { 
     this.productSubscription = this.orderService.getClickedProduct().subscribe(product => {
@@ -22,17 +24,19 @@ export class OrderSummaryComponent implements OnInit {
         this.onProductClicked(product)
       }
     })
+    this.clientNameSubscription = this.orderService.clientName$.subscribe(value => {
+      this.clientName = value;
+    });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onProductClicked(product: productInter) {
     const existingProduct = this.orderedProducts.find(orderedProduct => orderedProduct.product?.id === product.id);
     
   if (existingProduct) {
     existingProduct.qty += 1;
-    this.totalPrice += product.price * existingProduct.qty;
+    this.totalPrice += product.price 
 
   } else {
     this.orderedProducts.push({ qty: 1, product });
@@ -45,31 +49,45 @@ export class OrderSummaryComponent implements OnInit {
   }
 
   onSendOrderClick() {
-    this.orderService.getClientName().subscribe(value => {
-      this.clientName = value;
-    })
-    // Envía la orden a la API
     const order: Order = {
       client: this.clientName, 
       products: this.orderedProducts,
-      status: 'Pending',  // Puedes establecer el estado como necesario
+      status: 'Pending', 
       dataEntry: new Date(),
-      id: 0,  // Puedes establecer un valor inicial para el ID
+      id: 0, 
       total: this.totalPrice,
     };
 
     this.orderService.postOrder(order).subscribe((response => {
       console.log('Orden enviada exitosamente', response);
+      this.orderService.setClientName('')
       this.orderedProducts =  [];
-     // this.orderService.clearInput()
       this.totalPrice = 0; 
     }),
     );
-
-  
   }
+
+  // deleteProduct(id: number | undefined) {
+  //   const productID = id
+  // this.orderedProducts.indexOf(productID)
+  // }
+
+deleteProduct(product: orderedProducts) {
+ const indexProduct = this.orderedProducts.indexOf(product)
+console.log(indexProduct, ' index');
+if (product.qty > 1 && product.product?.price) {
+product.qty -= 1
+this.totalPrice -= product.product?.price
+}
+else if (product.qty === 1 && product.product?.price) {
+  this.orderedProducts.splice(indexProduct, 1)
+  this.totalPrice -= product.product?.price
+}
+}
+
 
   ngOnDestroy() {
     this.productSubscription.unsubscribe();
+    this.clientNameSubscription.unsubscribe()
   }
 }
