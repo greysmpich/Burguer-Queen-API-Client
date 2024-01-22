@@ -1,4 +1,4 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersService } from './orders.service';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -38,7 +38,7 @@ describe('OrderService', () => {
   service.getProducts().subscribe(products => {
       expect(products).toEqual(mockProducts);
     });
-    const req = httpTestingController.expectOne('https://burguer-queen-api-bqac1.onrender.com/products');
+    const req = httpTestingController.expectOne('https://api-burguer-queen-bqac1.onrender.com/products');
     expect(req.request.method).toEqual('GET');
     req.flush(mockProducts);
   });
@@ -81,8 +81,25 @@ describe('OrderService', () => {
     });
     const req = httpTestingController.expectOne(mockUrl);
     req.error(new ErrorEvent('Network error'), { status: 404, statusText: 'Not Found' });
-
   });
-  
+  it('should delete an order correctly', fakeAsync(() => {
+    const orderIdToDelete = 123;
+    service.deleteOrders(orderIdToDelete).subscribe(() => {});
+    const expectedUrl = `https://api-burguer-queen-bqac1.onrender.com/orders/${orderIdToDelete}`; 
+    const req = httpTestingController.expectOne(expectedUrl);
+    expect(req.request.method).toEqual('DELETE');
+    req.flush(null);
+    tick();
+  }));
+  it('debería actualizar el producto clickeado correctamente', () => {
+    service.setClickedProduct(mockProducts[0]);
+
+    let clickedProduct: any;
+    service.getClickedProduct().subscribe(product => {
+      clickedProduct = product;
+    });
+
+    expect(clickedProduct).toEqual(mockProducts[0]);
+  });
 });
 

@@ -17,7 +17,7 @@ ordersList: Order[] = [];
         this.ordersList = resp
        console.log(this.ordersList);
       //  this.ordersList.forEach(order => {
-      //   this.ordersService.deletOrders(order.id).subscribe(result => {
+      //   this.ordersService.deleteOrders(order.id).subscribe(result => {
       //    console.log(result);
       //   })
       // })
