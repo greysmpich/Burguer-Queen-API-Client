@@ -8,12 +8,14 @@
 
 .products-ordered{
     height: 89%;
+    overflow-x: auto;
 }
 
 table{
     width: 100%;
     font-size: 30px;
     font-family: 'Patrick Hand', cursive;
+    text-align: center;
 }
 
 .total{

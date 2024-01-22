@@ -6,6 +6,7 @@ export interface Order {
     status: string,
     dataEntry: Date,
     id: number
+    total: number
   }
 
 export interface orderedProducts {

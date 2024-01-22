@@ -3,14 +3,14 @@
 <table>
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Number</th>
             <th>Product</th>
             <th>Price</th>
         </tr>
     </thead>
    <tbody>
     <tr *ngFor="let orderedProduct of orderedProducts">
-        <td>{{ orderedProduct.product?.id}}</td>
+        <td>x{{ orderedProduct.qty}}</td>
         <td>{{ orderedProduct.product?.name }}</td>
         <td>{{ orderedProduct.product?.price }}</td>
     </tr>
@@ -19,7 +19,7 @@
 </div>
 <div class="total">
     <p class="total-label"> Total: </p>
-    <p class="total-sum"> $ 0.00 </p>
+    <p class="total-sum"> $ {{totalPrice}} </p>
 </div>
 </div>
 <app-send-order-button (sendOrder)="onSendOrderClick()"></app-send-order-button>
