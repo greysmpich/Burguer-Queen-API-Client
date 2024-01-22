@@ -15,7 +15,7 @@ ordersList: Order[] = [];
   ngOnInit(): void {
       this.ordersService.getOrders().subscribe((resp => {
         this.ordersList = resp
-       console.log(this.ordersList);
+       //console.log(this.ordersList);
       //  this.ordersList.forEach(order => {
       //   this.ordersService.deleteOrders(order.id).subscribe(result => {
       //    console.log(result);

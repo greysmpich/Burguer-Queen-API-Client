@@ -15,7 +15,7 @@ const mockProducts: productInter[] = [
   { id: 7, name:'Product 7', price:7, image:'img', type: 'Lunch', dateEntry: '2022-03-05 15:14:10' }
 ];
 
-describe('OrderService', () => {
+describe('OrdersService', () => {
   let service: OrdersService ;
   let httpTestingController: HttpTestingController;
   beforeEach(() => {

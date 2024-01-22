@@ -8,10 +8,10 @@ import { OrdersService } from 'src/app/services/orders/orders.service';
 export class SendOrderButtonComponent implements OnInit {
   @Output() sendOrder = new EventEmitter<void>();
 
-  constructor(private orderService: OrdersService) { }
+  constructor(private ordersService: OrdersService) { }
 
   ngOnInit(): void {
-    // this.orderService.clearInputSubject.subscribe(() => {
+    // this.ordersService.clearInputSubject.subscribe(() => {
     //   console.log('Limpiando el input...');
     // });
   }
@@ -19,7 +19,7 @@ export class SendOrderButtonComponent implements OnInit {
   onClick(){
     console.log('Desde el botón ENVIAR ORDEN');
     this.sendOrder.emit()
-    //this.orderService.clearInput();
+    //this.ordersService.clearInput();
   }
 
 }

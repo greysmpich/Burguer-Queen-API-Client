@@ -2,18 +2,20 @@ import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testin
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { OrderSummaryComponent } from './order-summary.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { OrdersService } from 'src/app/services/orders/orders.service';
-//import { of } from 'rxjs';
 import { Order } from 'src/app/shared/interfaces/order';
+import { SendOrderButtonComponent } from '../send-order-button/send-order-button.component';
+import { productInter } from 'src/app/shared/interfaces/product';
+import { OrdersService } from 'src/app/services/orders/orders.service';
+
 describe('OrderSummaryComponent', () => {
   let component: OrderSummaryComponent;
   let fixture: ComponentFixture<OrderSummaryComponent>;
-  let orderService: OrdersService;
   let httpTestingController: HttpTestingController;
+  let ordersService: OrdersService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [OrderSummaryComponent],
+      declarations: [OrderSummaryComponent, SendOrderButtonComponent],
       imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [OrdersService],
     }).compileComponents();
@@ -22,7 +24,7 @@ describe('OrderSummaryComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(OrderSummaryComponent);
     component = fixture.componentInstance;
-    orderService = TestBed.inject(OrdersService);
+    ordersService = TestBed.inject(OrdersService);
     httpTestingController = TestBed.inject(HttpTestingController);
     fixture.detectChanges();
   });
@@ -104,10 +106,34 @@ describe('OrderSummaryComponent', () => {
     // Simular una respuesta exitosa del servidor
     req.flush({orden});
 
-    // Esperar a que se resuelva la promesa de la suscripción
     tick();
     expect(component.clientName).toBe('');
     expect(component.orderedProducts.length).toBe(0);
     expect(component.totalPrice).toBe(0);
   }));
+
+  it('should increase quantity and total price for existing product in orderedProducts array', () => {
+    const product = {id:1, price:326} as productInter;
+    component.orderedProducts = [{ qty:1, product }];
+    component.totalPrice = 326;
+
+    component.onProductClicked(product);
+  
+    expect(component.orderedProducts.length).toBe(1);
+    expect(component.orderedProducts[0].qty).toBe(2);
+    expect(component.totalPrice).toBe(652);
+  });
+
+  it('should add a new products and increase total price if the clicked product is not an existing product in orderedProducts array', () => {
+    const product = {id:1, price:326} as productInter;
+    const newProduct = {id:5, price:200} as productInter;
+
+    component.orderedProducts = [{ qty:1, product }];
+    component.totalPrice = 326;
+
+    component.onProductClicked(newProduct);
+  
+    expect(component.orderedProducts.length).toBe(2);
+    expect(component.totalPrice).toBe(526);
+  });
 });

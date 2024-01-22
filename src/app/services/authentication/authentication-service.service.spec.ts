@@ -36,7 +36,7 @@ describe('AuthenticationServiceService', () => {
   it('should mock the setUserRole function', inject([AuthenticationServiceService], (service: AuthenticationServiceService) => {
     const userInfo = { email: 'test@example.com', role: 'user', id: 1 };
     service.setUserRole(userInfo.role);
-    // Assert
+
     const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
     expect(storedUser).toEqual(userInfo.role);
   }));
@@ -62,6 +62,7 @@ describe('AuthenticationServiceService', () => {
     const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
     expect(storedUser).toEqual({});
    }));
+
   it('should redirect to /waiter if user role is waiter', inject([AuthenticationServiceService], (service: AuthenticationServiceService) => {
      spyOn(service, 'getUserRole').and.returnValue('waiter');
      const navigateSpy = spyOn(router, 'navigate');
@@ -69,10 +70,11 @@ describe('AuthenticationServiceService', () => {
      expect(navigateSpy).toHaveBeenCalledWith(['/waiter']);
    }));
   
-  //  it('should get token ', inject([AuthenticationServiceService], (service: AuthenticationServiceService) => {
-  //   const token = '012024';
-  //   const tokenService = service.getToken(token);
-  //   expect(tokenService).toEqual(token);
-  // }));
+   it('should redirect to /kitchen if user role is chef', inject([AuthenticationServiceService], (service: AuthenticationServiceService) => {
+    spyOn(service, 'getUserRole').and.returnValue('chef');
+    const navigateSpy = spyOn(router, 'navigate');
+    service.redirectToRoleSpecificScreen();
+    expect(navigateSpy).toHaveBeenCalledWith(['/kitchen']);
+  }));
  
 });
