@@ -6,6 +6,7 @@
             <th>Number</th>
             <th>Product</th>
             <th>Price</th>
+            <th></th>
         </tr>
     </thead>
    <tbody>
@@ -13,6 +14,7 @@
         <td>x{{ orderedProduct.qty}}</td>
         <td>{{ orderedProduct.product?.name }}</td>
         <td>{{ orderedProduct.product?.price }}</td>
+        <td><img src="../../../assets/images/dark-gray-delete.png" class="deleteButton" (click)="deleteProduct(orderedProduct)"></td>
     </tr>
    </tbody>
 </table>

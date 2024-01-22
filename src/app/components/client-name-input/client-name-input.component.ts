@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 //import { NgModel } from '@angular/forms';
 @Component({
@@ -7,14 +7,16 @@ import { OrdersService } from 'src/app/services/orders/orders.service';
   styleUrls: ['./client-name-input.component.css']
 })
 export class ClientNameInputComponent implements OnInit {
-  //clientName: string = '';
+ clientName: string = '';
   constructor(private ordersService: OrdersService) { }
 
   ngOnInit(): void {
+    this.ordersService.clientName$.subscribe(clientName => {
+      this.clientName = clientName;
+    });
   }
 
   updateClientNameinService(value:string){
-    this.ordersService.setClientName(value);
-   //this.ordersService.clearInput()
+   this.ordersService.setClientName(value);
   }
 }

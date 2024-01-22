@@ -1,3 +1,1 @@
-<!-- <input [(ngModel)]="clientName" #clientNameInput placeholder="Enter client name"> -->
- <!--(input)="updateClientNameinService(clientNameInput.value)"--> 
- <input (input)="updateClientNameinService(clientNameInput.value)" #clientNameInput placeholder="Enter client name"> 
+ <input (input)="updateClientNameinService(clientNameInput.value)" [ngModel]="clientName" #clientNameInput placeholder="Enter client name"> 
