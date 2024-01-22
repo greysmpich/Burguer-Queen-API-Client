@@ -1,14 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { OrderSummaryComponent } from './order-summary.component';
-
+import { RouterTestingModule } from '@angular/router/testing';
 describe('OrderSummaryComponent', () => {
   let component: OrderSummaryComponent;
   let fixture: ComponentFixture<OrderSummaryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrderSummaryComponent ]
+      declarations: [ OrderSummaryComponent ],
+      imports: [HttpClientTestingModule, RouterTestingModule]
     })
     .compileComponents();
   });

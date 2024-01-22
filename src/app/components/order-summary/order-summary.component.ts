@@ -67,11 +67,6 @@ export class OrderSummaryComponent implements OnInit {
     );
   }
 
-  // deleteProduct(id: number | undefined) {
-  //   const productID = id
-  // this.orderedProducts.indexOf(productID)
-  // }
-
 deleteProduct(product: orderedProducts) {
  const indexProduct = this.orderedProducts.indexOf(product)
 console.log(indexProduct, ' index');
