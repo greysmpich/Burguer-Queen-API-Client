@@ -68,7 +68,7 @@ export class OrdersService {
       return this.http.get<Order[]>(`${this.URL_ORDERS}`, {headers: this.headers})
     }
 
-  deletOrders(orderId: number): Observable<void> {
+  deleteOrders(orderId: number): Observable<void> {
     return this.http.delete<void>(`${this.URL_ORDERS}/${orderId}`, { headers: this.headers })
   }
 }
