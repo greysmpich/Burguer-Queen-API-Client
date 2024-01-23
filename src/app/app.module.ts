@@ -18,6 +18,8 @@ import { ClientNameInputComponent } from './components/client-name-input/client-
 import { SendOrderButtonComponent } from './components/send-order-button/send-order-button.component';
 import { KitchenComponent } from './views/kitchen/kitchen.component';
 import { FormsModule } from '@angular/forms';
+import { OrdersComponent } from './components/orders/orders.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { FormsModule } from '@angular/forms';
     ClientNameInputComponent,
     SendOrderButtonComponent,
     KitchenComponent,
+    OrdersComponent,
+    OrderDetailsComponent,
   ],
   imports: [
     BrowserModule,

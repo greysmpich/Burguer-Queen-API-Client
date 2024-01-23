@@ -1,0 +1,19 @@
+.orders-container{
+    height: 400px;
+    width: 100%;
+     gap: 20px;
+    border: 2px solid white;
+    border-radius: 15px;
+    font-family: 'Patrick Hand', cursive;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    padding: 25px 0px 25px 15px ;
+    overflow-y: scroll;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.order{
+    background-color: #D9D9D9;
+}
