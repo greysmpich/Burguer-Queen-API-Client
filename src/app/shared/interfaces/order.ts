@@ -8,7 +8,7 @@ export interface Order {
     dataEntry: Date,
     id: number,
     total: number,
-    //elapsedTime?: number; 
+    elapsedTime?: number; 
   }
 
 export interface orderedProducts {

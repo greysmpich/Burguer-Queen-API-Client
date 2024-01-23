@@ -1,4 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
+import { KitchenServiceService } from 'src/app/services/kitchen-service.service';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { Order } from 'src/app/shared/interfaces/order';
 
@@ -9,8 +10,7 @@ import { Order } from 'src/app/shared/interfaces/order';
 })
 export class OrdersComponent implements OnInit {
  orderList: Order[] = [];
- 
-  constructor(private ordersService: OrdersService) { }
+  constructor(private ordersService: OrdersService, private kitchenService: KitchenServiceService) { }
 
   ngOnInit(): void {
     this.ordersService.getOrders().subscribe((resp => {
@@ -25,5 +25,10 @@ export class OrdersComponent implements OnInit {
         })
     );
   }
+  
+  onOrderClick(order: Order):void {
+ this.kitchenService.setOrderKitchen(order)
+  console.log('Desde el order kitchen', order);
+}
 
 }

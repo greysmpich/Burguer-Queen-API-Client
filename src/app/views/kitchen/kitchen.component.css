@@ -31,4 +31,8 @@ app-orders {
     overflow-y: auto;
    
 }
-    
+app-order-details {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}

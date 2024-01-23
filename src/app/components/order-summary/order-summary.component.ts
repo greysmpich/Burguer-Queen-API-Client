@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { productInter } from 'src/app/shared/interfaces/product';
 import { Order, orderedProducts } from 'src/app/shared/interfaces/order';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-order-summary',
@@ -16,7 +16,6 @@ export class OrderSummaryComponent implements OnInit {
   private clientNameSubscription: Subscription;
   clientName: string = '';
   totalPrice: number = 0
-
 
   constructor(private ordersService: OrdersService) { 
     this.productSubscription = this.ordersService.getClickedProduct().subscribe(product => {
@@ -57,28 +56,18 @@ export class OrderSummaryComponent implements OnInit {
       dataEntry: new Date(),
       id: 0, 
       total: this.totalPrice,
+      elapsedTime: 0
     };
-
+    
     this.ordersService.postOrder(order).subscribe((response => {
       console.log('Orden enviada exitosamente', response);
       this.ordersService.setClientName('')
       this.orderedProducts =  [];
       this.totalPrice = 0; 
-    }),
-    );
-    // setInterval(() => {
-    //   order.elapsedTime = this.calculateElapsedTime(order.dataEntry);
-    // }, 1000);
+
+    }),);
   }
 
-// calculateElapsedTime(dataEntry: Date): number {
-//     const currentTime = new Date();
-//     const entryTime = new Date(dataEntry);
-//     const elapsedMilliseconds = currentTime.getTime() - entryTime.getTime();
-//     const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
-//    // console.log(elapsedSeconds);
-//     return elapsedSeconds;
-//   }
 
 deleteProduct(product: orderedProducts) {
  const indexProduct = this.orderedProducts.indexOf(product)
@@ -92,8 +81,6 @@ else if (product.qty === 1 && product.product?.price) {
   this.totalPrice -= product.product?.price
 }
 }
-
-
   ngOnDestroy() {
     this.productSubscription.unsubscribe();
     this.clientNameSubscription.unsubscribe()
