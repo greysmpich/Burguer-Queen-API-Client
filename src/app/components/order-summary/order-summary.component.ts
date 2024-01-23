@@ -49,6 +49,7 @@ export class OrderSummaryComponent implements OnInit {
   }
 
   onSendOrderClick() {
+  
     const order: Order = {
       client: this.clientName, 
       products: this.orderedProducts,
@@ -65,7 +66,19 @@ export class OrderSummaryComponent implements OnInit {
       this.totalPrice = 0; 
     }),
     );
+    // setInterval(() => {
+    //   order.elapsedTime = this.calculateElapsedTime(order.dataEntry);
+    // }, 1000);
   }
+
+// calculateElapsedTime(dataEntry: Date): number {
+//     const currentTime = new Date();
+//     const entryTime = new Date(dataEntry);
+//     const elapsedMilliseconds = currentTime.getTime() - entryTime.getTime();
+//     const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
+//    // console.log(elapsedSeconds);
+//     return elapsedSeconds;
+//   }
 
 deleteProduct(product: orderedProducts) {
  const indexProduct = this.orderedProducts.indexOf(product)

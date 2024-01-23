@@ -1,3 +1,4 @@
+import { Time } from "@angular/common"
 import { productInter } from "./product"
 
 export interface Order {
@@ -5,8 +6,9 @@ export interface Order {
     products: orderedProducts[],
     status: string,
     dataEntry: Date,
-    id: number
-    total: number
+    id: number,
+    total: number,
+    //elapsedTime?: number; 
   }
 
 export interface orderedProducts {
