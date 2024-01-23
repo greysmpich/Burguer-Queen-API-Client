@@ -1,11 +1,9 @@
-<div class="orders-container">
-    <div class="order" *ngFor="let order of orderList" >
+    <div class="order" *ngFor="let order of orderList" (click)="onOrderClick(order)">
         <div class="name-time">
             <h2 class="client-name">{{order.client}}</h2>
-            <p class="time"></p>
+            <p class="time">1000</p>
         </div>
         <div class="order-status">
             <h2 class="status">{{order.status}}</h2>
         </div>
     </div>
-</div>

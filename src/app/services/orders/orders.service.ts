@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthenticationServiceService } from '../authentication/authentication-service.service';
 import { map, catchError } from 'rxjs/operators';
@@ -21,6 +21,7 @@ export class OrdersService {
   })
 
   private clickedProductSubject = new BehaviorSubject<productInter | null>(null);
+  
   clientNameSource = new BehaviorSubject<string>('');
   clientName$ = this.clientNameSource.asObservable();
 
@@ -48,10 +49,10 @@ export class OrdersService {
     );
   }
 
-  postOrder(order: object): Observable<Order>{
+  postOrder(order: object): Observable<Order>{;
      return this.http.post<Order>(this.URL_ORDERS, order, {headers: this.headers})
    }
-  
+
    setClickedProduct(product: productInter): void {
     this.clickedProductSubject.next(product);
   }
@@ -71,4 +72,15 @@ export class OrdersService {
   deleteOrders(orderId: number): Observable<void> {
     return this.http.delete<void>(`${this.URL_ORDERS}/${orderId}`, { headers: this.headers })
   }
+  
+  // calculateElapsedTime(dataEntry: Date): number {
+  //   const currentTime = new Date();
+  //   const entryTime = new Date(dataEntry);
+  //   const elapsedMilliseconds = currentTime.getTime() - entryTime.getTime();
+  //   const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
+  //   return elapsedSeconds;
+  // }
+
+
+
 }

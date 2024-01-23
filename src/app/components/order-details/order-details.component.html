@@ -1,3 +1,11 @@
 <div class="order-details-container">
-   <div></div>
+   <div class='orderedProducts' *ngIf="showOrder && showOrder.products.length > 0">
+    <h3>Ordered Products</h3>
+      <ul>
+        <li *ngFor="let product of showOrder.products">
+          {{ product.product?.name }} - Quantity: {{ product.qty }}
+        </li>
+      </ul>
 </div>
+</div>
+<app-button-done-kitchen></app-button-done-kitchen>

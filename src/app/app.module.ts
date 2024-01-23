@@ -20,6 +20,7 @@ import { KitchenComponent } from './views/kitchen/kitchen.component';
 import { FormsModule } from '@angular/forms';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { ButtonDoneKitchenComponent } from './components/button-done-kitchen/button-done-kitchen.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     KitchenComponent,
     OrdersComponent,
     OrderDetailsComponent,
+    ButtonDoneKitchenComponent,
   ],
   imports: [
     BrowserModule,
