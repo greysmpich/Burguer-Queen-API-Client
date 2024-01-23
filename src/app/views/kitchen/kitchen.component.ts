@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { Order } from 'src/app/shared/interfaces/order';
 
@@ -8,21 +8,23 @@ import { Order } from 'src/app/shared/interfaces/order';
   styleUrls: ['./kitchen.component.css']
 })
 export class KitchenComponent implements OnInit {
-ordersList: Order[] = [];
+@Input() ordersList: Order[] = [];
+//order: Order;
 
-  constructor(private ordersService: OrdersService) { }
+  constructor() { }
 
   ngOnInit(): void {
-      this.ordersService.getOrders().subscribe((resp => {
-        this.ordersList = resp
-       //console.log(this.ordersList);
-      //  this.ordersList.forEach(order => {
-      //   this.ordersService.deleteOrders(order.id).subscribe(result => {
-      //    console.log(result);
-      //   })
-      // })
-          })
-      );
+      // this.ordersService.getOrders().subscribe((resp => {
+      //   this.ordersList = resp;
+      //   //this.order = resp.order
+      //  console.log(this.ordersList);
+      // //  this.ordersList.forEach(order => {
+      // //   this.ordersService.deleteOrders(order.id).subscribe(result => {
+      // //    console.log(result);
+      // //   })
+      // // })
+      //     })
+      // );
 
 
     }

@@ -1,0 +1,11 @@
+<div class="orders-container">
+    <div class="order" *ngFor="let order of orderList" >
+        <div class="name-time">
+            <h2 class="client-name">{{order.client}}</h2>
+            <p class="time"></p>
+        </div>
+        <div class="order-status">
+            <h2 class="status">{{order.status}}</h2>
+        </div>
+    </div>
+</div>
