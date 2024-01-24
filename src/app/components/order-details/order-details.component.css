@@ -30,3 +30,10 @@ width: 100%;
 text-align: center;
 background-color: #FFAF74;
 }
+
+.noOrderSelected {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 30px; 
+    display: flex;
+    place-content: center;
+}
