@@ -1,4 +1,3 @@
-import { Time } from "@angular/common"
 import { productInter } from "./product"
 
 export interface Order {
