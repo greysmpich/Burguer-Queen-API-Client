@@ -18,8 +18,8 @@ export class KitchenServiceService {
     this.clickedOrderSubject.next(order)
     }
 
-  calculateElapsedTime(dataEntry: Date): string {
-    const currentTime = new Date();
+  calculateElapsedTime(dataEntry: Date, currentTime: Date): string {
+    // const currentTime = new Date();
     const entryTime = new Date(dataEntry);
     const elapsedMilliseconds = currentTime.getTime() - entryTime.getTime();
     const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
