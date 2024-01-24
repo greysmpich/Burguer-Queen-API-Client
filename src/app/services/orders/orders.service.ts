@@ -75,21 +75,17 @@ export class OrdersService {
     return this.http.delete<void>(`${this.URL_ORDERS}/${orderId}`, { headers: this.headers })
   }
   
-  // calculateElapsedTime(dataEntry: Date): number {
-  //   const currentTime = new Date();
-  //   const entryTime = new Date(dataEntry);
-  //   const elapsedMilliseconds = currentTime.getTime() - entryTime.getTime();
-  //   const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
-  //   return elapsedSeconds;
-  // }
-
   updateOrderStatus(orderId: number, status: string): Observable<Order>{
     const updateData = { status }
     return this.http.patch<Order>(`${this.URL_ORDERS}/${orderId}`, updateData, { headers: this.headers })
   }
-
+  
   notifyOrderUpdated(orderId: number){
     this.orderUpdatedSubject.next(orderId);
   }
 
+  updateOrderTime(orderId: number, elapsedTime: string): Observable<Order>{
+    const updateTime = { elapsedTime }
+    return this.http.patch<Order>(`${this.URL_ORDERS}/${orderId}`, updateTime, { headers: this.headers })
+  }
 }

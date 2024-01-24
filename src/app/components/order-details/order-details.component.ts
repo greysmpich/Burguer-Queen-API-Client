@@ -3,6 +3,7 @@ import { KitchenServiceService } from 'src/app/services/kitchen/kitchen-service.
 import { Order } from 'src/app/shared/interfaces/order';
 import { Subscription } from 'rxjs';
 import { OrdersService } from 'src/app/services/orders/orders.service';
+
 @Component({
   selector: 'app-order-details',
   templateUrl: './order-details.component.html',
@@ -24,17 +25,16 @@ export class OrderDetailsComponent implements OnInit {
     if(this.showOrder){
       const orderId = this.showOrder.id;
       const newStatus = 'Delivered';
+      const finalTime = this.kitchenService.calculateElapsedTime(this.showOrder.dataEntry)
 
+      this.ordersService.updateOrderTime(orderId, finalTime).subscribe();
      this.ordersService.updateOrderStatus(orderId, newStatus).subscribe(updatedOrder => {
-      
-      console.log('Order Done', updatedOrder);
       this.ordersService.notifyOrderUpdated(updatedOrder.id)
      })
     }  
   }
 
   ngOnDestroy(): void {
-    // Desuscribirse para evitar fugas de memoria
     this.subscription.unsubscribe();
   }
 

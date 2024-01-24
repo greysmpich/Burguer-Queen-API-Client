@@ -6,9 +6,3 @@ export interface Auth {
     id: number;
   };
 }
-
-// export interface user {
-//     email: string;
-//     role: string;
-//     id: number;
-// }

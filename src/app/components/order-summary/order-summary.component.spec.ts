@@ -103,7 +103,7 @@ describe('OrderSummaryComponent', () => {
           id: 0,
           total: 20,
         };
-    // Simular una respuesta exitosa del servidor
+   
     req.flush({orden});
 
     tick();
