@@ -9,11 +9,14 @@ import { Order } from 'src/app/shared/interfaces/order';
 @Injectable({
   providedIn: 'root'
 })
+
 export class KitchenServiceService {
   private clickedOrderSubject = new BehaviorSubject<Order | null>(null);
   clickedOrder$ = this.clickedOrderSubject.asObservable();
+  
 
-  constructor() { }
+  constructor() {
+   }
   
   setOrderKitchen(order: Order) {
     this.clickedOrderSubject.next(order)
