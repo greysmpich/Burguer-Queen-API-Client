@@ -56,7 +56,6 @@ export class OrderSummaryComponent implements OnInit {
       dataEntry: new Date(),
       id: 0, 
       total: this.totalPrice,
-      elapsedTime: 0
     };
     
     this.ordersService.postOrder(order).subscribe((response => {

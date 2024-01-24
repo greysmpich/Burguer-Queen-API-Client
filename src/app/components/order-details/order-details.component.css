@@ -21,11 +21,14 @@ font-size: 30px;
 }
 ul{
 padding: 0;
-font-size: 20px;
+font-size: 25px;
+margin: 5px 0 0 0;
 }
 
 h3 {
-margin: 10px 0 0 0;
+margin: 0;
+padding: 5px 0 ;
+border-radius: 10px 10px 0 0 ;
 width: 100%;
 text-align: center;
 background-color: #FFAF74;
@@ -36,4 +39,5 @@ background-color: #FFAF74;
     font-size: 30px; 
     display: flex;
     place-content: center;
+    padding: 0 10px;
 }

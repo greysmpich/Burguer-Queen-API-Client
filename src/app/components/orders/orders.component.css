@@ -4,7 +4,7 @@
     flex-direction: row;
     padding: 0 15px;
     border-radius: 10px;
-    width: 93%;
+    width: 90%;
 }
 
 .name-time, .order-status {
@@ -16,4 +16,9 @@ display: flex;
 place-items: center;
 justify-content: flex-end;
 }
-
+    .name-time {   font-size: 20px;}
+    @media (orientation: portrait) {
+        .order {
+           width: 93%;
+            }
+    }
