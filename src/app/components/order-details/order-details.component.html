@@ -1,5 +1,5 @@
 <div class="order-details-container">
-   <div class='orderedProducts' *ngIf="showOrder && showOrder.products.length > 0">
+   <div class='orderedProducts' *ngIf="showOrder && showOrder.products.length > 0; else noOrderSelected">
     <h3>Ordered Products</h3>
       <ul>
         <li *ngFor="let product of showOrder.products">
@@ -7,5 +7,10 @@
         </li>
       </ul>
 </div>
+<ng-template #noOrderSelected >
+  <div class="noOrderSelected">
+    <p>No order selected. Please choose an order.</p>
+  </div>
+</ng-template>
 </div>
 <app-button-done-kitchen [showOrder]="showOrder" (doneClicked)="onButtonDone()"></app-button-done-kitchen>

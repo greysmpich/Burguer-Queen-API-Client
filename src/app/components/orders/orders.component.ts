@@ -10,19 +10,23 @@ import { Order } from 'src/app/shared/interfaces/order';
 })
 export class OrdersComponent implements OnInit {
   orderList: Order[] = [];
-
-  constructor(private ordersService: OrdersService, private kitchenService: KitchenServiceService) { }
-
-  ngOnInit(): void {
+  selectedOrderIndex: Order | null = null;
+  constructor(private ordersService: OrdersService, private kitchenService: KitchenServiceService) { 
     this.loadOrdersList();
     this.ordersService.orderUpdated$.subscribe(() => {
       this.loadOrdersList();
     })
+  }
+
+  ngOnInit(): void {
+   
 
   }
 
   loadOrdersList() {
     this.ordersService.getOrders().subscribe((resp => {
+      console.log('get order list ', resp);
+      
       this.orderList = resp;
       //this.order = resp.order
       this.sortOrderByStatus();
@@ -37,6 +41,7 @@ export class OrdersComponent implements OnInit {
   }
 
   onOrderClick(order: Order): void {
+    this.selectedOrderIndex = order;
     this.kitchenService.setOrderKitchen(order)
     console.log('Desde el order kitchen', order);
   }

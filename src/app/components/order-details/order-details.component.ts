@@ -14,8 +14,7 @@ export class OrderDetailsComponent implements OnInit {
 
   constructor(private kitchenService: KitchenServiceService, private ordersService: OrdersService) {
     this.subscription = this.kitchenService.clickedOrder$.subscribe(resp => {
-      this.showOrder = resp;
-      console.log(this.showOrder, ' show order');
+      this.showOrder = resp;      console.log(this.showOrder, ' show order');
     });
   }
   ngOnInit(): void {
