@@ -48,10 +48,10 @@ export class OrdersComponent implements OnInit {
 
 
   statusStyle(status: string): object {
-    if (status === 'Delivered') {
+    if (status === 'Delivering') {
       return { color: '#3BBA26' };
-    }
-    return { color: '#EE6A09' }
+    } 
+    return status === 'Pending' ? { color: '#EE6A09' } : { color: '#3BBA26' };
   }
 
   sortOrderByStatus() {
@@ -59,7 +59,7 @@ export class OrdersComponent implements OnInit {
       if (a.status === b.status) {
         return 0
       }
-      return a.status === 'Delivered' ? 1 : -1
+      return a.status === 'Delivering' ? 1 : -1
     })
   }
 }

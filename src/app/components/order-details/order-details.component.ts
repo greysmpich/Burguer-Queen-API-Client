@@ -24,7 +24,7 @@ export class OrderDetailsComponent implements OnInit {
   onButtonDone(){
     if(this.showOrder){
       const orderId = this.showOrder.id;
-      const newStatus = 'Delivered';
+      const newStatus = 'Delivering';
       const finalTime = this.kitchenService.calculateElapsedTime(this.showOrder.dataEntry)
 
       this.ordersService.updateOrderTime(orderId, finalTime).subscribe();
