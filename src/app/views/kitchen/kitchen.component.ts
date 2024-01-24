@@ -9,25 +9,8 @@ import { Order } from 'src/app/shared/interfaces/order';
 })
 export class KitchenComponent implements OnInit {
 @Input() ordersList: Order[] = [];
-//order: Order;
-
   constructor() { }
-
-  ngOnInit(): void {
-      // this.ordersService.getOrders().subscribe((resp => {
-      //   this.ordersList = resp;
-      //   //this.order = resp.order
-      //  console.log(this.ordersList);
-      // //  this.ordersList.forEach(order => {
-      // //   this.ordersService.deleteOrders(order.id).subscribe(result => {
-      // //    console.log(result);
-      // //   })
-      // // })
-      //     })
-      // );
-
-
-    }
+  ngOnInit(): void {}
 
 
 }

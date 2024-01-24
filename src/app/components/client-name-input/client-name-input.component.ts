@@ -1,6 +1,6 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
-//import { NgModel } from '@angular/forms';
+
 @Component({
   selector: 'app-client-name-input',
   templateUrl: './client-name-input.component.html',
@@ -15,7 +15,7 @@ export class ClientNameInputComponent implements OnInit {
       this.clientName = clientName;
     });
   }
-
+  
   updateClientNameinService(value:string){
    this.ordersService.setClientName(value);
   }
