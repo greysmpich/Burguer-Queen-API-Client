@@ -1,17 +1,8 @@
-import {
-  ComponentFixture,
-  TestBed,
-  fakeAsync,
-  tick,
-  waitForAsync,
-} from '@angular/core/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentFixture, TestBed, ComponentFixture,TestBed, fakeAsync, tick, waitForAsync, } from '@angular/core/testing';
 import { OrdersComponent } from './orders.component';
 import { OrdersService } from 'src/app/services/orders/orders.service';
+import { HttpClientTestingModule, HttpTestingController, } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { Order } from 'src/app/shared/interfaces/order';
 import { KitchenServiceService } from 'src/app/services/kitchen/kitchen-service.service';
 import { of } from 'rxjs';
@@ -34,6 +25,7 @@ describe('OrdersComponent', () => {
   let ordersService: OrdersService;
   let kitchenService: KitchenServiceService;
   let httpTestingController: HttpTestingController;
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [OrdersComponent],

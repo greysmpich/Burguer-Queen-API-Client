@@ -6,19 +6,9 @@ import { HeaderComponent } from 'src/app/shared/components/header/header.compone
 import { LogoutComponent } from 'src/app/components/logout/logout.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { OrdersService } from 'src/app/services/orders/orders.service';
-import { of } from 'rxjs';
-import { productInter } from 'src/app/shared/interfaces/product';
-
-const mockOrders = [
-  {
-  client: 'Client1',
-  products: [ { qty: 1,  product: {id: 5, name: 'mock product', price: 10} as productInter } ],
-  status: 'Pending',
-  dataEntry: new Date,
-  id: 1723,
-  total: 10
-}
-]
+import { OrdersComponent } from 'src/app/components/orders/orders.component';
+import { OrderDetailsComponent } from 'src/app/components/order-details/order-details.component';
+import { ButtonDoneKitchenComponent } from 'src/app/components/button-done-kitchen/button-done-kitchen.component';
 
 describe('KitchenComponent', () => {
   let component: KitchenComponent;
@@ -27,7 +17,7 @@ describe('KitchenComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ KitchenComponent, HeaderComponent, LogoutComponent],
+      declarations: [ KitchenComponent, HeaderComponent, LogoutComponent, OrdersComponent, OrderDetailsComponent, ButtonDoneKitchenComponent ],
       imports: [HttpClientTestingModule, RouterTestingModule, MatDialogModule]
     })
     .compileComponents();
@@ -37,11 +27,11 @@ describe('KitchenComponent', () => {
     fixture = TestBed.createComponent(KitchenComponent);
     component = fixture.componentInstance;
     ordersService = TestBed.inject(OrdersService);
-    spyOn(ordersService, 'getOrders').and.returnValue(of(mockOrders));
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
