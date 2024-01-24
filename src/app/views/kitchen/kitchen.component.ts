@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { OrdersService } from 'src/app/services/orders/orders.service';
 import { Order } from 'src/app/shared/interfaces/order';
 
 @Component({
@@ -11,6 +10,4 @@ export class KitchenComponent implements OnInit {
 @Input() ordersList: Order[] = [];
   constructor() { }
   ngOnInit(): void {}
-
-
 }

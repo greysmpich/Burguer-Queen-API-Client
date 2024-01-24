@@ -44,8 +44,4 @@ describe('KitchenComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should call getOrders() on ngOnInit', () => {
-    expect(ordersService.getOrders).toHaveBeenCalled();
-  });
 });
