@@ -4,6 +4,6 @@
             <p class="time">1000</p>
         </div>
         <div class="order-status">
-            <h2 class="status">{{order.status}}</h2>
+            <h2 class="status" [ngStyle]="statusStyle(order.status)">{{order.status}}</h2>
         </div>
     </div>

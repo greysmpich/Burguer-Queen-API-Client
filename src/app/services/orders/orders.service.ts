@@ -24,6 +24,8 @@ export class OrdersService {
   
   clientNameSource = new BehaviorSubject<string>('');
   clientName$ = this.clientNameSource.asObservable();
+  orderUpdatedSubject = new Subject<number>();
+  orderUpdated$ = this.orderUpdatedSubject.asObservable();
 
   breakfastMenu: productInter[] = [];
   lunchAndDinnerMenu: productInter[] = [];
@@ -81,6 +83,13 @@ export class OrdersService {
   //   return elapsedSeconds;
   // }
 
+  updateOrderStatus(orderId: number, status: string): Observable<Order>{
+    const updateData = { status }
+    return this.http.patch<Order>(`${this.URL_ORDERS}/${orderId}`, updateData, { headers: this.headers })
+  }
 
+  notifyOrderUpdated(orderId: number){
+    this.orderUpdatedSubject.next(orderId);
+  }
 
 }

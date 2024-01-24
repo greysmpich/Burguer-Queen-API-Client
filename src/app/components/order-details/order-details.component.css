@@ -25,4 +25,8 @@ font-size: 20px;
 }
 
 h3 {
-margin: 10px 0 0 0;}
+margin: 10px 0 0 0;
+width: 100%;
+text-align: center;
+background-color: #FFAF74;
+}
