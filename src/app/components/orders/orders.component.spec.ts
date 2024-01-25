@@ -5,7 +5,6 @@ import { HttpClientTestingModule, HttpTestingController, } from '@angular/common
 import { RouterTestingModule } from '@angular/router/testing';
 import { Order } from 'src/app/shared/interfaces/order';
 import { KitchenServiceService } from 'src/app/services/kitchen/kitchen-service.service';
-import { of } from 'rxjs';
 
 const mockOrders = [
   {
@@ -15,7 +14,6 @@ const mockOrders = [
     status: 'Pending',
     dataEntry: new Date(),
     total: 100,
-    elapsedTime: '2 minutes',
   },
 ];
 
@@ -65,7 +63,6 @@ describe('OrdersComponent', () => {
         status: 'Pending',
         dataEntry: jasmine.any(Date),
         total: 100,
-        elapsedTime: jasmine.any(String),
       },
     ];
 
@@ -79,7 +76,6 @@ describe('OrdersComponent', () => {
       dataEntry: new Date(),
       id: 1,
       total: 100,
-      elapsedTime: 0,
     };
     component.onOrderClick(mockOrder);
     tick();
@@ -107,7 +103,6 @@ describe('OrdersComponent', () => {
         status: 'Delivering',
         dataEntry: new Date(),
         total: 150,
-        elapsedTime: 0,
       },
       {
         client: 'Client 1',
@@ -116,7 +111,6 @@ describe('OrdersComponent', () => {
         status: 'Pending',
         dataEntry: new Date(),
         total: 100,
-        elapsedTime: 0,
       },
     ];
 
@@ -131,7 +125,6 @@ describe('OrdersComponent', () => {
         status: 'Pending',
         dataEntry: new Date(),
         total: 100,
-        elapsedTime: 0,
       },
       {
         client: 'Client 2',
@@ -140,7 +133,6 @@ describe('OrdersComponent', () => {
         status: 'Delivering',
         dataEntry: new Date(),
         total: 150,
-        elapsedTime: 0,
       },
     ]);
 
@@ -152,7 +144,6 @@ describe('OrdersComponent', () => {
         status: 'Pending',
         dataEntry: new Date(),
         total: 100,
-        elapsedTime: 0,
       },
 
       {
@@ -162,7 +153,6 @@ describe('OrdersComponent', () => {
         status: 'Delivering',
         dataEntry: new Date(),
         total: 150,
-        elapsedTime: 0,
       },
     ];
 
@@ -179,7 +169,6 @@ describe('OrdersComponent', () => {
         status: 'Pending',
         dataEntry: new Date(),
         total: 100,
-        elapsedTime: 0,
       },
       {
         client: 'Client 2',
@@ -188,7 +177,6 @@ describe('OrdersComponent', () => {
         status: 'Pending',
         dataEntry: new Date(),
         total: 150,
-        elapsedTime: 0,
       },
     ];
 

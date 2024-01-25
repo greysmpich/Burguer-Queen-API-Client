@@ -20,7 +20,7 @@ export class OrdersService {
     'Authorization': `Bearer ${this.authService.getToken()}`
   })
 
-  private clickedProductSubject = new BehaviorSubject<productInter | null>(null);
+  clickedProductSubject = new BehaviorSubject<productInter | null>(null);
   
   clientNameSource = new BehaviorSubject<string>('');
   clientName$ = this.clientNameSource.asObservable();

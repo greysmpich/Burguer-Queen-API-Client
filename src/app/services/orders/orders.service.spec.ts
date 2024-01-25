@@ -1,11 +1,10 @@
-import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersService } from './orders.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Order } from 'src/app/shared/interfaces/order';
 import { productInter } from 'src/app/shared/interfaces/product';
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
-import { of } from 'rxjs';
 
 const mockProducts: productInter[] = [
   { id: 1, name:'Product 1', price:1, image:'img', type: 'Breakfast', dateEntry: '2022-03-05 15:14:10' },
@@ -30,7 +29,7 @@ const mockOrder = {
 describe('OrdersService', () => {
   let service: OrdersService ;
   let httpTestingController: HttpTestingController;
-
+ 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule, RouterTestingModule, HttpClientTestingModule], 
@@ -106,12 +105,11 @@ describe('OrdersService', () => {
   }));
   it('should update correctly a clicked product', () => {
     service.setClickedProduct(mockProducts[0]);
-
     let clickedProduct: any;
     service.getClickedProduct().subscribe(product => {
       clickedProduct = product;
-    });
 
+        });
     expect(clickedProduct).toEqual(mockProducts[0]);
   });
 
@@ -126,19 +124,26 @@ describe('OrdersService', () => {
   it('should update order status', fakeAsync(() => {
    const orderId = mockOrder.id;
     const newStatus = 'Delivering';
-    
     service.updateOrderStatus(orderId, newStatus).subscribe(updatedOrder =>{
       expect(updatedOrder.status).toBe(newStatus)
     })
-
     const req = httpTestingController.expectOne(`https://api-burguer-queen-bqac1.onrender.com/orders/${orderId}`);
     expect(req.request.method).toBe('PATCH');
     expect(req.request.body).toEqual({ status: newStatus });
-
-
     const updatedOrder = { ...mockOrder, status: newStatus };
     req.flush(updatedOrder);
-    
     }));
+
+    it('should update order time', fakeAsync(() => {
+      const orderId = mockOrder.id;
+       const newTime = `1 minute 2 seconds`;
+       service.updateOrderTime(orderId, newTime).subscribe(updateTime =>{
+         expect(updateTime.elapsedTime).toBe(newTime)
+       })
+       const req = httpTestingController.expectOne(`https://api-burguer-queen-bqac1.onrender.com/orders/${orderId}`);
+       expect(req.request.method).toBe('PATCH');
+       expect(req.request.body).toEqual({ elapsedTime: newTime });
+       }));
+
 });
 

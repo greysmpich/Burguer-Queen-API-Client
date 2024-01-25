@@ -36,3 +36,11 @@ display: flex;
 flex-direction: column;
 gap: 10px;
 }
+
+@media (orientation: portrait) {
+    .principal-container {
+        flex-direction: column;
+        margin-bottom: 10px;
+        gap: 20px;
+        }
+}
