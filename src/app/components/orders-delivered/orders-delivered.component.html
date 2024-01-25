@@ -1,1 +1,6 @@
-<div class="ordersDelivered"></div>
+<div class="ordersDelivered">
+    <div class="order" *ngFor="let order of deliveredOrderList">
+        <h2 class="client-name">{{order.client}}</h2>
+        <h2 class="status" [ngStyle]="statusStyleWaiter(order.status)">{{order.status}}</h2>
+    </div>
+</div>

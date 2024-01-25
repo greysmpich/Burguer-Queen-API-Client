@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthenticationServiceService } from '../authentication/authentication-service.service';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, filter  } from 'rxjs/operators';
 import { productInter } from 'src/app/shared/interfaces/product';
 import { Order } from 'src/app/shared/interfaces/order';
 
@@ -30,6 +30,11 @@ export class OrdersService {
   breakfastMenu: productInter[] = [];
   lunchAndDinnerMenu: productInter[] = [];
   currentMenu: productInter[] = [];
+
+  private clickedOrderDeliveredSubject = new BehaviorSubject<Order | null>(null);
+  clickedOrderDelivered$ = this.clickedOrderDeliveredSubject.asObservable();
+
+  
 
   getProducts(): Observable<productInter[]>{
     return this.http.get<productInter[]>(`${this.URL_PRODUCTS}`, {headers: this.headers})
@@ -87,5 +92,25 @@ export class OrdersService {
   updateOrderTime(orderId: number, elapsedTime: string): Observable<Order>{
     const updateTime = { elapsedTime }
     return this.http.patch<Order>(`${this.URL_ORDERS}/${orderId}`, updateTime, { headers: this.headers })
+  }
+
+  setOrderToDelivered(order: Order) {
+    this.clickedOrderDeliveredSubject.next(order)
+  }
+
+  getPendingDeliveringOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(`${this.URL_ORDERS}`, { headers: this.headers }).pipe(
+      map((orders: Order[]) => {
+        return orders.filter(order => order.status === 'Pending' || order.status === 'Delivering');
+      })
+    );
+  }
+
+  getDeliveredOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(`${this.URL_ORDERS}`, { headers: this.headers }).pipe(
+      map((orders: Order[]) => {
+        return orders.filter(order => order.status === 'Delivered');
+      })
+    );
   }
 }
