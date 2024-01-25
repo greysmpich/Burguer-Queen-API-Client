@@ -13,11 +13,7 @@ deliveringPendingList: Order[] = [];
 selectedOrderIndex: Order | null = null;
 selectedOrder: Order | null = null
 
-  constructor(private ordersService: OrdersService, private kitchenService: KitchenServiceService) { 
-    // this.subscription = this.ordersService.clickedOrderDelivered$.subscribe(resp => {
-    //   this.selectedOrder = resp;      console.log(this.selectedOrder, ' show order');
-    // });
-  }
+  constructor(private ordersService: OrdersService, private kitchenService: KitchenServiceService) { }
 
   ngOnInit(): void {
     this.loadWaiterOrdersList()
@@ -53,6 +49,7 @@ selectedOrder: Order | null = null
       
      this.ordersService.updateOrderStatus(orderId, newStatus).subscribe(updatedOrder => {
       this.ordersService.notifyOrderUpdated(updatedOrder.id)
+    
      })
     }  
   }

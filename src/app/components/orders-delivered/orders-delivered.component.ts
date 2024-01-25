@@ -5,27 +5,32 @@ import { Order } from 'src/app/shared/interfaces/order';
 @Component({
   selector: 'app-orders-delivered',
   templateUrl: './orders-delivered.component.html',
-  styleUrls: ['./orders-delivered.component.css']
+  styleUrls: ['./orders-delivered.component.css'],
 })
 export class OrdersDeliveredComponent implements OnInit {
-deliveredOrderList: Order[] = [];
+  deliveredOrderList: Order[] | null = [];
 
-  constructor(private ordersService: OrdersService) { }
+  constructor(private ordersService: OrdersService) {}
 
   ngOnInit(): void {
-    this.ordersService.getDeliveredOrders().subscribe((resp => {
-      console.log('get order list ', resp);
-      this.deliveredOrderList = resp;
-      console.log(this.deliveredOrderList);
-    }))
+    this.reloadDelivered();
+
+    this.ordersService.orderUpdatedSubject.subscribe((resp) => {
+      this.reloadDelivered();
+    });
   }
 
+  reloadDelivered() {
+    this.ordersService.getDeliveredOrders().subscribe((resp) => {
+      this.deliveredOrderList = resp;
+    });
+  }
   statusStyleWaiter(status: string): object {
     if (status === 'Delivering') {
       return { color: '#EE6A09' };
     } else if (status === 'Pending') {
       return { color: '#EE0909' };
     }
-    return { color: '#3BBA26' }
+    return { color: '#3BBA26' };
   }
 }
