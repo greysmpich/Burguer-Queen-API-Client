@@ -4,7 +4,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { WaiterComponent } from './views/waiter/waiter.component';
 import { AuthGuard } from './auth.guard';
 import { KitchenComponent } from './views/kitchen/kitchen.component';
-
+import { WaiterOrderStatusComponent } from './views/waiter-order-status/waiter-order-status.component';
 
 const routes: Routes = [
   {path: 'login', component: AuthenticationComponent},
@@ -24,9 +24,12 @@ const routes: Routes = [
   }, 
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
-    path: 'waiter-orders',
-    component: WaiterComponent,
-    canActivate: [AuthGuard]
+    path: 'waiter/orders',
+    component: WaiterOrderStatusComponent,
+    canActivate: [AuthGuard],
+    data: 
+      { allowedRoles: ['waiter'] } 
+
   }
 
 ];

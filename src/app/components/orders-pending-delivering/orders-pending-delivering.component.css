@@ -1,0 +1,12 @@
+.orders-delivering-pending {
+width: 100%;
+height: 90%;
+border-style: solid;
+border-color: white;
+border-radius: 15px;
+overflow-x: auto;
+}
+app-button-delivered {
+width: 100%;
+display: flex;
+place-content: center;}

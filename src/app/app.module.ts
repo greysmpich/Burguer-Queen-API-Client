@@ -21,6 +21,11 @@ import { FormsModule } from '@angular/forms';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
 import { ButtonDoneKitchenComponent } from './components/button-done-kitchen/button-done-kitchen.component';
+import { ButtonOrdersStatusComponent } from './components/button-orders-status/button-orders-status.component';
+import { WaiterOrderStatusComponent } from './views/waiter-order-status/waiter-order-status.component';
+import { OrdersPendingDeliveringComponent } from './components/orders-pending-delivering/orders-pending-delivering.component';
+import { OrdersDeliveredComponent } from './components/orders-delivered/orders-delivered.component';
+import { ButtonDeliveredComponent } from './components/button-delivered/button-delivered.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +44,11 @@ import { ButtonDoneKitchenComponent } from './components/button-done-kitchen/but
     OrdersComponent,
     OrderDetailsComponent,
     ButtonDoneKitchenComponent,
+    ButtonOrdersStatusComponent,
+    WaiterOrderStatusComponent,
+    OrdersPendingDeliveringComponent,
+    OrdersDeliveredComponent,
+    ButtonDeliveredComponent,
   ],
   imports: [
     BrowserModule,

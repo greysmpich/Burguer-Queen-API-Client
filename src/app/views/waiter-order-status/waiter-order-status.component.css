@@ -1,0 +1,14 @@
+.principal-container {
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+    gap: 20px
+}
+app-orders-pending-delivering, app-orders-delivered {
+width: 40%;
+height: 450px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 10px
+}
