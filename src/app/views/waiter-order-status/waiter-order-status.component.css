@@ -14,3 +14,18 @@ flex-direction: column;
 align-items: center;
 gap: 10px
 }
+
+
+@media (orientation: portrait) {
+    .principal-container {
+        flex-direction: column;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        }
+        app-orders-pending-delivering, app-orders-delivered {
+            width: 70%;
+            height: 450px;
+        }
+            
+}

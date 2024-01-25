@@ -31,8 +31,11 @@ export class OrdersService {
   lunchAndDinnerMenu: productInter[] = [];
   currentMenu: productInter[] = [];
 
-  private clickedOrderDeliveredSubject = new BehaviorSubject<Order | null>(null);
+  clickedOrderDeliveredSubject = new BehaviorSubject<Order| Order[] | null>([]);
   clickedOrderDelivered$ = this.clickedOrderDeliveredSubject.asObservable();
+
+ deliveredSubject = new BehaviorSubject<Order[] | null>(null);
+  delivered$ = this.deliveredSubject.asObservable();
 
   
 
@@ -109,8 +112,9 @@ export class OrdersService {
   getDeliveredOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(`${this.URL_ORDERS}`, { headers: this.headers }).pipe(
       map((orders: Order[]) => {
-        return orders.filter(order => order.status === 'Delivered');
+      return orders.filter(order => order.status === 'Delivered');
       })
     );
   }
+  
 }
