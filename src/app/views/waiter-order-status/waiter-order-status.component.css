@@ -2,8 +2,10 @@
     display: flex;
     flex-direction: row;
     place-content: center;
-    gap: 20px
+    gap: 20px;
+    font-family: 'Patrick Hand', cursive;
 }
+
 app-orders-pending-delivering, app-orders-delivered {
 width: 40%;
 height: 450px;
