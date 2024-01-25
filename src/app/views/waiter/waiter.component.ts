@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { productInter } from 'src/app/shared/interfaces/product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-waiter',
@@ -15,7 +16,7 @@ export class WaiterComponent implements OnInit {
   isLunchAndDinnerSelected: boolean = false;
   isBreakfastSelected: boolean = true;
 
-  constructor(private ordersService: OrdersService) { }
+  constructor(private ordersService: OrdersService, private router: Router) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -60,4 +61,8 @@ export class WaiterComponent implements OnInit {
     this.showLunchAndDinnerMenu()
   }
 
+  
+  viewOrdersStatus() {
+    this.router.navigate(['/waiter/orders']);
+  }
 }
