@@ -17,6 +17,29 @@ const mockProducts: productInter[] = [
 ];
 
 const orderedProduct = { id: 1, name: 'Coffe', price: 15 } as productInter;
+
+const mockOrdersStatus: Order[] = [
+  { client: 'Lilac',
+  products: [{ qty: 1,  product: orderedProduct}] ,
+  status: 'Pending',
+  dataEntry: new Date(2024, 2, 4, 13, 33, 0),
+  id: 2,
+  total: 15,},
+  {client: 'Lilac',
+  products: [{ qty: 1,  product: orderedProduct}] ,
+  status: 'Delivering',
+  dataEntry: new Date(2024, 2, 4, 13, 33, 0),
+  id: 1,
+  total: 15,},
+  { client: 'Lilac',
+  products: [{ qty: 1,  product: orderedProduct}] ,
+  status: 'Delivered',
+  dataEntry: new Date(2024, 2, 4, 13, 33, 0),
+  id: 1,
+  total: 15, },
+];
+
+
 const mockOrder = {
   client: 'Lilac',
   products: [{ qty: 1,  product: orderedProduct}] ,
@@ -145,5 +168,36 @@ describe('OrdersService', () => {
        expect(req.request.body).toEqual({ elapsedTime: newTime });
        }));
 
+       it('should set order updto delivered subject correctly', () => {
+        service.setOrderToDelivered(mockOrder);
+        service.clickedOrderDelivered$.subscribe((order) => {
+          expect(order).toBe(mockOrder);
+        })
+      });
+    
+      it('should get pending and delivering orders correctly', () => {
+        service.getPendingDeliveringOrders().subscribe((orders: Order[]) => {
+          expect(orders.length).toBe(2);
+          expect(orders[0].status).toBe('Pending');
+          expect(orders[1].status).toBe('Delivering');
+        });
+    
+        const req = httpTestingController.expectOne(`https://api-burguer-queen-bqac1.onrender.com/orders`);
+        expect(req.request.method).toEqual('GET');
+        req.flush(mockOrdersStatus);
+      });
+
+      it('should return delivered orders', () => {
+     
+    
+        service.getDeliveredOrders().subscribe((orders: Order[]) => {
+          expect(orders.length).toBe(1);
+          expect(orders[0].status).toBe('Delivered');
+        });
+    
+        const req = httpTestingController.expectOne(`https://api-burguer-queen-bqac1.onrender.com/orders`);
+        expect(req.request.method).toEqual('GET');
+        req.flush(mockOrdersStatus);
+      });
 });
 
