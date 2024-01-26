@@ -37,7 +37,8 @@ export class OrdersService {
  deliveredSubject = new BehaviorSubject<Order[] | null>(null);
   delivered$ = this.deliveredSubject.asObservable();
 
-  
+ deliveringPendingListSubject = new BehaviorSubject<Order[] | null>(null);
+ deliveringPendingList$ = this.deliveringPendingListSubject.asObservable();
 
   getProducts(): Observable<productInter[]>{
     return this.http.get<productInter[]>(`${this.URL_PRODUCTS}`, {headers: this.headers})
@@ -115,6 +116,10 @@ export class OrdersService {
       return orders.filter(order => order.status === 'Delivered');
       })
     );
+  }
+
+  updateDeliveringPendingList(array: Order[] | null) {
+    this.deliveringPendingListSubject.next(array);
   }
   
 }

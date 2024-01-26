@@ -9,6 +9,7 @@ import { KitchenServiceService } from 'src/app/services/kitchen/kitchen-service.
   styleUrls: ['./orders-pending-delivering.component.css']
 })
 export class OrdersPendingDeliveringComponent implements OnInit {
+
 deliveringPendingList: Order[] = [];
 selectedOrderIndex: Order | null = null;
 selectedOrder: Order | null = null
@@ -27,6 +28,7 @@ selectedOrder: Order | null = null
     this.ordersService. getPendingDeliveringOrders().subscribe((resp => {
       console.log('get order list ', resp);
       this.deliveringPendingList = resp;
+      this.ordersService.updateDeliveringPendingList(this.deliveringPendingList);
       this.sortOrderByStatus();
       console.log(this.deliveringPendingList);
     })
