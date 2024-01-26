@@ -14,6 +14,7 @@ import { OrderSummaryComponent } from 'src/app/components/order-summary/order-su
 import { LogoutComponent } from 'src/app/components/logout/logout.component';
 import { SendOrderButtonComponent } from 'src/app/components/send-order-button/send-order-button.component';
 import { MatDialogModule } from '@angular/material/dialog';
+//import { ButtonOrdersStatusComponent } from 'src/app/components/button-orders-status/button-orders-status.component';
 
 describe('WaiterComponent', () => {
   let component: WaiterComponent;
@@ -21,7 +22,7 @@ describe('WaiterComponent', () => {
   let ordersService: OrdersService;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WaiterComponent, HeaderComponent, BreakfastButtonComponent, LunchAndDinnerButtonComponent, OrderSummaryComponent, LogoutComponent, ProductsComponent, ClientNameInputComponent, SendOrderButtonComponent ],
+      declarations: [WaiterComponent, HeaderComponent, BreakfastButtonComponent, LunchAndDinnerButtonComponent, OrderSummaryComponent, LogoutComponent, ProductsComponent, ClientNameInputComponent, SendOrderButtonComponent],
       imports: [HttpClientTestingModule, RouterTestingModule, MatDialogModule],
       providers: [OrdersService]
     })

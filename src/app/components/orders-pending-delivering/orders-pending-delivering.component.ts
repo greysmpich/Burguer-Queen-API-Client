@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { Order } from 'src/app/shared/interfaces/order';
-import { KitchenServiceService } from 'src/app/services/kitchen/kitchen-service.service';
+//import { KitchenServiceService } from 'src/app/services/kitchen/kitchen-service.service';
 
 @Component({
   selector: 'app-orders-pending-delivering',
@@ -13,7 +13,7 @@ deliveringPendingList: Order[] = [];
 selectedOrderIndex: Order | null = null;
 selectedOrder: Order | null = null
 
-  constructor(private ordersService: OrdersService, private kitchenService: KitchenServiceService) { }
+  constructor(private ordersService: OrdersService) { }
 
   ngOnInit(): void {
     this.loadWaiterOrdersList()
