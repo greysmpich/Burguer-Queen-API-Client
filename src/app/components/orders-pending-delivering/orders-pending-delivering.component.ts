@@ -35,7 +35,7 @@ selectedOrder: Order | null = null
 
   onOrderClick(order: Order): void {
     this.selectedOrderIndex = order;
-    this.ordersService.setOrderToDelivered(order);
+   //this.ordersService.setOrderToDelivered(order);
     this.selectedOrder = order;
     console.log('Desde el order pending Waiter/orders', this.selectedOrder);
   }
