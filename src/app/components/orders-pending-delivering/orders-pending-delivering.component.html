@@ -4,4 +4,8 @@
         <h2 class="status" [ngStyle]="statusStyleWaiter(order.status)">{{order.status}}</h2>
     </div>
 </div>
-<app-button-delivered (click)="onDeliveredButtonClick()"></app-button-delivered>
+<!-- <app-button-delivered (click)="onDeliveredButtonClick()"></app-button-delivered> -->
+<app-button-delivered *ngIf='selectedOrderIndex else noOrderSelected'(click)="onDeliveredButtonClick()"></app-button-delivered>
+<ng-template #noOrderSelected >
+    <button class="noButton">Delivered</button>
+  </ng-template>

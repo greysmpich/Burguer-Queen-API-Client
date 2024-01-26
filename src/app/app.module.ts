@@ -26,6 +26,7 @@ import { WaiterOrderStatusComponent } from './views/waiter-order-status/waiter-o
 import { OrdersPendingDeliveringComponent } from './components/orders-pending-delivering/orders-pending-delivering.component';
 import { OrdersDeliveredComponent } from './components/orders-delivered/orders-delivered.component';
 import { ButtonDeliveredComponent } from './components/button-delivered/button-delivered.component';
+import { ButtonBackComponent } from './components/button-back/button-back.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ButtonDeliveredComponent } from './components/button-delivered/button-d
     OrdersPendingDeliveringComponent,
     OrdersDeliveredComponent,
     ButtonDeliveredComponent,
+    ButtonBackComponent,
   ],
   imports: [
     BrowserModule,
