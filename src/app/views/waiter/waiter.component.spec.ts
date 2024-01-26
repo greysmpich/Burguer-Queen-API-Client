@@ -14,11 +14,13 @@ import { OrderSummaryComponent } from 'src/app/components/order-summary/order-su
 import { LogoutComponent } from 'src/app/components/logout/logout.component';
 import { SendOrderButtonComponent } from 'src/app/components/send-order-button/send-order-button.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 describe('WaiterComponent', () => {
   let component: WaiterComponent;
   let fixture: ComponentFixture<WaiterComponent>;
   let ordersService: OrdersService;
+  let router: Router;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [WaiterComponent, HeaderComponent, BreakfastButtonComponent, LunchAndDinnerButtonComponent, OrderSummaryComponent, LogoutComponent, ProductsComponent, ClientNameInputComponent, SendOrderButtonComponent ],
@@ -32,6 +34,7 @@ describe('WaiterComponent', () => {
     fixture = TestBed.createComponent(WaiterComponent);
     component = fixture.componentInstance;
     ordersService = TestBed.inject(OrdersService);
+    router = TestBed.inject(Router);
     spyOn(ordersService, 'getProducts').and.returnValue(of(mockProducts));
     fixture.detectChanges();
   });
@@ -129,6 +132,12 @@ describe('WaiterComponent', () => {
     component.showLunchAndDinnerMenu();
 
     expect(component.currentMenu).toEqual(component.breakfastMenu);
+  });
+
+  it('should navigate to orders view', () => {
+    const navigateSpy = spyOn(router, 'navigateByUrl');
+    component.viewOrdersStatus();
+    expect(navigateSpy).toHaveBeenCalled();
   });
 
 });
