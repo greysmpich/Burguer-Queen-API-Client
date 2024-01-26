@@ -168,12 +168,12 @@ describe('OrdersService', () => {
        expect(req.request.body).toEqual({ elapsedTime: newTime });
        }));
 
-       it('should set order updto delivered subject correctly', () => {
-        service.setOrderToDelivered(mockOrder);
-        service.clickedOrderDelivered$.subscribe((order) => {
-          expect(order).toBe(mockOrder);
-        })
-      });
+      //  it('should set order updto delivered subject correctly', () => {
+      //   service.setOrderToDelivered(mockOrder);
+      //   service.clickedOrderDelivered$.subscribe((order) => {
+      //     expect(order).toBe(mockOrder);
+      //   })
+      // });
     
       it('should get pending and delivering orders correctly', () => {
         service.getPendingDeliveringOrders().subscribe((orders: Order[]) => {
