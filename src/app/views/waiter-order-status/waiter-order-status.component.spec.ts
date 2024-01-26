@@ -2,6 +2,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { WaiterOrderStatusComponent } from './waiter-order-status.component';
+import { HeaderComponent } from 'src/app/shared/components/header/header.component';
+import { ButtonBackComponent } from 'src/app/components/button-back/button-back.component';
+import { OrdersPendingDeliveringComponent } from 'src/app/components/orders-pending-delivering/orders-pending-delivering.component';
+import { OrdersDeliveredComponent } from 'src/app/components/orders-delivered/orders-delivered.component';
+import { LogoutComponent } from 'src/app/components/logout/logout.component';
+import { MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 describe('WaiterOrderStatusComponent', () => {
@@ -10,8 +16,8 @@ describe('WaiterOrderStatusComponent', () => {
   let router: Router;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WaiterOrderStatusComponent ],
-      imports: [HttpClientModule, RouterTestingModule]
+      declarations: [ WaiterOrderStatusComponent,HeaderComponent, ButtonBackComponent, OrdersPendingDeliveringComponent, OrdersDeliveredComponent, LogoutComponent ],
+      imports: [HttpClientModule, RouterTestingModule,MatDialogModule]
     })
     .compileComponents();
   });

@@ -31,9 +31,6 @@ export class OrdersService {
   lunchAndDinnerMenu: productInter[] = [];
   currentMenu: productInter[] = [];
 
-//clickedOrderDeliveredSubject = new BehaviorSubject<Order| Order[] | null>([]);
- //clickedOrderDelivered$ = this.clickedOrderDeliveredSubject.asObservable();
-
   getProducts(): Observable<productInter[]>{
     return this.http.get<productInter[]>(`${this.URL_PRODUCTS}`, {headers: this.headers})
   }
@@ -91,10 +88,6 @@ export class OrdersService {
     const updateTime = { elapsedTime }
     return this.http.patch<Order>(`${this.URL_ORDERS}/${orderId}`, updateTime, { headers: this.headers })
   }
-
-  // setOrderToDelivered(order: Order) {
-  //   this.clickedOrderDeliveredSubject.next(order)
-  // }
 
   getPendingDeliveringOrders(): Observable<Order[]> {
     return this.http.get<Order[]>(`${this.URL_ORDERS}`, { headers: this.headers }).pipe(
