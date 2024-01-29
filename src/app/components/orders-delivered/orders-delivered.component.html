@@ -1,10 +1,13 @@
 <div class="ordersDelivered">
-
-        <div class="order" *ngFor="let order of deliveredOrderList">
-            <h2 class="client-name">{{order.client}}</h2>
-            <h2 class="status" [ngStyle]="statusStyleWaiter(order.status)">{{order.status}}</h2>
+        <div *ngIf='deliveredOrderList.length>0 else noOrders' class="orderDelivered">
+            <div class="order" *ngFor="let order of deliveredOrderList">
+                <h2 class="client-name">{{order.client}}</h2>
+                <h2 class="status" [ngStyle]="statusStyleWaiter(order.status)">{{order.status}}</h2>
+            </div>
         </div>
-
+        <ng-template #noOrders >
+            <h1 class="noOrders">There are no orders delivered</h1>
+          </ng-template>
 
         
 </div>

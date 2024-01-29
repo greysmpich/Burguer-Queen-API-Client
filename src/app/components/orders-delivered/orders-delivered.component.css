@@ -24,3 +24,17 @@ h2 {
     width: 50%;
     text-align: center;
 }
+.noOrders {
+color: white;
+}
+.orderDelivered {
+    padding: 15px 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px
+}
