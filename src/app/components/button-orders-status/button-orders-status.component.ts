@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription, map } from 'rxjs';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { Order } from 'src/app/shared/interfaces/order';
 
@@ -9,7 +8,7 @@ import { Order } from 'src/app/shared/interfaces/order';
   styleUrls: ['./button-orders-status.component.css']
 })
 export class ButtonOrdersStatusComponent implements OnInit {
-notificationsNumber: number = 0;
+notificationsNumber: any;
 deliveringList: Order[] = [];
 
 //private notificationSubscription: Subscription;
@@ -37,12 +36,17 @@ deliveringList: Order[] = [];
   }
 
   ngOnInit(): void {
-     this.ordersService.getNotificationUpdated().subscribe(resp => {
+     this.ordersService.notificationUpdated$.subscribe(resp =>{
+      console.log(resp, 'resp');
+      
+    this.notificationsNumber = resp
+    }) 
+    //  .subscribe(resp => {
      
-       console.log('Se reciben notif desde kitchen', this.notificationsNumber);
-        this.notificationsNumber = resp
+    //     this.notificationsNumber = resp
 
-    })
+    //     console.log('Se reciben notif desde kitchen', this.notificationsNumber);
+    // })
     
   }
 

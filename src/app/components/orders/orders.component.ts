@@ -33,21 +33,16 @@ export class OrdersComponent implements OnInit {
       //this.order = resp.order
       this.sortOrderByStatus();
       console.log(this.orderList);
-      //  this.ordersList.forEach(order => {
-      //   this.ordersService.deleteOrders(order.id).subscribe(result => {
-      //    console.log(result);
-      //   })
-      // })
-      // this.ordersService.notificationUpdatedSubject.next(this.orderList?.filter(object => object.status === 'Delivering')?.length ?? 0);
       this.notificationsNumber = this.orderList?.filter(object => object.status === 'Delivering')?.length ?? 0
-     this.ordersService.setNotificationUpdated(this.notificationsNumber)
-      //  this.ordersService.notificationUpdated$.subscribe(notif => 
-      //   this.notificationsNumber = notif
-      //   );
-     console.log(this.notificationsNumber );
-     
+      this.ordersService.notificationUpdatedSubject.next(this.notificationsNumber)
+       //  this.ordersService.notificationUpdated$.subscribe(notif => 
+       //   this.notificationsNumber = notif
+       //   );
+      console.log(this.notificationsNumber );
+
     })
     );
+   
   }
 
   onOrderClick(order: Order): void {
