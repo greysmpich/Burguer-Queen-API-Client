@@ -25,7 +25,7 @@ export class OrdersComponent implements OnInit {
   }
 
   loadOrdersList() {
-    this.ordersService.getOrders().subscribe((resp => {    
+    this.ordersService.getPendingDeliveringOrders().subscribe((resp => {    
       this.orderList = resp;
       this.sortOrderByStatus();     
     })
