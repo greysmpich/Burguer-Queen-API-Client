@@ -11,6 +11,8 @@ import { Order } from 'src/app/shared/interfaces/order';
 export class OrdersComponent implements OnInit {
   orderList: Order[] = [];
   selectedOrderIndex: Order | null = null;
+  notificationsNumber: number = 0;
+
   constructor(private ordersService: OrdersService, private kitchenService: KitchenServiceService) { 
     this.loadOrdersList();
     this.ordersService.orderUpdated$.subscribe(() => {
@@ -36,6 +38,14 @@ export class OrdersComponent implements OnInit {
       //    console.log(result);
       //   })
       // })
+      // this.ordersService.notificationUpdatedSubject.next(this.orderList?.filter(object => object.status === 'Delivering')?.length ?? 0);
+      this.notificationsNumber = this.orderList?.filter(object => object.status === 'Delivering')?.length ?? 0
+     this.ordersService.setNotificationUpdated(this.notificationsNumber)
+      //  this.ordersService.notificationUpdated$.subscribe(notif => 
+      //   this.notificationsNumber = notif
+      //   );
+     console.log(this.notificationsNumber );
+     
     })
     );
   }
