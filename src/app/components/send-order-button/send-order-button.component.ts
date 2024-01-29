@@ -11,15 +11,11 @@ export class SendOrderButtonComponent implements OnInit {
   constructor(private ordersService: OrdersService) { }
 
   ngOnInit(): void {
-    // this.ordersService.clearInputSubject.subscribe(() => {
-    //   console.log('Limpiando el input...');
-    // });
+
   }
 
   onClick(){
-    console.log('Desde el botón ENVIAR ORDEN');
     this.sendOrder.emit()
-    //this.ordersService.clearInput();
   }
 
 }

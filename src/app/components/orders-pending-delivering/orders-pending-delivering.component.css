@@ -38,10 +38,11 @@ app-button-delivered {
 .noOrders {
 color: white;
 }
+
 .ordersReady {
     padding: 15px 0;
     width: 100%;
-    height: 100%;
+    height: 90%;
     border-radius: 15px;
     overflow-x: auto;
     display: flex;
