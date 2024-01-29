@@ -8,7 +8,7 @@ import { Order } from 'src/app/shared/interfaces/order';
   styleUrls: ['./orders-delivered.component.css'],
 })
 export class OrdersDeliveredComponent implements OnInit {
-  deliveredOrderList: Order[] | null = [];
+  deliveredOrderList: Order[] = [];
 
   constructor(private ordersService: OrdersService) {}
 

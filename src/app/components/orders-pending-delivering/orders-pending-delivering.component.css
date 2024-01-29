@@ -1,15 +1,9 @@
 .orders-delivering-pending {
-    padding: 15px 0;
     width: 100%;
     height: 90%;
     border-style: solid;
     border-color: white;
     border-radius: 15px;
-    overflow-x: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px
 }
 
 .order {
@@ -40,4 +34,18 @@ app-button-delivered {
     background-color: grey;
     color: white;
     border-style: none;
+}
+.noOrders {
+color: white;
+}
+.ordersReady {
+    padding: 15px 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px
 }

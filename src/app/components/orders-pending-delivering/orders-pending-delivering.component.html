@@ -1,8 +1,15 @@
 <div class="orders-delivering-pending">
-    <div class="order" *ngFor="let order of deliveringPendingList" (click)="onOrderClick(order)" [style.background-color]="order === selectedOrderIndex ? '#FFAF74' : '#D9D9D9'">
-        <h2 class="client-name">{{order.client}}</h2>
-        <h2 class="status" [ngStyle]="statusStyleWaiter(order.status)">{{order.status}}</h2>
+
+    <div *ngIf='deliveringPendingList.length>0 else noOrders' class="ordersReady">
+        <div class="order" *ngFor="let order of deliveringPendingList" (click)="onOrderClick(order)" [style.background-color]="order === selectedOrderIndex ? '#FFAF74' : '#D9D9D9'">
+            <h2 class="client-name">{{order.client}}</h2>
+            <h2 class="status" [ngStyle]="statusStyleWaiter(order.status)">{{order.status}}</h2>
+        </div>
     </div>
+    <ng-template #noOrders >
+        <h1 class="noOrders">There are no orders ready to deliver</h1>
+      </ng-template>
+   
 </div>
 <!-- <app-button-delivered (click)="onDeliveredButtonClick()"></app-button-delivered> -->
 <app-button-delivered *ngIf='selectedOrderIndex else noOrderSelected'(click)="onDeliveredButtonClick()"></app-button-delivered>
