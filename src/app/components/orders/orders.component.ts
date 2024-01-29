@@ -11,8 +11,7 @@ import { Order } from 'src/app/shared/interfaces/order';
 export class OrdersComponent implements OnInit {
   orderList: Order[] = [];
   selectedOrderIndex: Order | null = null;
-  notificationsNumber: number = 0;
-
+  
   constructor(private ordersService: OrdersService, private kitchenService: KitchenServiceService) { 
     this.loadOrdersList();
     this.ordersService.orderUpdated$.subscribe(() => {
@@ -26,29 +25,16 @@ export class OrdersComponent implements OnInit {
   }
 
   loadOrdersList() {
-    this.ordersService.getOrders().subscribe((resp => {
-      console.log('get order list ', resp);
-      
+    this.ordersService.getOrders().subscribe((resp => {    
       this.orderList = resp;
-      //this.order = resp.order
-      this.sortOrderByStatus();
-      console.log(this.orderList);
-      this.notificationsNumber = this.orderList?.filter(object => object.status === 'Delivering')?.length ?? 0
-      this.ordersService.notificationUpdatedSubject.next(this.notificationsNumber)
-       //  this.ordersService.notificationUpdated$.subscribe(notif => 
-       //   this.notificationsNumber = notif
-       //   );
-      console.log(this.notificationsNumber );
-
+      this.sortOrderByStatus();     
     })
     );
-   
   }
 
   onOrderClick(order: Order): void {
     this.selectedOrderIndex = order;
     this.kitchenService.setOrderKitchen(order)
-    console.log('Desde el order kitchen', order);
   }
 
 
