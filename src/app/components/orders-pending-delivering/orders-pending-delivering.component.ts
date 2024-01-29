@@ -25,10 +25,8 @@ selectedOrder: Order | null = null
 
   loadWaiterOrdersList() {
     this.ordersService. getPendingDeliveringOrders().subscribe((resp => {
-      console.log('get order list ', resp);
       this.deliveringPendingList = resp;
       this.sortOrderByStatus();
-      console.log(this.deliveringPendingList);
     })
     );
   }
@@ -36,16 +34,13 @@ selectedOrder: Order | null = null
   onOrderClick(order: Order): void {
     this.selectedOrderIndex = order;
     this.selectedOrder = order;
-    console.log('Desde el order pending Waiter/orders', this.selectedOrder);
   }
 
   onDeliveredButtonClick(){
     if(this.selectedOrder){
       const orderId = this.selectedOrder.id;
       const newStatus = 'Delivered';
-      
-      console.log(orderId, 'Selected Order ID!!!!');
-      
+            
      this.ordersService.updateOrderStatus(orderId, newStatus).subscribe(updatedOrder => {
       this.ordersService.notifyOrderUpdated(updatedOrder.id)
     

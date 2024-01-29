@@ -20,7 +20,6 @@ export class ProductsComponent implements OnInit {
     if(this.product){
       this.productClicked.emit(this.product);
       this.ordersService.setClickedProduct(this.product)
-      console.log('Desde el producto', this.product);
     }
   }
 }

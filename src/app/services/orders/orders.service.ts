@@ -26,8 +26,6 @@ export class OrdersService {
   clientName$ = this.clientNameSource.asObservable();
   orderUpdatedSubject = new Subject<number>();
   orderUpdated$ = this.orderUpdatedSubject.asObservable();
-  notificationUpdatedSubject = new BehaviorSubject<number>(0);
- // notificationUpdated$ = this.notificationUpdatedSubject.asObservable();
 
   breakfastMenu: productInter[] = [];
   lunchAndDinnerMenu: productInter[] = [];
@@ -107,14 +105,4 @@ export class OrdersService {
     );
   }
 
-  setNotificationUpdated(notif: number){
-    console.log('Desde ORDERSERVICE', notif);
-    
-    this.notificationUpdatedSubject.next(notif);
-  }
-
-  getNotificationUpdated(): Observable<number> {
-    return this.notificationUpdatedSubject.asObservable();
-  }
-  
 }

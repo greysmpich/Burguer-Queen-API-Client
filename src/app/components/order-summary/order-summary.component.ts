@@ -41,9 +41,6 @@ export class OrderSummaryComponent implements OnInit {
     this.orderedProducts.push({ qty: 1, product });
     this.totalPrice += product.price 
   }
- 
-  console.log('Desde summary: PRODUCTO AÑADIDO A LA ORDEN', this.orderedProducts);
-  console.log(this.totalPrice);
   
   }
 
@@ -59,7 +56,6 @@ export class OrderSummaryComponent implements OnInit {
     };
     
     this.ordersService.postOrder(order).subscribe((response => {
-      console.log('Orden enviada exitosamente', response);
       this.ordersService.setClientName('')
       this.orderedProducts =  [];
       this.totalPrice = 0; 
@@ -70,7 +66,6 @@ export class OrderSummaryComponent implements OnInit {
 
 deleteProduct(product: orderedProducts) {
  const indexProduct = this.orderedProducts.indexOf(product)
-console.log(indexProduct, ' index');
 if (product.qty > 1 && product.product?.price) {
 product.qty -= 1
 this.totalPrice -= product.product?.price
