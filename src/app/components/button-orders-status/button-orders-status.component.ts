@@ -10,6 +10,7 @@ import { Order } from 'src/app/shared/interfaces/order';
 export class ButtonOrdersStatusComponent implements OnInit {
 notificationsNumber: any;
 deliveringList: Order[] = [];
+deliveringLength: number = 0
 
 //private notificationSubscription: Subscription;
 
@@ -17,14 +18,13 @@ deliveringList: Order[] = [];
 
     this.ordersService.getPendingDeliveringOrders().subscribe((resp => {
       this.deliveringList = resp;
-      this.notificationsNumber = this.deliveringList?.filter(object => object.status === 'Delivering')?.length ?? 0;
+      this.notificationsNumber = this.deliveringList.filter(object => object.status === 'Delivering').length;
     }));
 
   }
 
   ngOnInit(): void {
 
-    
   }
 
 //   ngOnDestroy() {
