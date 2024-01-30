@@ -49,10 +49,12 @@ Una vez que el mesero entrega la orden al comensal, puede cambiar el estado de "
  </div>
  
  ## Resultado final:
-
+ 
    <div style="display: flex; place-content: center; aling-items: center;"">
-![Resultado de la vista de mesero](https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/waiter-log.gif)
-![Resultado de la vista de mesero](https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/kitchen-log.gif)
-     <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/kitchen-log.gif" width="400" />
+Resultado de la vista de mesero
+       <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/waiter-log.gif" width="700" />
+Resultado de la vista de cocina
+ <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/kitchen-log.gif" width="700" />
+
  </div>
  
