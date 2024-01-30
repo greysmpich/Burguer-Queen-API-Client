@@ -1,27 +1,61 @@
-# BurguerQueenAPIClient
+# Burguer Queen API CLIENT (Angular)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
+## Descripción del producto:
 
-## Development server
+Este proyecto se centra en el desarrollo de una aplicación para un restaurante de comida rápida, proporcionando un sistema eficiente para la toma de pedidos mediante tablets y una gestión óptima en la cocina.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+✅ HTML, Git, GitHub, Node.js, Visual Studio Code, Angular, TypeScript, JavaScript, Vercel, Testing Jasmine/Karma.
+                             
+ ## Aspectos generales:
+ 
+La experiencia comienza con una interfaz de autenticación, donde los usuarios registrados, como meseros y chefs, pueden iniciar sesión y acceder a sus respectivas funciones. Por ejemplo, al ingresar las credenciales asignadas, los meseros son dirigidos al sistema de pedidos, mientras que los chefs acceden a su área para visualizar pedidos pendientes y preparados.
 
-## Code scaffolding
+En la vista del mesero, se presentan dos menús (desayuno y resto del día), cada uno con su variedad de productos. Los meseros pueden agregar productos solicitados por los comensales, y la interfaz muestra un resumen del pedido con el costo total. Al finalizar la toma de la orden, el mesero puede hacer clic en "Send Order" para enviar la orden a la vista del chef.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+En la vista del chef, se puede seleccionar una orden específica para ver los platillos a preparar. Al completar la orden, el chef puede hacer clic en "Done", cambiando el estado del pedido a "Delivering" y notificando al mesero que la orden está lista para entregarse.
 
-## Build
+Una vez que el mesero entrega la orden al comensal, puede cambiar el estado de "Delivering" a "Delivered". Esta aplicación ofrece una solución integral para la gestión de pedidos, mejorando la eficiencia en la comunicación y la preparación de alimentos en el restaurante.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ ## Prototipo de baja fidelidad:
 
-## Running unit tests
+ <div>
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0001.jpg" width="600" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0002.jpg" width="400" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0003.jpg" width="600" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0004.jpg" width="400" />
+ </div>
+ 
+ ## Prototipo de alta fidelidad Login:
+ 
+  <div style="display: flex; place-content: center;">
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0005.jpg" width="600" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0006.jpg" width="400" />
+ </div>
+ 
+  ## Prototipo de alta fidelidad Waiter:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[Prototipo con interacción](https://www.figma.com/proto/hw9OVa4QBKW43b9sgoUG2O/BQAC1?type=design&node-id=184-2&t=BT8LB0uPXXygyUDu-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=8%3A42&show-proto-sidebar=1&mode=design)
 
-## Running end-to-end tests
+  <div style="display: flex; place-content: center;">
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0008.jpg" width="600" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0009.jpg" width="400" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0007.jpg" width="500" />
+ </div>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  ## Prototipo de alta fidelidad Kitchen:
+  
+ [Prototipo con interacción](https://www.figma.com/proto/hw9OVa4QBKW43b9sgoUG2O/BQAC1?type=design&node-id=190-6&t=eyzaG9K4YcMlyAYX-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=190%3A6&show-proto-sidebar=1&mode=design)
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  <div style="display: flex; place-content: center;">
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0010.jpg" width="600" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0011.jpg" width="400" />
+ </div>
+ 
+ ## Resultado final:
+ 
+### Resultado de la vista de mesero
+  <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/waiter-log.gif" width="700" />
+  
+### Resultado de la vista de cocina
+ <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/kitchen-log.gif" width="700" />
+ 
