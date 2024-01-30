@@ -20,21 +20,38 @@ Una vez que el mesero entrega la orden al comensal, puede cambiar el estado de "
  ## Prototipo de baja fidelidad:
 
  <div style="display: flex; place-content: center; aling-items: center;">
-<img src="https://github.com/GiselleLop/Movie-Challenge/blob/ee78de7bb91c0446c0afa2f9b0ce29a8106a3e07/images/movie-list.png" width="500" />
-<img src="https://github.com/GiselleLop/Movie-Challenge/blob/main/images/movie-detail.png" width="500" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0001.jpg" width="500" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0002.jpg" width="500" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0003.jpg" width="500" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0004.jpg" width="500" />
  </div>
  
- ## Prototipo de alta fidelidad:
+ ## Prototipo de alta fidelidad Login:
  
   <div style="display: flex; place-content: center;">
-<img src="https://github.com/GiselleLop/Movie-Challenge/blob/main/images/Captura%20de%20pantalla%202024-01-04%20123001.png" width="500" />
-<img src="https://github.com/GiselleLop/Movie-Challenge/blob/main/images/PROTO2.png" width="500" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0005.jpg" width="500" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0006.jpg" width="500" />
+ </div>
+ 
+  ## Prototipo de alta fidelidad Waiter:
+ 
+  <div style="display: flex; place-content: center;">
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0008.jpg" width="500" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0009.jpg" width="500" />
+    ### Waiter-Orders
+    <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0007.jpg" width="500" />
+ </div>
+
+  ## Prototipo de alta fidelidad Kitchen:
+ 
+  <div style="display: flex; place-content: center;">
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-00010.jpg" width="500" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-00011.jpg" width="500" />
  </div>
  
  ## Resultado final:
 
    <div style="display: flex; place-content: center; aling-items: center;"">
-<img src="https://github.com/GiselleLop/Movie-Challenge/blob/main/images/RESULTADO1.png" width="400" />
-<img src="https://github.com/GiselleLop/Movie-Challenge/blob/main/images/RESUL2.png" width="600" />
+
  </div>
  
