@@ -24,4 +24,5 @@
     <p class="total-sum"> $ {{totalPrice}} </p>
 </div>
 </div>
-<app-send-order-button (sendOrder)="onSendOrderClick()"></app-send-order-button>
+<app-send-order-button (click)="onSendOrderClick()"></app-send-order-button>
+<h1 class="alertMessage" *ngIf="alertMessage">{{alertMessage}}</h1>

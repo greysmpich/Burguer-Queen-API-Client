@@ -15,7 +15,8 @@ export class OrderSummaryComponent implements OnInit {
   private productSubscription: Subscription;
   private clientNameSubscription: Subscription;
   clientName: string = '';
-  totalPrice: number = 0
+  totalPrice: number = 0;
+  alertMessage: string | null = null;
 
   constructor(private ordersService: OrdersService) { 
     this.productSubscription = this.ordersService.getClickedProduct().subscribe(product => {
@@ -41,11 +42,15 @@ export class OrderSummaryComponent implements OnInit {
     this.orderedProducts.push({ qty: 1, product });
     this.totalPrice += product.price 
   }
-  
   }
 
-  onSendOrderClick() {
-  
+  onSendOrderClick(): string | void {
+    if (this.clientName === '' && this.orderedProducts.length === 0) {
+     return this.alertMessage = 'There are no products selected and client name is null.';
+    } else if (this.clientName === '') {
+      return  this.alertMessage = 'Client name is required';
+    } else if (this.orderedProducts.length === 0) {
+      return this.alertMessage = 'No products selected';}
     const order: Order = {
       client: this.clientName, 
       products: this.orderedProducts,
@@ -54,11 +59,11 @@ export class OrderSummaryComponent implements OnInit {
       id: 0, 
       total: this.totalPrice,
     };
-    
     this.ordersService.postOrder(order).subscribe((response => {
       this.ordersService.setClientName('')
       this.orderedProducts =  [];
       this.totalPrice = 0; 
+      this.alertMessage = null
 
     }),);
   }
