@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { productInter } from 'src/app/shared/interfaces/product';
 import { Order, orderedProducts } from 'src/app/shared/interfaces/order';
-import { Subscription, Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-order-summary',
@@ -22,8 +22,10 @@ export class OrderSummaryComponent implements OnInit {
     this.productSubscription = this.ordersService.getClickedProduct().subscribe(product => {
       if(product) {
         this.onProductClicked(product)
+       console.log(this.orderedProducts) 
       }
     })
+    
     this.clientNameSubscription = this.ordersService.clientName$.subscribe(value => {
       this.clientName = value;
     });
@@ -63,23 +65,29 @@ export class OrderSummaryComponent implements OnInit {
       this.ordersService.setClientName('')
       this.orderedProducts =  [];
       this.totalPrice = 0; 
-      this.alertMessage = null
+      this.alertMessage = 'Order sent successfully';
+      setTimeout(() => {
+        this.alertMessage = null;
+      }, 2000); // 3000 milliseconds (3 seconds)
+ 
 
     }),);
   }
 
+  deleteProduct(product: orderedProducts) {
+    const indexProduct = this.orderedProducts.indexOf(product)
+   if (product.qty > 1 && product.product?.price) {
+   product.qty -= 1
+   this.totalPrice -= product.product?.price
+   console.log(this.orderedProducts);
+   }
+   else if (product.qty === 1 && product.product?.price) {
+    this.orderedProducts.splice(indexProduct, 1)
+     this.totalPrice -= product.product?.price
+     console.log(this.orderedProducts);     
+   } 
 
-deleteProduct(product: orderedProducts) {
- const indexProduct = this.orderedProducts.indexOf(product)
-if (product.qty > 1 && product.product?.price) {
-product.qty -= 1
-this.totalPrice -= product.product?.price
-}
-else if (product.qty === 1 && product.product?.price) {
-  this.orderedProducts.splice(indexProduct, 1)
-  this.totalPrice -= product.product?.price
-}
-}
+   }
   ngOnDestroy() {
     this.productSubscription.unsubscribe();
     this.clientNameSubscription.unsubscribe()
