@@ -38,15 +38,14 @@ Una vez que el mesero entrega la orden al comensal, puede cambiar el estado de "
   <div style="display: flex; place-content: center;">
 <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0008.jpg" width="600" />
 <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0009.jpg" width="400" />
-    ### Waiter-Orders
-    <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0007.jpg" width="500" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0007.jpg" width="500" />
  </div>
 
   ## Prototipo de alta fidelidad Kitchen:
  
   <div style="display: flex; place-content: center;">
-<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-00010.jpg" width="600" />
-<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-00011.jpg" width="400" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0010.jpg" width="600" />
+<img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0011.jpg" width="400" />
  </div>
  
  ## Resultado final:
