@@ -25,6 +25,7 @@ export class OrdersDeliveredComponent implements OnInit {
       this.deliveredOrderList = resp;
     });
   }
+
   statusStyleWaiter(status: string): object {
     if (status === 'Delivering') {
       return { color: '#EE6A09' };
@@ -33,4 +34,6 @@ export class OrdersDeliveredComponent implements OnInit {
     }
     return { color: '#3BBA26' };
   }
+
+
 }

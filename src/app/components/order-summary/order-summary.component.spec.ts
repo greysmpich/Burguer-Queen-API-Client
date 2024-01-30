@@ -69,7 +69,7 @@ describe('OrderSummaryComponent', () => {
     expect(component.totalPrice).toBe(0);
   });
 
-  it('should submit an order successfully and reset the values', fakeAsync(() => {
+  it('should submit an order successfully and reset the values if the customer name and at least one selected product exists', fakeAsync(() => {
     component.clientName = 'Cliente de prueba';
     component.orderedProducts = [{
       qty: 2,
@@ -95,7 +95,7 @@ describe('OrderSummaryComponent', () => {
           id: 0,
           total: 20,
     }));
-    const orden: Order = {
+    const mockResponse: Order = {
           client: 'Cliente de prueba',
           products: component.orderedProducts,
           status: 'Pending',
@@ -104,13 +104,53 @@ describe('OrderSummaryComponent', () => {
           total: 20,
         };
    
-    req.flush({orden});
+    req.flush({mockResponse});
 
-    tick();
+    tick(2000);
+
+    fixture.detectChanges();
     expect(component.clientName).toBe('');
     expect(component.orderedProducts.length).toBe(0);
     expect(component.totalPrice).toBe(0);
   }));
+
+  it('should set alertMessage to "There are no products selected and client name is null." when clientName is empty and orderedProducts array is empty', () => {
+    component.clientName = '';
+    component.orderedProducts = [ ];
+    component.onSendOrderClick();
+    
+    expect(component.alertMessage).toBe('There are no products selected and client name is null.');
+  });
+
+  it('should set alertMessage to "Client name is required" when clientName is empty', () => {
+    component.clientName = '';
+    component.orderedProducts = [{
+      qty: 2,
+      product: {
+        id: 1,
+        name: 'Milk',
+        price: 10,
+        image: 'img',
+        type: 'Breakfast',
+        dateEntry: '22-11-2024',
+      },
+    },];
+
+
+    component.onSendOrderClick();
+    
+    expect(component.alertMessage).toBe('Client name is required');
+  });
+
+  it('should set alertMessage to "No products selected" when clientName is empty and orderedProducts array is empty', () => {
+    component.clientName = 'Mock Client';
+    component.orderedProducts = [ ];
+
+
+    component.onSendOrderClick();
+    
+    expect(component.alertMessage).toBe('No products selected');
+  });
 
   it('should increase quantity and total price for existing product in orderedProducts array', () => {
     const product = {id:1, price:326} as productInter;

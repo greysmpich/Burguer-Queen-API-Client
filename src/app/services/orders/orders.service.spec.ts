@@ -9,7 +9,7 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 const mockProducts: productInter[] = [
   { id: 1, name:'Product 1', price:1, image:'img', type: 'Breakfast', dateEntry: '2022-03-05 15:14:10' },
   { id: 2, name:'Product 2', price:2, image:'img', type: 'Lunch', dateEntry: '2022-03-05 15:14:10' },
- { id: 3, name:'Product 3', price:3, image:'img', type: 'Lunch', dateEntry: '2022-03-05 15:14:10' },
+  { id: 3, name:'Product 3', price:3, image:'img', type: 'Lunch', dateEntry: '2022-03-05 15:14:10' },
   { id: 4, name:'Product 4', price:4, image:'img', type: 'Sides', dateEntry: '2022-03-05 15:14:10' },
   { id: 5, name:'Product 5', price:5, image:'img', type: 'Breakfast', dateEntry: '2022-03-05 15:14:10' },
   { id: 6, name:'Product 6', price:6, image:'img', type: 'Dinner', dateEntry: '2022-03-05 15:14:10' },
@@ -136,6 +136,15 @@ describe('OrdersService', () => {
     expect(clickedProduct).toEqual(mockProducts[0]);
   });
 
+  it('should get orders', () => {
+    service.getOrders().subscribe(orders => {
+        expect(orders).toEqual(mockOrdersStatus);
+      });
+      const req = httpTestingController.expectOne('https://api-burguer-queen-bqac1.onrender.com/orders');
+      expect(req.request.method).toEqual('GET');
+      req.flush(mockOrdersStatus);
+    });
+
   it('should notify order updated correctly', () => {
     service.notifyOrderUpdated(mockOrder.id);
 
@@ -167,13 +176,6 @@ describe('OrdersService', () => {
        expect(req.request.method).toBe('PATCH');
        expect(req.request.body).toEqual({ elapsedTime: newTime });
        }));
-
-      //  it('should set order updto delivered subject correctly', () => {
-      //   service.setOrderToDelivered(mockOrder);
-      //   service.clickedOrderDelivered$.subscribe((order) => {
-      //     expect(order).toBe(mockOrder);
-      //   })
-      // });
     
       it('should get pending and delivering orders correctly', () => {
         service.getPendingDeliveringOrders().subscribe((orders: Order[]) => {
@@ -188,9 +190,8 @@ describe('OrdersService', () => {
       });
 
       it('should return delivered orders', () => {
-     
-    
-        service.getDeliveredOrders().subscribe((orders: Order[]) => {
+  
+          service.getDeliveredOrders().subscribe((orders: Order[]) => {
           expect(orders.length).toBe(1);
           expect(orders[0].status).toBe('Delivered');
         });

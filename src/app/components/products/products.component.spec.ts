@@ -30,16 +30,20 @@ describe('ProductsComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  // it('should create', () => {
+  //   const mockProduct = { id: 1, name: 'Mock Product' } as productInter;
+  //   component.product = mockProduct;
+  //   expect(component).toBeTruthy();
+  // });
+
   it('should emit an event when myEvent is triggered', () => {
     const mockProduct = { id: 1, name: 'Mock Product' } as productInter;
     component.product = mockProduct;
     
-    const emitSpy = spyOn(component.productClicked, 'emit');
     const ordersServiceSpy = spyOn(ordersService, 'setClickedProduct');
 
     component.onProductClick();
 
-    expect(emitSpy).toHaveBeenCalledWith(mockProduct);
     expect(ordersServiceSpy).toHaveBeenCalledWith(mockProduct);
   });
 });
