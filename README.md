@@ -51,6 +51,6 @@ Una vez que el mesero entrega la orden al comensal, puede cambiar el estado de "
  ## Resultado final:
 
    <div style="display: flex; place-content: center; aling-items: center;"">
-
+![Texto Alternativo](https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/waiter-log.gif)
  </div>
  
