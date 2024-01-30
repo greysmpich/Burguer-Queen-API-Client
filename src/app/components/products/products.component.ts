@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { productInter } from 'src/app/shared/interfaces/product';
 
@@ -9,8 +9,7 @@ import { productInter } from 'src/app/shared/interfaces/product';
 })
 export class ProductsComponent implements OnInit {
  @Input() product: productInter | undefined;
- @Output() productClicked: EventEmitter<productInter> = new EventEmitter<productInter>();
- 
+
   constructor(private ordersService: OrdersService) { }
 
   ngOnInit(): void {
@@ -18,7 +17,6 @@ export class ProductsComponent implements OnInit {
 
   onProductClick() {
     if(this.product){
-      this.productClicked.emit(this.product);
       this.ordersService.setClickedProduct(this.product)
     }
   }

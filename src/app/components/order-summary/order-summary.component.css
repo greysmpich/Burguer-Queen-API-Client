@@ -35,11 +35,26 @@ margin: 0px;
 padding: 0px;
 display: flex;
 }
- .alertMessage {
-color: red;
+ .success-message, .error-message  {
+color: green;
 margin: -16px 0 0 0;
 font-size: 30px;
 }
+
+.error-message {
+    color: red;
+}
+
+.success-message {
+    animation: fadeInOut 2s ease-in-out;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    75% { opacity: 1; }
+    100% { opacity: 0; }
+  }
 @media (orientation: portrait) {
     .order-summary{
         height: 400px;
