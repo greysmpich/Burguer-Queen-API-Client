@@ -27,6 +27,7 @@ import { OrdersPendingDeliveringComponent } from './components/orders-pending-de
 import { OrdersDeliveredComponent } from './components/orders-delivered/orders-delivered.component';
 import { ButtonDeliveredComponent } from './components/button-delivered/button-delivered.component';
 import { ButtonBackComponent } from './components/button-back/button-back.component';
+import { ModalOrderNotReadyComponent } from './components/modal-order-not-ready/modal-order-not-ready.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ButtonBackComponent } from './components/button-back/button-back.compon
     OrdersDeliveredComponent,
     ButtonDeliveredComponent,
     ButtonBackComponent,
+    ModalOrderNotReadyComponent,
   ],
   imports: [
     BrowserModule,

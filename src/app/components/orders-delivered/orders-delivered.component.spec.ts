@@ -25,7 +25,6 @@ describe('OrdersDeliveredComponent', () => {
   let component: OrdersDeliveredComponent;
   let fixture: ComponentFixture<OrdersDeliveredComponent>;
   let service: OrdersService;
-  //let ordersServiceSpy: jasmine.SpyObj<OrdersService>;
 
   beforeEach(async () => {
     const spy = jasmine.createSpyObj('OrdersService', ['getDeliveredOrders']);
@@ -41,7 +40,6 @@ describe('OrdersDeliveredComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(OrdersDeliveredComponent);
     component = fixture.componentInstance;
-    //ordersServiceSpy = TestBed.inject(OrdersService) as jasmine.SpyObj<OrdersService>;
     service = TestBed.inject(OrdersService);
     fixture.detectChanges();
   });

@@ -12,8 +12,6 @@ notificationsNumber: any;
 deliveringList: Order[] = [];
 deliveringLength: number = 0
 
-//private notificationSubscription: Subscription;
-
   constructor( private ordersService: OrdersService) { 
 
     this.ordersService.getPendingDeliveringOrders().subscribe((resp => {
@@ -27,7 +25,4 @@ deliveringLength: number = 0
 
   }
 
-//   ngOnDestroy() {
-//     this.subscription.unsubscribe();
-//   }
  }

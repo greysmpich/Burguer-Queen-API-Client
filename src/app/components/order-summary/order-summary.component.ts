@@ -68,10 +68,11 @@ export class OrderSummaryComponent implements OnInit {
       this.alertMessage = 'Order sent successfully';
       setTimeout(() => {
         this.alertMessage = null;
-      }, 2000); // 3000 milliseconds (3 seconds)
+      }, 2000); 
  
 
-    }),);
+    }),
+    );
   }
 
   deleteProduct(product: orderedProducts) {

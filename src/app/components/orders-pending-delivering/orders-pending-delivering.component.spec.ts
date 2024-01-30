@@ -5,6 +5,10 @@ import { OrdersPendingDeliveringComponent } from './orders-pending-delivering.co
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { Order } from 'src/app/shared/interfaces/order';
 import { of } from 'rxjs';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ModalOrderNotReadyComponent } from '../modal-order-not-ready/modal-order-not-ready.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 const mockOrders = [
   {
@@ -28,7 +32,7 @@ const mockOrders = [
 const mockOrder: Order =  {
   client: 'Test Client',
   products: [],
-  status: 'Delivered',
+  status: 'Delivering',
   dataEntry: new Date(),
   id: 1,
   total: 100,
@@ -59,13 +63,19 @@ describe('OrdersPendingDeliveringComponent', () => {
   let fixture: ComponentFixture<OrdersPendingDeliveringComponent>;
   let ordersService: OrdersService;
   let httpTestingController: HttpTestingController;
+  let dialogSpy: jasmine.SpyObj<MatDialog>;
 
 
   beforeEach(async () => {
+    dialogSpy = jasmine.createSpyObj('MatDialog', ['open']);
+
     await TestBed.configureTestingModule({
-      declarations: [ OrdersPendingDeliveringComponent ], 
-      imports: [HttpClientTestingModule, RouterTestingModule],
-      providers: [OrdersService],
+      declarations: [ OrdersPendingDeliveringComponent, ModalOrderNotReadyComponent], 
+      imports: [HttpClientTestingModule, RouterTestingModule, MatDialogModule, BrowserAnimationsModule ],
+      providers: [
+        OrdersService, 
+        { provide: MatDialog, useValue: dialogSpy }     
+      ]
     })
     .compileComponents();
   });
@@ -130,7 +140,7 @@ describe('OrdersPendingDeliveringComponent', () => {
     expect(component.selectedOrder).toEqual(mockOrder);
   }));
 
-  it('should update order status to "Delivered" onDeliveringButtonClick', fakeAsync(() => {
+  it('should update order status to "Delivered" onDeliveringButtonClick if selectedOrder status is "Delivering"', fakeAsync(() => {
     component.selectedOrder = mockOrder;
 
     spyOn(ordersService, 'updateOrderStatus').and.returnValue(of(mockOrder));
@@ -142,6 +152,14 @@ describe('OrdersPendingDeliveringComponent', () => {
 
     expect(ordersService.updateOrderStatus).toHaveBeenCalledWith(mockOrder.id, 'Delivered');
     expect(ordersService.notifyOrderUpdated).toHaveBeenCalledWith(mockOrder.id);
+  }));
+
+  it('should call openDialog() when selectedOrder status is "Pending"', fakeAsync(() => {
+    const mockOrderPending = {...mockOrder, status: 'Pending'}
+    component.selectedOrder = mockOrderPending;
+    
+    component.onDeliveredButtonClick();
+    expect(dialogSpy.open).toHaveBeenCalledOnceWith(ModalOrderNotReadyComponent);
   }));
 
   it('should return correct styles for different statuses', () => {

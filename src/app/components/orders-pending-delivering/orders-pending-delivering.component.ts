@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { Order } from 'src/app/shared/interfaces/order';
-import { KitchenServiceService } from 'src/app/services/kitchen/kitchen-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalOrderNotReadyComponent } from '../modal-order-not-ready/modal-order-not-ready.component';
+
+
 
 @Component({
   selector: 'app-orders-pending-delivering',
   templateUrl: './orders-pending-delivering.component.html',
-  styleUrls: ['./orders-pending-delivering.component.css']
+  styleUrls: ['./orders-pending-delivering.component.css'],  
 })
 export class OrdersPendingDeliveringComponent implements OnInit {
 deliveringPendingList: Order[] = [];
 selectedOrderIndex: Order | null = null;
 selectedOrder: Order | null = null
 
-  constructor(private ordersService: OrdersService, private kitchenService: KitchenServiceService) { }
+  constructor(private ordersService: OrdersService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadWaiterOrdersList()
@@ -37,7 +40,7 @@ selectedOrder: Order | null = null
   }
 
   onDeliveredButtonClick(){
-    if(this.selectedOrder){
+    if(this.selectedOrder && this.selectedOrder.status === 'Delivering'){
       const orderId = this.selectedOrder.id;
       const newStatus = 'Delivered';
             
@@ -46,6 +49,13 @@ selectedOrder: Order | null = null
     
      })
     }  
+    if(this.selectedOrder && this.selectedOrder.status === 'Pending'){
+      this.openDialog()
+    }
+  }
+
+  openDialog(): void {
+    this.dialog.open(ModalOrderNotReadyComponent);
   }
 
   statusStyleWaiter(status: string): object {
