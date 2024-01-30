@@ -34,7 +34,10 @@ Una vez que el mesero entrega la orden al comensal, puede cambiar el estado de "
  </div>
  
   ## Prototipo de alta fidelidad Waiter:
+
  
+ [![Prototipo con interacción](https://www.figma.com/proto/hw9OVa4QBKW43b9sgoUG2O/BQAC1?type=design&node-id=184-2&t=BT8LB0uPXXygyUDu-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=8%3A42&show-proto-sidebar=1&mode=design)
+
   <div style="display: flex; place-content: center;">
 <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0008.jpg" width="600" />
 <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0009.jpg" width="400" />
@@ -42,7 +45,9 @@ Una vez que el mesero entrega la orden al comensal, puede cambiar el estado de "
  </div>
 
   ## Prototipo de alta fidelidad Kitchen:
- 
+  
+ [![Prototipo con interacción](https://www.figma.com/proto/hw9OVa4QBKW43b9sgoUG2O/BQAC1?type=design&node-id=190-6&t=eyzaG9K4YcMlyAYX-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=190%3A6&show-proto-sidebar=1&mode=design)
+
   <div style="display: flex; place-content: center;">
 <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0010.jpg" width="600" />
 <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0011.jpg" width="400" />
