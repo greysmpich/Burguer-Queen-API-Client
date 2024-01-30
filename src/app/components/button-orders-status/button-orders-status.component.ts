@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription, map } from 'rxjs';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { Order } from 'src/app/shared/interfaces/order';
 
@@ -9,7 +8,7 @@ import { Order } from 'src/app/shared/interfaces/order';
   styleUrls: ['./button-orders-status.component.css']
 })
 export class ButtonOrdersStatusComponent implements OnInit {
-notificationsNumber: number = 0;
+notificationsNumber: any;
 deliveringList: Order[] = [];
 deliveringLength: number = 0
 

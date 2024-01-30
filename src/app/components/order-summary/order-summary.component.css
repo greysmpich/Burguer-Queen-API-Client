@@ -17,7 +17,6 @@ width: 22px;
 table{
     width: 100%;
     font-size: 30px;
-    font-family: 'Patrick Hand', cursive;
     text-align: center;
 }
 
@@ -26,7 +25,6 @@ table{
     justify-content: center;
     column-gap: 40%;
     height: auto;
-    font-family: 'Patrick Hand', cursive;
     font-size: 35px;
   background: #FFAF74;
   border-radius: 0 0 10px 10px;
@@ -36,6 +34,11 @@ table{
 margin: 0px;
 padding: 0px;
 display: flex;
+}
+ .alertMessage {
+color: red;
+margin: -16px 0 0 0;
+font-size: 30px;
 }
 @media (orientation: portrait) {
     .order-summary{
