@@ -35,7 +35,6 @@ Una vez que el mesero entrega la orden al comensal, puede cambiar el estado de "
  
   ## Prototipo de alta fidelidad Waiter:
 
- 
  [![Prototipo con interacción](https://www.figma.com/proto/hw9OVa4QBKW43b9sgoUG2O/BQAC1?type=design&node-id=184-2&t=BT8LB0uPXXygyUDu-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=8%3A42&show-proto-sidebar=1&mode=design)
 
   <div style="display: flex; place-content: center;">
