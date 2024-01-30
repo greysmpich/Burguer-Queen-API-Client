@@ -19,7 +19,7 @@ Una vez que el mesero entrega la orden al comensal, puede cambiar el estado de "
 
  ## Prototipo de baja fidelidad:
 
- <div style="display: flex; place-content: center; aling-items: center;">
+ <div>
 <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0001.jpg" width="500" />
 <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0002.jpg" width="500" />
 <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0003.jpg" width="500" />
