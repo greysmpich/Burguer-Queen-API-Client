@@ -1,27 +1,40 @@
-# BurguerQueenAPIClient
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
+# Burguer Queen API CLIENT (Angular)
 
-## Development server
+## Descripción del producto:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Este proyecto se centra en el desarrollo de una aplicación para un restaurante de comida rápida, proporcionando un sistema eficiente para la toma de pedidos mediante tablets y una gestión óptima en la cocina.
 
-## Code scaffolding
+✅ HTML, Git, GitHub, Node.js, Visual Studio Code, Angular, TypeScript, JavaScript, Vercel, Testing Jasmine/Karma.
+                             
+ ## Aspectos generales:
+ 
+La experiencia comienza con una interfaz de autenticación, donde los usuarios registrados, como meseros y chefs, pueden iniciar sesión y acceder a sus respectivas funciones. Por ejemplo, al ingresar las credenciales asignadas, los meseros son dirigidos al sistema de pedidos, mientras que los chefs acceden a su área para visualizar pedidos pendientes y preparados.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+En la vista del mesero, se presentan dos menús (desayuno y resto del día), cada uno con su variedad de productos. Los meseros pueden agregar productos solicitados por los comensales, y la interfaz muestra un resumen del pedido con el costo total. Al finalizar la toma de la orden, el mesero puede hacer clic en "Send Order" para enviar la orden a la vista del chef.
 
-## Build
+En la vista del chef, se puede seleccionar una orden específica para ver los platillos a preparar. Al completar la orden, el chef puede hacer clic en "Done", cambiando el estado del pedido a "Delivering" y notificando al mesero que la orden está lista para entregarse.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Una vez que el mesero entrega la orden al comensal, puede cambiar el estado de "Delivering" a "Delivered". Esta aplicación ofrece una solución integral para la gestión de pedidos, mejorando la eficiencia en la comunicación y la preparación de alimentos en el restaurante.
 
-## Running unit tests
+ ## Prototipo de baja fidelidad:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ <div style="display: flex; place-content: center; aling-items: center;">
+<img src="https://github.com/GiselleLop/Movie-Challenge/blob/ee78de7bb91c0446c0afa2f9b0ce29a8106a3e07/images/movie-list.png" width="500" />
+<img src="https://github.com/GiselleLop/Movie-Challenge/blob/main/images/movie-detail.png" width="500" />
+ </div>
+ 
+ ## Prototipo de alta fidelidad:
+ 
+  <div style="display: flex; place-content: center;">
+<img src="https://github.com/GiselleLop/Movie-Challenge/blob/main/images/Captura%20de%20pantalla%202024-01-04%20123001.png" width="500" />
+<img src="https://github.com/GiselleLop/Movie-Challenge/blob/main/images/PROTO2.png" width="500" />
+ </div>
+ 
+ ## Resultado final:
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   <div style="display: flex; place-content: center; aling-items: center;"">
+<img src="https://github.com/GiselleLop/Movie-Challenge/blob/main/images/RESULTADO1.png" width="400" />
+<img src="https://github.com/GiselleLop/Movie-Challenge/blob/main/images/RESUL2.png" width="600" />
+ </div>
+ 
