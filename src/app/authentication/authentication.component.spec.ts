@@ -55,6 +55,7 @@ describe('AuthenticationComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('#buttonLogin')).toBeTruthy();;
   });
+  
   it('should call the login function when clicking Login', fakeAsync(() => {
     const authService = TestBed.inject(AuthenticationServiceService);
     const spyLogin = spyOn(authService, 'login').and.callThrough();

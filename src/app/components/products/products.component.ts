@@ -8,7 +8,7 @@ import { productInter } from 'src/app/shared/interfaces/product';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
- @Input() product: productInter | undefined;
+@Input() product: productInter | undefined;
 
   constructor(private ordersService: OrdersService) { }
 
@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onProductClick() {
-    if(this.product){
+   if(this.product){
       this.ordersService.setClickedProduct(this.product)
     }
   }

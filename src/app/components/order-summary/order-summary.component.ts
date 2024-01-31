@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./order-summary.component.css']
 })
 export class OrderSummaryComponent implements OnInit {
-  @Input() product: productInter | undefined;
   orderedProducts: orderedProducts[] = [];
   private productSubscription: Subscription;
   private clientNameSubscription: Subscription;
@@ -22,7 +21,6 @@ export class OrderSummaryComponent implements OnInit {
     this.productSubscription = this.ordersService.getClickedProduct().subscribe(product => {
       if(product) {
         this.onProductClicked(product)
-       console.log(this.orderedProducts) 
       }
     })
     
@@ -35,11 +33,9 @@ export class OrderSummaryComponent implements OnInit {
 
   onProductClicked(product: productInter) {
     const existingProduct = this.orderedProducts.find(orderedProduct => orderedProduct.product?.id === product.id);
-    
   if (existingProduct) {
     existingProduct.qty += 1;
     this.totalPrice += product.price 
-
   } else {
     this.orderedProducts.push({ qty: 1, product });
     this.totalPrice += product.price 
@@ -69,8 +65,6 @@ export class OrderSummaryComponent implements OnInit {
       setTimeout(() => {
         this.alertMessage = null;
       }, 2000); 
- 
-
     }),
     );
   }
@@ -87,7 +81,6 @@ export class OrderSummaryComponent implements OnInit {
      this.totalPrice -= product.product?.price
      console.log(this.orderedProducts);     
    } 
-
    }
   ngOnDestroy() {
     this.productSubscription.unsubscribe();
