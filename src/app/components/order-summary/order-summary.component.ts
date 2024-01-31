@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./order-summary.component.css']
 })
 export class OrderSummaryComponent implements OnInit {
-  @Input() product: productInter | undefined;
   orderedProducts: orderedProducts[] = [];
   private productSubscription: Subscription;
   private clientNameSubscription: Subscription;
@@ -80,12 +79,10 @@ export class OrderSummaryComponent implements OnInit {
    if (product.qty > 1 && product.product?.price) {
    product.qty -= 1
    this.totalPrice -= product.product?.price
-   console.log(this.orderedProducts);
    }
    else if (product.qty === 1 && product.product?.price) {
     this.orderedProducts.splice(indexProduct, 1)
-     this.totalPrice -= product.product?.price
-     console.log(this.orderedProducts);     
+     this.totalPrice -= product.product?.price  
    } 
 
    }
