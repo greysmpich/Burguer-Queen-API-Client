@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # Burguer Queen API CLIENT (Angular)
 
 ## Descripción del producto:
