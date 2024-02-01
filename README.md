@@ -46,7 +46,6 @@ Una vez que el mesero entrega la orden al comensal, puede cambiar el estado de "
   
  [Prototipo con interacción](https://www.figma.com/proto/hw9OVa4QBKW43b9sgoUG2O/BQAC1?type=design&node-id=190-6&t=eyzaG9K4YcMlyAYX-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=190%3A6&show-proto-sidebar=1&mode=design)
 
-=======
 # Burguer Queen API CLIENT (Angular)
 
 ## Descripción del producto:
@@ -95,7 +94,6 @@ Una vez que el mesero entrega la orden al comensal, puede cambiar el estado de "
   
  [Prototipo con interacción](https://www.figma.com/proto/hw9OVa4QBKW43b9sgoUG2O/BQAC1?type=design&node-id=190-6&t=eyzaG9K4YcMlyAYX-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=190%3A6&show-proto-sidebar=1&mode=design)
 
->>>>>>> efeddac23f4f01b627fd7962709f8231a7df29a4
   <div style="display: flex; place-content: center;">
 <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0010.jpg" width="600" />
 <img src="https://github.com/GiselleLop/Burguer-Queen-API-Client/blob/main/src/assets/prototipes/BQAC1_page-0011.jpg" width="400" />
