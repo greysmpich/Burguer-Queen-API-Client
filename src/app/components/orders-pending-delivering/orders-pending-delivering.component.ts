@@ -27,7 +27,7 @@ selectedOrder: Order | null = null
   }
 
   loadWaiterOrdersList() {
-    this.ordersService. getPendingDeliveringOrders().subscribe((resp => {
+    this.ordersService.getPendingDeliveringOrders().subscribe((resp => {
       this.deliveringPendingList = resp;
       this.sortOrderByStatus();
     })
@@ -43,6 +43,7 @@ selectedOrder: Order | null = null
     if(this.selectedOrder && this.selectedOrder.status === 'Delivering'){
       const orderId = this.selectedOrder.id;
       const newStatus = 'Delivered';
+      this.selectedOrderIndex = null;
             
      this.ordersService.updateOrderStatus(orderId, newStatus).subscribe(updatedOrder => {
       this.ordersService.notifyOrderUpdated(updatedOrder.id)

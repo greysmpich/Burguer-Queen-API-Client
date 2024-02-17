@@ -15,7 +15,6 @@ align-items: center;
 gap: 10px
 }
 
-
 @media (orientation: portrait) {
     .principal-container {
         flex-direction: column;

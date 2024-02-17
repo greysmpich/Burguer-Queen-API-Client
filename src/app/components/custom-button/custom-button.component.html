@@ -1,0 +1,19 @@
+<button 
+[ngStyle]="getButtonSelectedStyle()"
+[style.background-color]="color" 
+
+[style.border-radius]="borderRadius" 
+[style.position]="position"
+[style.margin-left]="marginLeft"
+[style.top]="top"
+(click)="select()"
+[ngClass] = "{ 'rectangle': shape === 'rectangle', 'circle': shape === 'circle', 'small': size === 'small', 'medium': size === 'medium', 'large': size === 'large' }" 
+>
+<ng-container *ngIf="imageSrc; else textContent">
+    <img [src]="imageSrc" alt="Botón" />
+  </ng-container>
+  <ng-template #textContent>
+    {{btnName}}
+  </ng-template>
+  <p *ngIf="showNotifications && notificationsNumber > 0">{{notificationsNumber}}</p>
+</button>

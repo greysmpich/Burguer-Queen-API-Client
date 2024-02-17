@@ -19,15 +19,15 @@ h2 {
     text-align: center;
 }
 
-app-button-delivered {
+/* app-button-delivered {
     width: 100%;
     display: flex;
     place-content: center;
-}
+} */
 
 .noButton {
-    width: 40%;
-    height: 50px;
+    height: 67px;
+    width: 217px;
     font-family: 'Patrick Hand', cursive;
     font-size: 30px;
     border-radius: 10px;
@@ -35,6 +35,7 @@ app-button-delivered {
     color: white;
     border-style: none;
 }
+
 .noOrders {
 color: white;
 }
