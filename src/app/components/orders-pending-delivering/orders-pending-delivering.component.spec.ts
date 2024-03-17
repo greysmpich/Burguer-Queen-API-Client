@@ -8,6 +8,7 @@ import { of } from 'rxjs';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ModalOrderNotReadyComponent } from '../modal-order-not-ready/modal-order-not-ready.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CustomButtonComponent } from '../custom-button/custom-button.component';
 
 
 const mockOrders = [
@@ -70,7 +71,7 @@ describe('OrdersPendingDeliveringComponent', () => {
     dialogSpy = jasmine.createSpyObj('MatDialog', ['open']);
 
     await TestBed.configureTestingModule({
-      declarations: [ OrdersPendingDeliveringComponent, ModalOrderNotReadyComponent], 
+      declarations: [ OrdersPendingDeliveringComponent, ModalOrderNotReadyComponent, CustomButtonComponent], 
       imports: [HttpClientTestingModule, RouterTestingModule, MatDialogModule, BrowserAnimationsModule ],
       providers: [
         OrdersService, 

@@ -1,14 +1,13 @@
 <div class="waiter-view">
     <app-header>
     </app-header>
-    
-    <app-button-orders-status (click)="viewOrdersStatus()"></app-button-orders-status>
+    <app-custom-button [btnClass]="'order-status-button'"shape="circle" position="absolute" marginLeft="5%" top="7%" borderRadius="100px" imageSrc="../../../assets/images/cocina.png" [btnClass]="'order-status-button'" [showNotifications]="true" size="small" (click)="viewOrdersStatus()"></app-custom-button>
   <div class="containerPrincipal">
 
     <div class="orders">
         <div class="buttons">
-            <app-breakfast-button [isSelected]="isBreakfastSelected"  (selected)="handleBreakfastSelection()"></app-breakfast-button>
-            <app-lunch-and-dinner-button [isSelected]="isLunchAndDinnerSelected" (selected)="handleLunchAndDinnerSelection()"></app-lunch-and-dinner-button>
+            <app-custom-button btnName="Breakfast" [btnClass]="'breakfast-button'" size="medium" borderRadius="10px" [isSelected]="isBreakfastSelected" (selected)="handleBreakfastSelection()"></app-custom-button>
+            <app-custom-button btnName="Lunch and dinner" [btnClass]="'lunch-and-dinner-button'" size="medium" borderRadius="10px" color="#D9D9D9" [isSelected]="isLunchAndDinnerSelected" (selected)="handleLunchAndDinnerSelection()"></app-custom-button>
         </div>
         <app-client-name-input></app-client-name-input>
         <div class="products-container">

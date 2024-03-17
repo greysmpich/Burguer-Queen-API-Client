@@ -6,16 +6,14 @@ import { OrdersService } from 'src/app/services/orders/orders.service';
 import { of } from 'rxjs';
 import { mockProducts, mockBreakfastMenu, mockLunchAndDinnerMenu } from './mockMenus';
 import { HeaderComponent } from 'src/app/shared/components/header/header.component';
-import { BreakfastButtonComponent } from 'src/app/components/breakfast-button/breakfast-button.component';
-import { LunchAndDinnerButtonComponent } from 'src/app/components/lunch-and-dinner-button/lunch-and-dinner-button.component';
+import { CustomButtonComponent } from 'src/app/components/custom-button/custom-button.component';
 import { ClientNameInputComponent } from 'src/app/components/client-name-input/client-name-input.component';
 import { ProductsComponent } from 'src/app/components/products/products.component';
 import { OrderSummaryComponent } from 'src/app/components/order-summary/order-summary.component';
 import { LogoutComponent } from 'src/app/components/logout/logout.component';
-import { SendOrderButtonComponent } from 'src/app/components/send-order-button/send-order-button.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { ButtonOrdersStatusComponent } from 'src/app/components/button-orders-status/button-orders-status.component';
+
 
 describe('WaiterComponent', () => {
   let component: WaiterComponent;
@@ -24,7 +22,7 @@ describe('WaiterComponent', () => {
   let router: Router;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WaiterComponent, HeaderComponent, BreakfastButtonComponent, LunchAndDinnerButtonComponent, OrderSummaryComponent, LogoutComponent, ProductsComponent, ClientNameInputComponent, SendOrderButtonComponent,  ButtonOrdersStatusComponent ],
+      declarations: [WaiterComponent, HeaderComponent, OrderSummaryComponent, LogoutComponent, ProductsComponent, ClientNameInputComponent,CustomButtonComponent ],
       imports: [HttpClientTestingModule, RouterTestingModule, MatDialogModule],
       providers: [OrdersService]
     })

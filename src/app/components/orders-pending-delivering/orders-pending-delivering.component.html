@@ -11,7 +11,7 @@
       </ng-template>
    
 </div>
-<app-button-delivered *ngIf='selectedOrderIndex else noOrderSelected'(click)="onDeliveredButtonClick()"></app-button-delivered>
+<app-custom-button [isSelected]="true" btnName="Delivered" [btnClass]="'delivered-button'" size="medium" borderRadius="10px" *ngIf='selectedOrderIndex else noOrderSelected'(click)="onDeliveredButtonClick()"></app-custom-button>
 <ng-template #noOrderSelected >
     <button class="noButton">Delivered</button>
   </ng-template>

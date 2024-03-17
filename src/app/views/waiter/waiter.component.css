@@ -23,7 +23,7 @@ width: 100%;
 height: 55px;
 }
 
-app-breakfast-button, app-lunch-and-dinner-button{
+/* .btn{
     width: fit-content;
 }
 
@@ -33,7 +33,7 @@ app-breakfast-button{
 
 app-lunch-and-dinner-button{
     justify-self: center;
-}
+} */
 
 .orders{
     height: 450px;
@@ -69,12 +69,13 @@ flex-direction: column;
 gap: 20px;
 }
 
-app-button-orders-status {
+/* app-button-orders-status {
     position: absolute;
     margin-left: 5%;
     top: 7%;
   align-self: center;
-  }
+  } */
+
 @media (orientation: portrait) {
     .containerPrincipal {
         flex-direction: column;
@@ -86,7 +87,7 @@ app-button-orders-status {
             width: 85%;
             margin-top: 25px;
         }
-        app-button-orders-status {
+        .button.circle.small {
             top: 4%;
           }
 }

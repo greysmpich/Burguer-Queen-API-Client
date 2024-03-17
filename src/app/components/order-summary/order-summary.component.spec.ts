@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { OrderSummaryComponent } from './order-summary.component';
+import { CustomButtonComponent } from '../custom-button/custom-button.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Order } from 'src/app/shared/interfaces/order';
-import { SendOrderButtonComponent } from '../send-order-button/send-order-button.component';
 import { productInter } from 'src/app/shared/interfaces/product';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 
@@ -15,7 +15,7 @@ describe('OrderSummaryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [OrderSummaryComponent, SendOrderButtonComponent],
+      declarations: [OrderSummaryComponent, CustomButtonComponent],
       imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [OrdersService],
     }).compileComponents();
@@ -85,7 +85,7 @@ describe('OrderSummaryComponent', () => {
     component.totalPrice = 20;
     component.onSendOrderClick();
     const expectedUrl = 'https://api-burguer-queen-bqac1.onrender.com/orders';
-    const req = httpTestingController.expectOne(expectedUrl); 
+    const req = httpTestingController.expectOne('https://api-burguer-queen-bqac1.onrender.com/orders'); 
     expect(req.request.method).toEqual('POST');
     expect(req.request.body).toEqual(jasmine.objectContaining({
       client: 'Cliente de prueba',
