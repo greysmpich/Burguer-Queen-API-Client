@@ -8,7 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { OrdersComponent } from 'src/app/components/orders/orders.component';
 import { OrderDetailsComponent } from 'src/app/components/order-details/order-details.component';
-import { ButtonDoneKitchenComponent } from 'src/app/components/button-done-kitchen/button-done-kitchen.component';
+
 
 describe('KitchenComponent', () => {
   let component: KitchenComponent;
@@ -17,7 +17,7 @@ describe('KitchenComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ KitchenComponent, HeaderComponent, LogoutComponent, OrdersComponent, OrderDetailsComponent, ButtonDoneKitchenComponent ],
+      declarations: [ KitchenComponent, HeaderComponent, LogoutComponent, OrdersComponent, OrderDetailsComponent ],
       imports: [HttpClientTestingModule, RouterTestingModule, MatDialogModule]
     })
     .compileComponents();

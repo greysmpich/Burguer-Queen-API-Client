@@ -17,7 +17,6 @@ import { KitchenComponent } from './views/kitchen/kitchen.component';
 import { FormsModule } from '@angular/forms';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
-import { ButtonDoneKitchenComponent } from './components/button-done-kitchen/button-done-kitchen.component';
 import { WaiterOrderStatusComponent } from './views/waiter-order-status/waiter-order-status.component';
 import { OrdersPendingDeliveringComponent } from './components/orders-pending-delivering/orders-pending-delivering.component';
 import { OrdersDeliveredComponent } from './components/orders-delivered/orders-delivered.component';
@@ -38,7 +37,6 @@ import { CustomButtonComponent } from './components/custom-button/custom-button.
     KitchenComponent,
     OrdersComponent,
     OrderDetailsComponent,
-    ButtonDoneKitchenComponent,
     WaiterOrderStatusComponent,
     OrdersPendingDeliveringComponent,
     OrdersDeliveredComponent,

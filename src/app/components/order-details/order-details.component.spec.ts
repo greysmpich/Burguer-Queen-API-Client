@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { ButtonDoneKitchenComponent } from '../button-done-kitchen/button-done-kitchen.component';
 import { of } from 'rxjs';
 import { OrderDetailsComponent } from './order-details.component';
 import { OrdersService } from 'src/app/services/orders/orders.service';
@@ -27,7 +26,7 @@ describe('OrderDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrderDetailsComponent,ButtonDoneKitchenComponent ],
+      declarations: [ OrderDetailsComponent ],
       imports: [RouterTestingModule, HttpClientTestingModule],
       providers: [OrdersService, KitchenServiceService]
     })

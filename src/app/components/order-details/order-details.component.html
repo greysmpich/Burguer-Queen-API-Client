@@ -13,4 +13,5 @@
   </div>
 </ng-template>
 </div>
-<app-button-done-kitchen (click)="onButtonDone()"></app-button-done-kitchen>
+<app-custom-button [btnName]="'Done'" size="large" borderRadius="10px" [isSelected]="true" (click)="onButtonDone()"></app-custom-button>
+
